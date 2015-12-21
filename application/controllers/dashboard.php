@@ -80,7 +80,7 @@ class dashboard extends CI_Controller {
 
     function interventions()
     {
-        //die("int");
+       
        
 
         $crud = new grocery_CRUD();
@@ -122,6 +122,9 @@ class dashboard extends CI_Controller {
         $crud->field_type('edit_time', 'hidden');
 
 
+
+        // !!!!!!!!! TEST CALLBACK 
+        //$crud->callback_add_field('history_mi',array($this,'add_field_callback_1'));
 
         // Afisare DB in Formular 
         // -- 1.Past History relevand to Coronary Artery Diesease
@@ -198,8 +201,35 @@ class dashboard extends CI_Controller {
 
 
         //-- 7. Medication at time of PCI
+        $crud->display_as('aspirin','Aspirin');
+        $crud->display_as('other_antiplatele','Other antiplatelet');
+        $crud->display_as('anticoagulant','Anticoagulants');
+        $crud->display_as('glycoprotein','Glycoprotein llb/llla');
+        $crud->display_as('heparin','Heparin/low molecular weight heparin');
 
-              
+        //-- 8. Outcome
+        $crud->display_as('elevated','Elevated biochemical marker post procedure');
+        $crud->display_as('myocardial_post','Myocardial (re)infarction post procedure');
+        $crud->display_as('bleeding_hospital','Bleeding during hospital stay');
+        $crud->display_as('stroke','Stroke');
+        $crud->display_as('renal_failure','Renal failure requiring dialysis');
+        $crud->display_as('survival_status','Survival status at dischange');
+        $crud->display_as('date_discharge','Date of dischange/death');
+        $crud->display_as('discharge_destination','Discharge destination');
+        
+
+        //-- 9. Outcome
+        $crud->display_as('aspirin2','Aspirin');
+        $crud->display_as('other_antiplatele2','Other antiplatele');
+        $crud->display_as('anticoagulant2','Anticoagulants');
+        $crud->display_as('beta-blockers','Beta-blockers');
+        $crud->display_as('ace_inhibitors','ACE inhibitors');
+        $crud->display_as('angiotensin_repector','Angiotensin II repetor blockers');
+        $crud->display_as('diabetic_control','Diabetic control');
+        $crud->display_as('statins','Statins');
+        $crud->display_as('non_statin','Non-statin lipid lowering agents');
+        $crud->display_as('glycoprotein2','Glycoprotein llb/llla');
+        $crud->display_as('heparin2','Heparin/low molecular weight heparin');
         
 
 
@@ -316,15 +346,15 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                     
                       ));    
 
-         $crud->field_type('stent','dropdown',
+        $crud->field_type('stent','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
-          $crud->field_type('stent_type','dropdown',
+        $crud->field_type('stent_type','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
-           $crud->field_type('stent_type','dropdown',
+        $crud->field_type('stent_type','dropdown',
                      array(
                       'Bare Metal' => 'Bare Metal',
                       'Coated' => 'Coated',
@@ -334,7 +364,7 @@ class dashboard extends CI_Controller {
                       ));    
 
 
-           $crud->field_type('drug_eluting_type','dropdown',
+        $crud->field_type('drug_eluting_type','dropdown',
                      array(
                       'Cypher' => 'Cypher',
                       'Taxus' => 'Taxus',
@@ -343,9 +373,233 @@ class dashboard extends CI_Controller {
                       ));    
 
 
+        //  -- 6. Percutaneous Coronary interventions (other details)
+
+        $crud->field_type('percutaneous_arterial','dropdown',
+                     array(
+                      'Femoral' => 'Femoral',
+                      'Brachial' => 'Brachial',
+                      'Radial' => 'Radial',
+                      'Other' => 'Other',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+         $crud->field_type('diagnostic_device','dropdown',
+                     array(
+                      'None' => 'None',
+                      'IVUS' => 'IVUS',
+                      'Presure wire' => 'Presure wire',
+                      'Flow Wire' => 'Flow Wire',
+                      'Angioscope' => 'Angioscope',
+                      'Intracoronary Doppler' => 'Intracoronary Doppler',
+                      'Other' => 'Other',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+         $crud->field_type('therapeutic_device','dropdown',
+                     array(
+                      'None' => 'None',
+                      'Cutting ballon' => 'Cutting ballon',
+                      'Distal Protection Device' => 'Distal Protection Device',
+                      'DCA' => 'DCA',
+                      'Rotablator' => 'Rotablator',
+                      'Thrombectomy' => 'Thrombectomy',
+                      'Vascular brachytherapy' => 'Vascular brachytherapy',
+                      'Other' => 'Other',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+         $crud->field_type('procedural_complications','dropdown',
+                     array(
+                      'No Peri-Procedural complications' => 'No Peri-Procedural complications',
+                      'Acute segment closure' => 'Acute segment closure',
+                      'Side branch occlusion' => 'Side branch occlusion',
+                      'Coronary perforation' => 'Coronary perforation',
+                      'No flow/slow flow phenomenon' => 'No flow/slow flow phenomenon',
+                      'Heart block requiring pacing' => 'Heart block requiring pacing',
+                      'DC cardioversion' => 'DC cardioversion',
+                      'Ventilated' => 'Ventilated',
+                      'Tamponade' => 'Tamponade',
+                      'Shock induced by procedure' => 'Shock induced by procedure',
+                      'Allergic reactions' => 'Alergic reactions',
+                      'Stroke' => 'Stroke',
+                      'Cardiac arrest' => 'Cardiac arrest',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+         $crud->field_type('coronary_artery_cabg','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Emergency' => 'Emergency',
+                      'Planned' => 'Planned',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+        $crud->field_type('vascular_closure','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+        $crud->field_type('perc_arterial_complications','dropdown',
+                     array(
+                      'None' => 'None',
+                      'False aneurysm' => 'False aneurysm',
+                      'Haemorrhage requiring surgery or transfusion' => 'Haemorrhage requiring surgery or transfusion',
+                      'Arterial occlusion/dissection requiring interventions' => 'Arterial occlusion/dissection requiring interventions',
+                      'AV Fistula' => 'AV Fistula',
+                      'Infection' => 'Infection',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+        //  -- 7. Medication at time of PCI
+        $crud->field_type('aspirin','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+
+        $crud->field_type('other_antiplatele','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Clopidogrel/Ticlopidine' => 'Clopidogrel/Ticlopidine',
+                      'Other antiplatele agent' => 'Other antiplatele agent',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+        $crud->field_type('anticoagulant','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Vit. K antagonists' => 'Vit. K antagonists',
+                      'Oral throbin inhibitors' => 'Oral throbin inhibitors',
+                      'Other anticoagulants agents' => 'Other anticoagulant agent',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+         $crud->field_type('glycoprotein','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Abciximab' => 'Abciximab',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+        $crud->field_type('heparin','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Unfractionated heparin' => 'Unfractionated heparin',
+                      'LMWH' => 'LMWH',
+                      'LMWH + Unfractionated heparin' => 'LMWH + Unfractionated heparin',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+        // -- 8. Outcome
+        $crud->field_type('elevated','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+        $crud->field_type('myocardial_post','dropdown',
+                         array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+
+        $crud->field_type('bleeding_hospital','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Intracranial bleed' => 'Intracranial bleed',
+                      'Retroperitoneal bleed (major)' => 'Retroperitoneal bleed (major)',
+                      'Any other spontaneous bleed (major)' => 'Any other spontaneous bleed (major)',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        $crud->field_type('stroke','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+        $crud->field_type('renal_failure','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+
+        $crud->field_type('survival_status','dropdown',
+                     array(
+                      'Alive' => 'Alive',
+                      'Dead' => 'Dead',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        $crud->field_type('discharge_destination','dropdown',
+                     array(
+                      'Home' => 'Home',
+                      'Transferred to other hospital' => 'Transferred to other hospital',
+                      'Covalescent/Rehabilitation center' => 'Covalescent/Rehabilitation center',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        //-- 9. Medication at discharge
+        $crud->field_type('aspirin2','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));      
+
+        $crud->field_type('other_antiplatele2','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Ticlopidine/Clopidogrel' => 'Ticlopidine/Clopidogrel',
+                      'Covalescent/Rehabilitation center' => 'Covalescent/Rehabilitation center',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+
+        $crud->field_type('anticoagulant2','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Vit. K antagonists' => 'Vit. K antagonists',
+                      'Oral throbin inhibitors' => 'Oral throbin inhibitors',
+                      'Other anticoagulants agents' => 'Other anticoagulant agent',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+        $crud->field_type('beta-blockers','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));      
+
+
+        $crud->field_type('ace_inhibitors','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));      
+
+        $crud->field_type('angiotensin_repector','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+        
+        $crud->field_type('diabetic_control','dropdown',
+             array('None' => 'None', 'Insulin and oral agent' => 'Insulin and oral agent','Insulin' => 'Insulin','Oral agent' => 'Oral Agent','Diet only' => 'Diet only','Unknown' => 'Unknown')); 
+
+         $crud->field_type('statins','dropdown',
+             array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown ')); 
 
 
 
+        $crud->field_type('non_statin','dropdown',
+                     array(
+                      'None' => 'None',
+                      'Ezetimibe' => 'Ezetimibe',
+                      'Fibrates' => 'Fibrates',
+                      'Other Non-statin' => 'Other Non-statin',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+        $crud->field_type('glycoprotein2','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Abciximab' => 'Abciximab',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+        
+
+
+        $crud->field_type('heparin2','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Unfractionated heparin' => 'Unfractionated heparin',
+                      'LMWH' => 'LMWH',
+                      'LMWH + Unfractionated heparin' => 'LMWH + Unfractionated heparin',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+        
 
         //***** Finish form wiht progress option
         $crud->field_type('status','dropdown',
@@ -356,6 +610,12 @@ class dashboard extends CI_Controller {
         $output = $crud->render();   
         $this->_admin_output($output);
     }
+
+
+    function add_field_callback_1()
+{
+    return '<input type="dropdown"  value="" name="history_mi" > ( Aditional info text )';
+}
 
     function followup()
     {

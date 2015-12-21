@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `inerventions2` (
   `discharge_destination` varchar(150) NOT NULL COMMENT 'Discharge destination',
 
 
-  -- 10. Medication at discharge
+  -- 9. Medication at discharge
   `aspirin2` varchar(150) NOT NULL COMMENT 'Aspirin',
   `other_antiplatele2` varchar(150) NOT NULL COMMENT 'Other antiplatele',
   `anticoagulant2` varchar(150) NOT NULL COMMENT 'Anticoagulants',
