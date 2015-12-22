@@ -37,7 +37,7 @@ class dashboard extends CI_Controller {
         $this->_admin_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
         
     }
-
+    
     public function brand()
     {
 
@@ -52,12 +52,20 @@ class dashboard extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('patients');
         $crud->set_subject('Patient');
-        //$crud->display_as('compartiment_name','Compartiment');
+        
+        $crud->display_as('fo_nr','Nr. Foaie OBS.');
 
-        $crud->columns('cnp','first_name','last_name','date_of_birth','sex','city','height','weight');
+        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','sex','city','height','weight');
               
         $crud->field_type('sex','dropdown',
             array('Male' => 'Male', 'Female' => 'Female'));
+
+        $crud->field_type('country','dropdown',
+                     array(
+                      'Romania' => 'Romania',
+                      'Other' => 'Other',                                
+                      'Unknown' => 'Unknown'                     
+                      ));  
 
         $crud->add_action('Interventions', '', '','ui-icon-heart',array($this,'go_intervention'));
         $crud->add_action('Follow-Up', '', '','ui-icon-calculator',array($this,'go_followup'));
@@ -154,7 +162,7 @@ class dashboard extends CI_Controller {
 
 
         //-- 4. Investigations for Coronary Artery Disease 
-        $crud->display_as('lv_opt','Left ventricular (LV)');
+        $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
         $crud->display_as('right_coronary','Proximal right coronary artery (segment 1)');
         $crud->display_as('mrca','Mid-right coronary artery conduit (mRCA)');
         $crud->display_as('drca','Distal right coronary artery conduit (dRCA)');
@@ -176,8 +184,10 @@ class dashboard extends CI_Controller {
 
         $crud->display_as('segment_no','Segment No');
         $crud->display_as('type_lesion','Type of lesion');
-        $crud->display_as('re_stenosis','In-stent re-stenosis');
+        $crud->display_as('re_stenosis','In-stent restenosis');
         $crud->display_as('bifurcation','Bifurcation');
+        $crud->display_as('bifurcation_yes','Medina class');
+
         $crud->display_as('tmi_before','TIMI Flow before PCI');
         $crud->display_as('tmi_after','TIMI Flow after PCI');
         $crud->display_as('stenosis_b_pci','%Stenosis before PCI');
@@ -185,8 +195,8 @@ class dashboard extends CI_Controller {
         $crud->display_as('stent','Stent');
         $crud->display_as('direct_stenting','Direct stenting');
         $crud->display_as('stent_type','Stent Type');
-        $crud->display_as('drug_eluting_type','Drug eluting type');
-        $crud->display_as('stent_size','Stent/Baloon size');
+        $crud->display_as('drug_eluting_type','DES type');
+        $crud->display_as('stent_size','Stent/Baloon diameter');
         $crud->display_as('length','Lenght of stent');
 
 
@@ -220,7 +230,7 @@ class dashboard extends CI_Controller {
 
         //-- 9. Outcome
         $crud->display_as('aspirin2','Aspirin');
-        $crud->display_as('other_antiplatele2','Other antiplatele');
+        $crud->display_as('other_antiplatele2','Other antiplatelet');
         $crud->display_as('anticoagulant2','Anticoagulants');
         $crud->display_as('beta-blockers','Beta-blockers');
         $crud->display_as('ace_inhibitors','ACE inhibitors');
@@ -296,14 +306,14 @@ class dashboard extends CI_Controller {
 
 
         //****************4. Investigations for Coronary Artery Disease 
-          $crud->field_type('lv_opt','dropdown',
+        /*  $crud->field_type('lv_opt','dropdown',
                      array(
                       'Normal (>50%)' => 'Normal (>50%)',
                       'Slightly reduced (41-50%)' => 'Slightly reduced (41-50%)',
                       'Moderately reduced (31-40%)' => 'Moderately reduced (31-40%)',
                       'Severely reduced (<30%)' => 'Severely reduced (<30%)', 
                       'Unknown' => 'Unknown'                     
-                      ));    
+                      ));    */
 
         $crud->field_type('main_stem','dropdown',
              array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
@@ -311,7 +321,7 @@ class dashboard extends CI_Controller {
 
         //****************5. Investigations for Coronary Artery Disease  
 
-        $crud->field_type('segment_no','dropdown',
+        $crud->field_type('type_lesion','dropdown',
                      array(
                       'TYPE A' => 'TYPE A',
                       'TYPE B' => 'TYPE B',
@@ -319,14 +329,25 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                     
                       ));    
 
-        $crud->field_type('type_lesion','dropdown',
-             array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+        //$crud->field_type('type_lesion','dropdown',
+           //  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
         $crud->field_type('re_stenosis','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
         $crud->field_type('bifurcation','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+         $crud->field_type('bifurcation_yes','dropdown',
+                     array(
+                      '1-1-1' => '1-1-1',
+                      '1-1-0' => '1-1-0',
+                      '1-0-0' => '1-0-0',
+                      '0-1-1' => '0-1-1',
+                      '0-1-0' => '0-1-0',
+                      '0-0-1' => '0-0-1',
+                      'Unknown' => 'Unknown'                     
+                      ));    
 
         $crud->field_type('tmi_before','dropdown',
                      array(
@@ -348,6 +369,9 @@ class dashboard extends CI_Controller {
 
         $crud->field_type('stent','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+        
+        $crud->field_type('direct_stenting','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
         $crud->field_type('stent_type','dropdown',
@@ -357,8 +381,9 @@ class dashboard extends CI_Controller {
         $crud->field_type('stent_type','dropdown',
                      array(
                       'Bare Metal' => 'Bare Metal',
-                      'Coated' => 'Coated',
                       'Drug-eluting' => 'Drug-eluting',
+                      'Stent-graft' => 'Stent-graft',
+                      'Bioabsorbable VS' => 'Bioabsorbable VS',
                       'Other' => 'Other',
                       'Unknown' => 'Unknown'                     
                       ));    
@@ -366,9 +391,14 @@ class dashboard extends CI_Controller {
 
         $crud->field_type('drug_eluting_type','dropdown',
                      array(
-                      'Cypher' => 'Cypher',
-                      'Taxus' => 'Taxus',
-                      'Trial drug eluting stent' => 'Trial drug eluting stent',
+                      'Promus' => 'Promus',
+                      'Orsiro' => 'Orsiro',
+                      'Resolute' => 'Resolute',
+                      'Onyx' => 'Onyx',
+                      'Xience' => 'Xience',
+                      'Nobori' => 'Nobori',
+                      'Trial DES' => 'Trial DES',
+                      'Other DES' => 'Other DES',
                       'Unknown' => 'Unknown'                     
                       ));    
 
@@ -378,8 +408,8 @@ class dashboard extends CI_Controller {
         $crud->field_type('percutaneous_arterial','dropdown',
                      array(
                       'Femoral' => 'Femoral',
-                      'Brachial' => 'Brachial',
                       'Radial' => 'Radial',
+                      'Brachial' => 'Brachial',
                       'Other' => 'Other',
                       'Unknown' => 'Unknown'                                        
                       ));    
@@ -387,11 +417,9 @@ class dashboard extends CI_Controller {
          $crud->field_type('diagnostic_device','dropdown',
                      array(
                       'None' => 'None',
-                      'IVUS' => 'IVUS',
+                      'OCT' => 'OCT',
                       'Presure wire' => 'Presure wire',
-                      'Flow Wire' => 'Flow Wire',
-                      'Angioscope' => 'Angioscope',
-                      'Intracoronary Doppler' => 'Intracoronary Doppler',
+                      'IVUS' => 'IVUS',
                       'Other' => 'Other',
                       'Unknown' => 'Unknown'                                        
                       ));    
@@ -399,12 +427,12 @@ class dashboard extends CI_Controller {
          $crud->field_type('therapeutic_device','dropdown',
                      array(
                       'None' => 'None',
-                      'Cutting ballon' => 'Cutting ballon',
-                      'Distal Protection Device' => 'Distal Protection Device',
-                      'DCA' => 'DCA',
-                      'Rotablator' => 'Rotablator',
+                      'Balloon predilatation' => 'Balloon predilatation',
+                      'Balloon postdilatation' => 'Balloon postdilatation',
                       'Thrombectomy' => 'Thrombectomy',
-                      'Vascular brachytherapy' => 'Vascular brachytherapy',
+                      'Distal Protection Device' => 'Distal Protection Device',
+                      'Rotablator' => 'Rotablator',
+                      'Cutting ballon' => 'Cutting ballon',
                       'Other' => 'Other',
                       'Unknown' => 'Unknown'                                        
                       ));    
@@ -460,8 +488,10 @@ class dashboard extends CI_Controller {
         $crud->field_type('other_antiplatele','dropdown',
                      array(
                       'No' => 'No',
-                      'Clopidogrel/Ticlopidine' => 'Clopidogrel/Ticlopidine',
-                      'Other antiplatele agent' => 'Other antiplatele agent',
+                      'Clopidogrel' => 'Clopidogrel',
+                      'Ticagrelor' => 'Ticagrelor',
+                      'Prasugrel' => 'Prasugrel',
+                      'Other antiplatelet agent' => 'Other antiplatelet agent',
                       'Unknown' => 'Unknown'                                        
                       ));    
 
@@ -470,7 +500,8 @@ class dashboard extends CI_Controller {
                      array(
                       'No' => 'No',
                       'Vit. K antagonists' => 'Vit. K antagonists',
-                      'Oral throbin inhibitors' => 'Oral throbin inhibitors',
+                      'Oral thrombin inhibitors' => 'Oral thrombin inhibitors',
+                      'Oral factor Xa inhibitors' => 'Oral factor Xa inhibitors',
                       'Other anticoagulants agents' => 'Other anticoagulant agent',
                       'Unknown' => 'Unknown'                                        
                       ));    
@@ -478,7 +509,7 @@ class dashboard extends CI_Controller {
          $crud->field_type('glycoprotein','dropdown',
                      array(
                       'No' => 'No',
-                      'Abciximab' => 'Abciximab',
+                      'Eptifibatide' => 'Eptifibatide',
                       'Unknown' => 'Unknown'                                        
                       ));    
 
@@ -504,6 +535,7 @@ class dashboard extends CI_Controller {
                       'No' => 'No',
                       'Intracranial bleed' => 'Intracranial bleed',
                       'Retroperitoneal bleed (major)' => 'Retroperitoneal bleed (major)',
+                      'Gastrointestinal bleed (major)' => 'Gastrointestinal bleed (major)',
                       'Any other spontaneous bleed (major)' => 'Any other spontaneous bleed (major)',
                       'Unknown' => 'Unknown'                                        
                       )); 
@@ -534,13 +566,16 @@ class dashboard extends CI_Controller {
         $crud->field_type('aspirin2','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));      
 
+      
         $crud->field_type('other_antiplatele2','dropdown',
                      array(
                       'No' => 'No',
-                      'Ticlopidine/Clopidogrel' => 'Ticlopidine/Clopidogrel',
-                      'Covalescent/Rehabilitation center' => 'Covalescent/Rehabilitation center',
+                      'Clopidogrel' => 'Clopidogrel',
+                      'Ticagrelor' => 'Ticagrelor',
+                      'Prasugrel' => 'Prasugrel',
+                      'Other antiplatelet agent' => 'Other antiplatelet agent',
                       'Unknown' => 'Unknown'                                        
-                      )); 
+                      ));    
 
 
         $crud->field_type('anticoagulant2','dropdown',
@@ -548,6 +583,7 @@ class dashboard extends CI_Controller {
                       'No' => 'No',
                       'Vit. K antagonists' => 'Vit. K antagonists',
                       'Oral throbin inhibitors' => 'Oral throbin inhibitors',
+                      'Oral factor Xa inhibitors' => 'Oral factor Xa inhibitors',
                       'Other anticoagulants agents' => 'Other anticoagulant agent',
                       'Unknown' => 'Unknown'                                        
                       ));    
@@ -580,12 +616,12 @@ class dashboard extends CI_Controller {
                       ));    
 
 
-        $crud->field_type('glycoprotein2','dropdown',
+       /* $crud->field_type('glycoprotein2','dropdown',
                      array(
                       'No' => 'No',
                       'Abciximab' => 'Abciximab',
                       'Unknown' => 'Unknown'                                        
-                      ));    
+                      ));    */
 
         
 
@@ -645,7 +681,7 @@ class dashboard extends CI_Controller {
 
         // Configurez modelul pentru afisare
         $crud->set_theme('datatables');
-        $crud->set_table('folow_up');
+        $crud->set_table('follow_up');
         $crud->set_subject('PCI Follow-Up');
 
         //Configurare coloane
@@ -659,20 +695,109 @@ class dashboard extends CI_Controller {
 
 
 
-        // Afisare DB in Formular
-         $crud->display_as('non_statin','Non statin lipid lowering ag');
-        // $crud->display_as('trasnferred','Transferred form another hospital');
-        // $crud->display_as('201','History of previews myocardial infarction (MI)');
-        // $crud->display_as('203','History of congestive heart failure (CHF)');
+        // Afisare nume formular follow-up
+        //-- 1. Follow Up (30 days and 12 months)
+        $crud->display_as('date','Date of folow up');
+        $crud->display_as('survival_status','Survival status at folow up');
+        $crud->display_as('death_cause','Primary cause of death');
+        $crud->display_as('anginal_status','Anginal status');
+        $crud->display_as('date_readmission','Date of firs hospital readmission since discharge');
+        $crud->display_as('mi','Myocardial infarction [MI]');
+        $crud->display_as('mi_date','Myocardial infarction date [MI]');
+        $crud->display_as('stroke','Stroke');
+        $crud->display_as('pci','Percutaneous coronary intervention date [PCI]');
+        $crud->display_as('pci_date','Percutaneous coronary intervention date [PCI] date');
+
+        $crud->display_as('coronary_bypass','Coronary artery bypass graft [CABG]');
+        $crud->display_as('coronary_bypass_date','Coronary artery bypass graft [CABG] date');
+        $crud->display_as('cardiac_rehabilitation','Cardiac rehabilitation program');
+
+         //-- 1. Follow Up (30 days and 12 months)
+
+        $crud->display_as('angiotensin','Angiotensin II receptor blockers');
+        $crud->display_as('non_statin','Non statin lipid lowering ag');
         
 
-        // Meniuri drop down
+          
+
+        // Dropdown menu
+        // -- 1. Follow Up (30 days and 12 months)
+        $crud->field_type('survival_status','dropdown',
+                     array(
+                      'Alive' => 'Alive',
+                      'Dead' => 'Dead',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+
+        $crud->field_type('death_cause','dropdown',
+                     array(
+                      'Cardiovascular' => 'Cardiovascular',
+                      'Non-Cardiovascular' => 'Non-Cardiovascular',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        $crud->field_type('anginal_status','dropdown',
+                     array(
+                      'CCS 0' => 'CCS 0',
+                      'CCS I' => 'CCS I',
+                      'CCS II' => 'CCS II',
+                      'CCS III' => 'CCS III',
+                      'CCS IV' => 'CCS IV',
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        $crud->field_type('dyspnoea','dropdown',
+                     array(
+                      'NYHA I' => 'NYHA I',
+                      'NYHA II' => 'NYHA II',
+                      'NYHA III' => 'NYHA III',
+                      'NYHA IV' => 'NYHA IV',                    
+                      'Unknown' => 'Unknown'                                        
+                      )); 
+
+        $crud->field_type('mi','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+
+        $crud->field_type('stroke','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+
+        $crud->field_type('pci','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+
+        $crud->field_type('coronary_bypass','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+
+        $crud->field_type('cardiac_rehabilitation','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+
+
+        // -- 2. Medication at follow Up (30 days and 12 months)
         $crud->field_type('aspirin','dropdown',
              array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
+        
+        
         $crud->field_type('other_antiplatelet','dropdown',
-             array('1' => 'Triclopidine', '2' => 'Triclopidine/clopidogrel','Other antiplatele' => 'Other antiplatele medication','Unknown' => 'Unknown')); 
-        $crud->field_type('anticoagulants','dropdown',
-             array('No' => 'No', 'Vit. K' => 'Vit. K antagonists','Other' => 'Other ','Unknown' => 'Unknown')); 
+                     array(
+                      'No' => 'No',
+                      'Clopidogrel' => 'Clopidogrel',
+                      'Ticagrelor' => 'Ticagrelor',
+                      'Prasugrel' => 'Prasugrel',
+                      'Other antiplatelet agent' => 'Other antiplatelet agent',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
+
+         $crud->field_type('anticoagulants','dropdown',
+                     array(
+                      'No' => 'No',
+                      'Vit. K antagonists' => 'Vit. K antagonists',
+                      'Oral throbin inhibitors' => 'Oral throbin inhibitors',
+                      'Oral factor Xa inhibitors' => 'Oral factor Xa inhibitors',
+                      'Other anticoagulants agents' => 'Other anticoagulant agent',
+                      'Unknown' => 'Unknown'                                        
+                      ));    
+
         $crud->field_type('beta_blockers','dropdown',
              array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown ')); 
         $crud->field_type('ace_inhibitors','dropdown',
