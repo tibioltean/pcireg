@@ -124,7 +124,7 @@ class dashboard extends CI_Controller {
 
         // Configurez modelul pentru afisare
         $crud->set_theme('datatables');
-        $crud->set_table('interventions');
+        $crud->set_table('intervention');
         $crud->set_subject('PCI Intervention');
 
         //Configurare coloane
@@ -217,7 +217,13 @@ class dashboard extends CI_Controller {
         $crud->display_as('percutaneous_arterial','Percutaneous acces');
         $crud->display_as('diagnostic_device','Diagnostic device used during procedure');
         $crud->display_as('therapeutic_device','Therapeutic device used');
-        $crud->display_as('procedural_complications','Peri-Procedural complications');
+        //$crud->display_as('procedural_complications','Peri-Procedural complications');
+        // Complicatii relatie N to N
+        
+        $crud->set_relation_n_n('Peri-Procedural complications', 'interv_compl','complication','intrevention_id', 'complication_id','complication_name','priority');
+
+
+
         $crud->display_as('coronary_artery_cabg','Coronary artery bypass graft (CABG)');
         $crud->display_as('vascular_closure','Vascular closure device');
         $crud->display_as('perc_arterial_complications','Percutaneous acces complications');
@@ -478,7 +484,7 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
-         $crud->field_type('procedural_complications','dropdown',
+       /*  $crud->field_type('procedural_complications','dropdown',
                      array(
                       'No Peri-Procedural complications' => 'No Peri-Procedural complications',
                       'Acute segment closure' => 'Acute segment closure',
@@ -494,7 +500,7 @@ class dashboard extends CI_Controller {
                       'Stroke' => 'Stroke',
                       'Cardiac arrest' => 'Cardiac arrest',
                       'Unknown' => 'Unknown'                                        
-                      ));    
+                      ));    */
 
 
          $crud->field_type('coronary_artery_cabg','dropdown',
