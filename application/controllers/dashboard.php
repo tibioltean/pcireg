@@ -53,7 +53,10 @@ class dashboard extends CI_Controller {
         $crud->set_table('patients');
         $crud->set_subject('Patient');
         
-        $crud->display_as('fo_nr','Nr. Foaie OBS.');
+        $crud->display_as('fo_nr','ID FO');
+        $crud->display_as('city','City or Locality');
+        $crud->display_as('gp_phone','GP Phone');
+
 
         $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','sex','city','height','weight');
               
@@ -66,6 +69,10 @@ class dashboard extends CI_Controller {
                       'Other' => 'Other',                                
                       'Unknown' => 'Unknown'                     
                       ));  
+
+        $crud->set_relation('county','county','county');
+        
+
 
         $crud->add_action('Interventions', '', '','ui-icon-heart',array($this,'go_intervention'));
         $crud->add_action('Follow-Up', '', '','ui-icon-calculator',array($this,'go_followup'));
@@ -136,6 +143,7 @@ class dashboard extends CI_Controller {
 
         // Afisare DB in Formular 
         // -- 1.Past History relevand to Coronary Artery Diesease
+        $crud->display_as('transferred','Transferred form other hospital');
         $crud->display_as('history_mi','History of previous myocardial infarction (MI)');
         $crud->display_as('history_chf','History of congestive heart failure (CHF)');
         $crud->display_as('history_stroke','History of stroke');
@@ -164,26 +172,31 @@ class dashboard extends CI_Controller {
         //-- 4. Investigations for Coronary Artery Disease 
         $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
         $crud->display_as('right_coronary','Proximal right coronary artery (segment 1)');
-        $crud->display_as('mrca','Mid-right coronary artery conduit (mRCA)');
-        $crud->display_as('drca','Distal right coronary artery conduit (dRCA)');
-        $crud->display_as('rpda','Right posterior descending artery (rPDA)');
-        $crud->display_as('lm_artery','Left main artery (LM)');
-        $crud->display_as('plad','Proximal LAD artery (pLAD)');
-        $crud->display_as('mlad','Mid-LAD artery (mLAD)');
-        $crud->display_as('dlad','Distal LAD artery (dLAD)');
-        $crud->display_as('1_diagonal','First diagonal branch (1st Diag)');
-        $crud->display_as('2_diagonal','Second diagonal branch (2nd Diag)');
-        $crud->display_as('pcirc','Proximal circumflex coronary (pCIRC)');
-        $crud->display_as('om','First obtuse marginal branch (1st OM)');
-        $crud->display_as('circ','Mid Circumflex artery (CIRC)');
-        $crud->display_as('obtuse_segments','Other obtuse segments');
-        $crud->display_as('posteo_segment','Right posterolateral segment and branch');
+        $crud->display_as('mrca','Mid-right coronary artery conduit (segment 2)');
+        $crud->display_as('drca','Distal right coronary artery conduit (segment 3)');
+        $crud->display_as('rpda','Right posterior descending artery (segment 4)');
+        $crud->display_as('lm_artery','Left main artery (segment 5)');
+        $crud->display_as('plad','Proximal LAD artery (segment 6)');
+        $crud->display_as('mlad','Mid-LAD artery (segment 7)');
+        $crud->display_as('dlad','Distal LAD artery (segment 8)');
+        $crud->display_as('1_diagonal','First diagonal branch (segment 9)');
+        $crud->display_as('2_diagonal','Second diagonal branch (segment 10)');
+        $crud->display_as('pcirc','Proximal circumflex coronary (segment 11)');
+        $crud->display_as('intart','Intermediate artery (segment 12)');
+        $crud->display_as('om','First obtuse marginal branch (segment 12a)');
+        $crud->display_as('som','Second obtuse marginal branch (segment 12b)');
+        $crud->display_as('circ','Mid/Dist Circumflex artery (segment 13)');
+        $crud->display_as('obtuse_segments','Other obtuse segments (segment 14)');
+        $crud->display_as('lpda','Left posterior descending artery (segment 15)');
+        $crud->display_as('posteo_segment','Right posterolateral branch (segment 16)');
+        $crud->display_as('no_vessels','No. of diseased vessels');
+        $crud->display_as('left_main_d','Left main stem disease');
         $crud->display_as('main_stem','Left main stem protected');
 
         //-- ****** 5. Percutaneous Coronary interventions
 
         $crud->display_as('segment_no','Segment No');
-        $crud->display_as('type_lesion','Type of lesion');
+       // $crud->display_as('type_lesion','Type of lesion');
         $crud->display_as('re_stenosis','In-stent restenosis');
         $crud->display_as('bifurcation','Bifurcation');
         $crud->display_as('bifurcation_yes','Medina class');
@@ -196,18 +209,18 @@ class dashboard extends CI_Controller {
         $crud->display_as('direct_stenting','Direct stenting');
         $crud->display_as('stent_type','Stent Type');
         $crud->display_as('drug_eluting_type','DES type');
-        $crud->display_as('stent_size','Stent/Baloon diameter');
+        $crud->display_as('stent_size','Stent diameter');
         $crud->display_as('length','Lenght of stent');
 
 
         //**** -- 6. Percutaneous Coronary interventions (other details)
-        $crud->display_as('percutaneous_arterial','Percutaneous arterial acces');
+        $crud->display_as('percutaneous_arterial','Percutaneous acces');
         $crud->display_as('diagnostic_device','Diagnostic device used during procedure');
         $crud->display_as('therapeutic_device','Therapeutic device used');
         $crud->display_as('procedural_complications','Peri-Procedural complications');
         $crud->display_as('coronary_artery_cabg','Coronary artery bypass graft (CABG)');
         $crud->display_as('vascular_closure','Vascular closure device');
-        $crud->display_as('perc_arterial_complications','Percutaneous arterial complications');
+        $crud->display_as('perc_arterial_complications','Percutaneous acces complications');
 
 
         //-- 7. Medication at time of PCI
@@ -245,8 +258,10 @@ class dashboard extends CI_Controller {
 
         // Meniuri drop down
         //****************  -- 1.Past History relevand to Coronary Artery Diesease
+        $crud->field_type('transferred','dropdown',
+             array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
         $crud->field_type('history_mi','dropdown',
-             array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+                     array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown')); 
         $crud->field_type('history_chf','dropdown',
              array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
         $crud->field_type('history_stroke','dropdown',
@@ -272,6 +287,8 @@ class dashboard extends CI_Controller {
                       'Non-diabetic' => 'Non-diabetic',
                       'Diabetic (dietary control)' => 'Diabetic (dietary control)',
                       'Diabetic (oral medication)' => 'Diabetic (oral medication)',
+                      'Diabetic (insulin)' => 'Diabetic (insulin)',
+                      'Diabetic (insulin + oral medication)' => 'Diabetic (insulin + oral medication)',
                       'Newly diagnosed diabetic' => 'Newly diagnosed diabetic',                      
                       'Unknown' => 'Unknown'                     
                       ));  
@@ -287,8 +304,9 @@ class dashboard extends CI_Controller {
                       'STEMI / primary PCI' => 'STEMI / primary PCI',
                       'STEMI / rescue PCI' => 'STEMI / rescue PCI',
                       'STEMI / facilitated PCI' => 'STEMI / facilitated PCI',
-                      'NSTEMI (ongoing instability)' => 'NSTEMI (ongoing instability)',                      
-                      'Unstable angina (ongoing instability)' => 'Unstable angina (ongoing instability)',                      
+                      'NSTACS (immediate PCI,< 2h)' => 'NSTACS (immediate PCI,< 2h)',                      
+                      'NSTACS (early PCI,< 24h)' => 'NSTACS (early PCI,< 24h)',                      
+                      'NSTACS (invasive strategy,< 72h)' => 'NSTACS (invasive strategy,< 72h)',
                       'Post STEMI (stabilised)' => 'Post STEMI (stabilised)',                      
                       'Post unstable angina (stabilised)' => 'Post unstable angina (stabilised)',                      
                       'Elective PCI (stable angina and/ or documented ischemia)' => 'Elective PCI (stable angina and/ or documented ischemia)',                      
@@ -314,20 +332,40 @@ class dashboard extends CI_Controller {
                       'Severely reduced (<30%)' => 'Severely reduced (<30%)', 
                       'Unknown' => 'Unknown'                     
                       ));    */
+     
+        $crud->field_type('no_vessels','dropdown',
+                     array(
+                      '1' => '1',
+                      '2' => '2',
+                      '3' => '3',
+                      ));    
 
+        $crud->field_type('left_main_d','dropdown',
+             array('No' => 'No', 'Yes' => 'Yes'));   
+
+        
+
+        $crud->field_type('dominance','dropdown',
+                     array(
+                      'right' => 'right',
+                      'left' => 'left',
+                      'codominance' => 'codominance',
+                      'Unknown' => 'Unknown'                     
+                      ));    
+        
         $crud->field_type('main_stem','dropdown',
              array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
         //****************5. Investigations for Coronary Artery Disease  
 
-        $crud->field_type('type_lesion','dropdown',
+      /*  $crud->field_type('type_lesion','dropdown',
                      array(
                       'TYPE A' => 'TYPE A',
                       'TYPE B' => 'TYPE B',
                       'TYPE C' => 'TYPE C',
                       'Unknown' => 'Unknown'                     
-                      ));    
+                      ));    */
 
         //$crud->field_type('type_lesion','dropdown',
            //  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
@@ -343,6 +381,7 @@ class dashboard extends CI_Controller {
                       '1-1-1' => '1-1-1',
                       '1-1-0' => '1-1-0',
                       '1-0-0' => '1-0-0',
+                      '1-0-1' => '1-0-1',
                       '0-1-1' => '0-1-1',
                       '0-1-0' => '0-1-0',
                       '0-0-1' => '0-0-1',
@@ -410,7 +449,9 @@ class dashboard extends CI_Controller {
                       'Femoral' => 'Femoral',
                       'Radial' => 'Radial',
                       'Brachial' => 'Brachial',
-                      'Other' => 'Other',
+                      'Combined (Femoral + radial)' => 'Combined (Femoral + radial)',
+                      'Combined (Bifemoral)' => 'Combined (Bifemoral)',
+                      'Other' => 'Other',                      
                       'Unknown' => 'Unknown'                                        
                       ));    
 
