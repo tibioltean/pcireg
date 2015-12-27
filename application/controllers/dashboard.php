@@ -128,8 +128,22 @@ class dashboard extends CI_Controller {
         $crud->set_subject('PCI Intervention');
 
         //Configurare coloane
-        $crud->columns('date_of_procedure','status');  
+        // Afisare Coloane in lista
+        $crud->columns('date_of_procedure','status');
 
+        //Afisare compuri in add si edit  
+       /* $crud->fields('patient_id',
+                      'date_of_procedure',
+                      'coronary_artery_cabg',
+                      'Peri_Procedural_Complications');*/
+
+
+        // Afisare campuri in Afisarea READ 
+        /*$crud->set_read_fields('date_of_procedure',
+                              'Peri_Procedural_Complications',
+                              'coronary_artery_cabg');
+*/
+        //$crud->field_tip('date_of_procedure', 'Tibike draga');
         // Formatare cod
         $crud->field_type('patient_id', 'hidden', $pid);
         $crud->field_type('user_id', 'hidden');
@@ -217,10 +231,9 @@ class dashboard extends CI_Controller {
         $crud->display_as('percutaneous_arterial','Percutaneous acces');
         $crud->display_as('diagnostic_device','Diagnostic device used during procedure');
         $crud->display_as('therapeutic_device','Therapeutic device used');
-        //$crud->display_as('procedural_complications','Peri-Procedural complications');
-        // Complicatii relatie N to N
-        
-        $crud->set_relation_n_n('Peri-Procedural complications', 'interv_compl','complication','intrevention_id', 'complication_id','complication_name','priority');
+        $crud->display_as('procedural_complications','Peri-Procedural complications');
+        // Complicatii relatie N to N        
+        //$crud->set_relation_n_n('Peri_Procedural_Complications', 'interv_compl','complication','intervention_id', 'complication_id','complication_name','priority');
 
 
 
@@ -229,7 +242,7 @@ class dashboard extends CI_Controller {
         $crud->display_as('perc_arterial_complications','Percutaneous acces complications');
 
 
-        //-- 7. Medication at time of PCI
+        //-- 7. Medication at time of PCI  
         $crud->display_as('aspirin','Aspirin');
         $crud->display_as('other_antiplatele','Other antiplatelet');
         $crud->display_as('anticoagulant','Anticoagulants');
@@ -423,7 +436,7 @@ class dashboard extends CI_Controller {
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
-        $crud->field_type('stent_type','dropdown',
+        $crud->field_type('stent_type','multiselect',
                      array(
                       'Bare Metal' => 'Bare Metal',
                       'Drug-eluting' => 'Drug-eluting',
@@ -434,7 +447,7 @@ class dashboard extends CI_Controller {
                       ));    
 
 
-        $crud->field_type('drug_eluting_type','dropdown',
+        $crud->field_type('drug_eluting_type','multiselect',
                      array(
                       'Promus' => 'Promus',
                       'Orsiro' => 'Orsiro',
@@ -461,7 +474,7 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
-         $crud->field_type('diagnostic_device','dropdown',
+         $crud->field_type('diagnostic_device','multiselect',
                      array(
                       'None' => 'None',
                       'OCT' => 'OCT',
@@ -471,7 +484,7 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
-         $crud->field_type('therapeutic_device','dropdown',
+         $crud->field_type('therapeutic_device','multiselect',
                      array(
                       'None' => 'None',
                       'Balloon predilatation' => 'Balloon predilatation',
@@ -484,7 +497,7 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
-       /*  $crud->field_type('procedural_complications','dropdown',
+         $crud->field_type('procedural_complications','multiselect',
                      array(
                       'No Peri-Procedural complications' => 'No Peri-Procedural complications',
                       'Acute segment closure' => 'Acute segment closure',
@@ -500,7 +513,7 @@ class dashboard extends CI_Controller {
                       'Stroke' => 'Stroke',
                       'Cardiac arrest' => 'Cardiac arrest',
                       'Unknown' => 'Unknown'                                        
-                      ));    */
+                      ));    
 
 
          $crud->field_type('coronary_artery_cabg','dropdown',
