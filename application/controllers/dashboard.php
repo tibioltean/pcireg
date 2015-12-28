@@ -71,6 +71,7 @@ class dashboard extends CI_Controller {
                       ));  
 
         $crud->set_relation('county','county','county');
+        //$crud->set_relation('city','coduripostale','Localitate');
         
         $drp = $this->session->userdata('user_type');
         //print_r($drp);
@@ -118,7 +119,6 @@ class dashboard extends CI_Controller {
             $this->session->set_userdata('patient_id',$_GET['p_id']);
             $pid = $this->session->userdata('patient_id');
             //print_r("ID_pacient: ".$pid);
-            
             //echo $_GET['pacient_id'].' sesiune settata';
          
        
@@ -178,55 +178,92 @@ class dashboard extends CI_Controller {
         $crud->field_type('PAST_HISTORY', 'readonly');
 
 
-
         $crud->display_as('transferred','Transferred form other hospital');
         $crud->field_tip('transferred', '*transferred ID No.');
+
         $crud->field_tip('heart_rate', 'Enter value of heart rate before PCI '); 
         $crud->field_tip('BP', 'Enter value of blood pressure before PCI ex: 120/70 ');
-
        
         $crud->display_as('history_mi','History of previous myocardial infarction (MI)');
-        $crud->field_tip('history_mi', 'Indicate if the patient has had at least one previous myocardial infarction before this admission');
+        $crud->field_tip('history_mi', 'Indicate if the patient has had at least one previous myocardial infarction before this admission.');
+        
         $crud->display_as('history_chf','History of congestive heart failure (CHF)');
-        $crud->field_tip('history_chf', 'Indicate');
+        $crud->field_tip('history_chf', 'Indicate if the patient has a history and/or has previously been treated for congestive heart failure');
+
+        $crud->field_tip('attending_cardiologist', 'description');
+        $crud->field_tip('interventional_cardiologist', 'description');
+
         $crud->display_as('history_stroke','History of stroke');
+        $crud->field_tip('history_stroke', 'Indicate if the patient has a history of cerebrovascular accident / stroke');
+
         $crud->display_as('history_vascular','History of peripheral vascular diesease');
+        $crud->field_tip('history_vascular', 'History or evidence of aneurysm or occlusive peripheral vascular disease or carotid disease');
+
         $crud->display_as('history_renal','History of chronic renal failure');
+        $crud->field_tip('history_renal', 'Indicate if the patient has a history of chronic renal failure');
+
         $crud->display_as('prev_pci','Previous percutaneous corany intervention(PCI)');
+        $crud->field_tip('prev_pci', 'Indicate if the patient has had a previous PCI of any type before the current admission');
+
         $crud->display_as('cabg','Coronary artery bypass graft (CABG)');
+        $crud->field_tip('cabg', 'Indicate if the patient had a coronary artery bypass graft (CABG) done prior to this admission');
+
         $crud->display_as('history_valvular_h','History of valvular heart diesease');
-      
+        $crud->field_tip('history_valvular_h', 'Indicate if the patient has a history of haemodynamically significant valvular heart disease');
+
         // -- 2. Risk factors for Coronary Artery Disease
         $crud->display_as('RISK_STATUS','***  Risk factors for Coronary Artery Disease');
         $crud->field_type('RISK_STATUS', 'readonly');
 
         $crud->display_as('smoking_status','Smoking status');
+        $crud->field_tip('smoking_status', 'Indicate if the patient has a history confirming any form of tobacco use in the past.');
+
         $crud->display_as('diabets_mellitus','Diabets mellitus');
+        $crud->field_tip('diabets_mellitus', 'Indicate if the patient has a history of diabetes mellitus diagnosed prior to the current admission');
+
         $crud->display_as('history_hypertension','History of hypertension');
+        $crud->field_tip('history_hypertension', 'Indicate if the patient has a history of hypertension diagnosed and/or treated by a physician');
+
         $crud->display_as('history_hypercholesterol','History of hypercholesterolemia');
+        $crud->field_tip('history_hypercholesterol', 'Indicate if the patient has a documented history of hypercholesterolemia diagnosed and/or treated by a physician.');
 
         // -- 3. Admision Details and initial Assessment 
         $crud->display_as('ADMISION_DETAILS','*** Admission Details and initial Assessment');
         $crud->field_type('ADMISION_DETAILS', 'readonly');
 
         $crud->display_as('indication_pci','Indication for percutaneous coronary intervention PCI');
-        $crud->display_as('symptom_acs','Symptom onset date and time (ACS patients)');
-        $crud->display_as('date_time_arival','Date and time of admission/arrival at hospital (for ACS patients)');
-        $crud->display_as('elevated_biochemical','Elevated biochemical marker pre procedure');
-        $crud->display_as('date_time_percutaneous','Date and time of percutaneous coronary (PCI)');
-        $crud->display_as('cardiogenic_pci','Cardiogenic shock at start of PCI');
-        $crud->display_as('hemodynamic','Haemodynamic support');
+        $crud->field_tip('indication_pci', 'Indicate the reason why the percutaneous coronary intervention was performed');
 
+        $crud->display_as('symptom_acs','Symptom onset date and time (ACS patients)');
+        $crud->field_tip('symptom_acs', 'Indicate the time of symptom onset that triggered the decision for PCI.');
+
+        $crud->display_as('date_time_arival','Date and time of admission/arrival at hospital (for ACS patients)');
+        $crud->field_tip('date_time_arival', 'Date/time of admission to first hospital (potentially of a series of hospitals) where cardiological treatment initiated ');
+
+        $crud->display_as('elevated_biochemical','Elevated biochemical marker pre procedure');
+        $crud->field_tip('elevated_biochemical', 'Indicate if the patients biochemical markers  ');
+
+        $crud->display_as('date_time_percutaneous','Date and time of percutaneous coronary (PCI)');
+        $crud->field_tip('date_time_percutaneous', 'Indicate the date and time the PCI was performed');
+
+        $crud->display_as('cardiogenic_pci','Cardiogenic shock at start of PCI');
+        $crud->field_tip('cardiogenic_pci', 'Indicate if the patient presented with cardiogenic shock before the PCI procedures');
+
+        $crud->display_as('hemodynamic','Haemodynamic support');
+        $crud->field_tip('hemodynamic', 'Indicate if haemodynamic support was needed before the start of the PCI procedure');
 
         //-- 4. Investigations for Coronary Artery Disease 
         $crud->display_as('INVESTIGATION_CORONARY','*** Investigations for Coronary Artery Disease');
         $crud->field_type('INVESTIGATION_CORONARY', 'readonly');
         
+        $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
+        $crud->field_tip('lv_opt', 'Indicate the patients  estimated or calculated left ventricular [LV] function ');
+
+
         $crud->display_as('ANGIOGRAM_RESULT','*** ANGIOGRAM RESULT ***');
         $crud->field_type('ANGIOGRAM_RESULT', 'readonly');
         
 
-        $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
         $crud->display_as('right_coronary','Proximal right coronary artery (segment 1)');
         $crud->display_as('mrca','Mid-right coronary artery conduit (segment 2)');
         $crud->display_as('drca','Distal right coronary artery conduit (segment 3)');
@@ -340,7 +377,7 @@ class dashboard extends CI_Controller {
         //-- 10. INFO CHAPTER
         $crud->display_as('INFO','*** Other Informations ');
         $crud->field_type('INFO', 'readonly');
-         $crud->field_tip('status', 'Status of Complete Intervention');
+        $crud->field_tip('status', 'Status of Complete Intervention');
 
         // Meniuri drop down
         //****************  -- 1.Past History relevand to Coronary Artery Diesease

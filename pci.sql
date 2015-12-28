@@ -11,173 +11,131 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for information_schema
-DROP DATABASE IF EXISTS `information_schema`;
 
 
 -- Dumping database structure for admin_pci_registry
-DROP DATABASE IF EXISTS `admin_pci_registry`;
 CREATE DATABASE IF NOT EXISTS `admin_pci_registry` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `admin_pci_registry`;
 
 
 -- Dumping structure for table admin_pci_registry.accounts
-DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE IF NOT EXISTS `accounts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `account_type` varchar(100) DEFAULT NULL,
@@ -189,7 +147,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 
 -- Dumping structure for table admin_pci_registry.attending_cardiologist
-DROP TABLE IF EXISTS `attending_cardiologist`;
 CREATE TABLE IF NOT EXISTS `attending_cardiologist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cardiologist_name` varchar(150) NOT NULL,
@@ -199,8 +156,22 @@ CREATE TABLE IF NOT EXISTS `attending_cardiologist` (
 -- Data exporting was unselected.
 
 
+-- Dumping structure for table admin_pci_registry.coduripostale
+CREATE TABLE IF NOT EXISTS `coduripostale` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `Judet` varchar(255) DEFAULT NULL,
+  `Localitate` varchar(255) DEFAULT NULL,
+  `Tip_artera` varchar(255) DEFAULT NULL,
+  `Denumire_artera` varchar(255) DEFAULT NULL,
+  `Numar_Bloc` varchar(255) DEFAULT NULL,
+  `Codpostal` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
 -- Dumping structure for table admin_pci_registry.complication
-DROP TABLE IF EXISTS `complication`;
 CREATE TABLE IF NOT EXISTS `complication` (
   `complication_id` int(11) NOT NULL AUTO_INCREMENT,
   `complication_name` varchar(100) NOT NULL,
@@ -211,7 +182,6 @@ CREATE TABLE IF NOT EXISTS `complication` (
 
 
 -- Dumping structure for table admin_pci_registry.county
-DROP TABLE IF EXISTS `county`;
 CREATE TABLE IF NOT EXISTS `county` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `county` varchar(50) NOT NULL,
@@ -222,7 +192,6 @@ CREATE TABLE IF NOT EXISTS `county` (
 
 
 -- Dumping structure for table admin_pci_registry.follow_up
-DROP TABLE IF EXISTS `follow_up`;
 CREATE TABLE IF NOT EXISTS `follow_up` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `patient_id` int(10) DEFAULT NULL,
@@ -260,7 +229,6 @@ CREATE TABLE IF NOT EXISTS `follow_up` (
 
 
 -- Dumping structure for table admin_pci_registry.intervention
-DROP TABLE IF EXISTS `intervention`;
 CREATE TABLE IF NOT EXISTS `intervention` (
   `intrevention_id` int(10) NOT NULL AUTO_INCREMENT,
   `patient_id` int(10) NOT NULL,
@@ -387,7 +355,6 @@ CREATE TABLE IF NOT EXISTS `intervention` (
 
 
 -- Dumping structure for table admin_pci_registry.interventional_cardiologist
-DROP TABLE IF EXISTS `interventional_cardiologist`;
 CREATE TABLE IF NOT EXISTS `interventional_cardiologist` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cardiologist_name` varchar(150) NOT NULL,
@@ -398,7 +365,6 @@ CREATE TABLE IF NOT EXISTS `interventional_cardiologist` (
 
 
 -- Dumping structure for table admin_pci_registry.interv_compl
-DROP TABLE IF EXISTS `interv_compl`;
 CREATE TABLE IF NOT EXISTS `interv_compl` (
   `complication_id` smallint(5) NOT NULL,
   `intervention_id` smallint(5) NOT NULL,
@@ -409,7 +375,6 @@ CREATE TABLE IF NOT EXISTS `interv_compl` (
 
 
 -- Dumping structure for table admin_pci_registry.locality
-DROP TABLE IF EXISTS `locality`;
 CREATE TABLE IF NOT EXISTS `locality` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `localitate` varchar(100) NOT NULL,
@@ -420,7 +385,6 @@ CREATE TABLE IF NOT EXISTS `locality` (
 
 
 -- Dumping structure for table admin_pci_registry.logs
-DROP TABLE IF EXISTS `logs`;
 CREATE TABLE IF NOT EXISTS `logs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
@@ -435,7 +399,6 @@ CREATE TABLE IF NOT EXISTS `logs` (
 
 
 -- Dumping structure for table admin_pci_registry.patients
-DROP TABLE IF EXISTS `patients`;
 CREATE TABLE IF NOT EXISTS `patients` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `fo_nr` varchar(50) NOT NULL,
@@ -465,7 +428,6 @@ CREATE TABLE IF NOT EXISTS `patients` (
 
 
 -- Dumping structure for table admin_pci_registry.percente
-DROP TABLE IF EXISTS `percente`;
 CREATE TABLE IF NOT EXISTS `percente` (
   `id_percent` int(11) NOT NULL AUTO_INCREMENT,
   `percent_name` int(11) NOT NULL,
@@ -476,7 +438,6 @@ CREATE TABLE IF NOT EXISTS `percente` (
 
 
 -- Dumping structure for table admin_pci_registry.user
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(50) NOT NULL,
