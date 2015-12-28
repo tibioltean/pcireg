@@ -57,7 +57,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('sex', 'The sex of the patient');
         $crud->field_tip('height', 'Height in cm');
         $crud->field_tip('weight', 'Weight in cm');
-
+        $crud->required_fields('fo_nr','cnp','first_name','last_name','date_of_birth','sex','country','county','city','height','weight','patient_phone','patient_caregiver_phone');
 
 
         $crud->field_type('sex','dropdown',
@@ -147,7 +147,7 @@ class dashboard extends CI_Controller {
 
         //Configurare coloane
         // Afisare Coloane in lista
-        $crud->columns('date_of_procedure','status');
+        $crud->columns('date_of_procedure','attending_cardiologist','interventional_cardiologist','status');
 
         //Afisare compuri in add si edit  
        /* $crud->fields('patient_id',
@@ -174,18 +174,19 @@ class dashboard extends CI_Controller {
 
         // Afisare DB in Formular 
         // -- 1.Past History relevand to Coronary Artery Diesease
-        $crud->display_as('PAST_HISTORY','*** Past History relevand to Coronary Artery Diesease');
+        $crud->display_as('PAST_HISTORY','*** Past History relevant to Coronary Artery Disease');
         $crud->field_type('PAST_HISTORY', 'readonly');
 
 
 
         $crud->display_as('transferred','Transferred form other hospital');
         $crud->field_tip('transferred', '*transferred ID No.');
-        $crud->field_tip('heart_rate', 'Enter value of pulse');
+        $crud->field_tip('heart_rate', 'Enter value of heart rate before PCI '); 
+        $crud->field_tip('BP', 'Enter value of blood pressure before PCI ex: 120/70 ');
 
        
         $crud->display_as('history_mi','History of previous myocardial infarction (MI)');
-        $crud->field_tip('history_mi', 'Indicate if the patient has at least one previous myocardial infarction before this admission');
+        $crud->field_tip('history_mi', 'Indicate if the patient has had at least one previous myocardial infarction before this admission');
         $crud->display_as('history_chf','History of congestive heart failure (CHF)');
         $crud->field_tip('history_chf', 'Indicate');
         $crud->display_as('history_stroke','History of stroke');
@@ -205,10 +206,10 @@ class dashboard extends CI_Controller {
         $crud->display_as('history_hypercholesterol','History of hypercholesterolemia');
 
         // -- 3. Admision Details and initial Assessment 
-        $crud->display_as('ADMISION_DETAILS','*** Admision Details and initial Assessment');
+        $crud->display_as('ADMISION_DETAILS','*** Admission Details and initial Assessment');
         $crud->field_type('ADMISION_DETAILS', 'readonly');
 
-        $crud->display_as('indication_pci','Indication for percutaneous coronary intervetion PCI');
+        $crud->display_as('indication_pci','Indication for percutaneous coronary intervention PCI');
         $crud->display_as('symptom_acs','Symptom onset date and time (ACS patients)');
         $crud->display_as('date_time_arival','Date and time of admission/arrival at hospital (for ACS patients)');
         $crud->display_as('elevated_biochemical','Elevated biochemical marker pre procedure');
@@ -544,7 +545,7 @@ class dashboard extends CI_Controller {
                      array(
                       'None' => 'None',
                       'OCT' => 'OCT',
-                      'Presure wire' => 'Presure wire',
+                      'Presure wire' => 'Pressure wire',
                       'IVUS' => 'IVUS',
                       'Other' => 'Other',
                       'Unknown' => 'Unknown'                                        
@@ -761,6 +762,8 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
+        $crud->set_relation('attending_cardiologist','attending_cardiologist','cardiologist_name');
+        $crud->set_relation('interventional_cardiologist','interventional_cardiologist','cardiologist_name');
         
 
         //***** Finish form wiht progress option
@@ -816,7 +819,14 @@ class dashboard extends CI_Controller {
         // $crud->field_type('edit_user', 'hidden');
         // $crud->field_type('edit_time', 'hidden');
 
-
+          // User Level Unset
+        $drp = $this->session->userdata('user_type');
+        //print_r($drp);
+        if($drp == "user"){          
+          $crud->unset_delete();
+          $crud->unset_export();
+          $crud->unset_print();
+        }
 
         // Afisare nume formular follow-up
         //-- 1. Follow Up (30 days and 12 months)

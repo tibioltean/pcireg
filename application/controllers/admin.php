@@ -67,13 +67,16 @@ class admin extends CI_Controller {
 
        
         $crud->set_subject('User');
-        $crud->columns('login','user_name','user_type','email','mobile');
-        
+        $crud->columns('login','user_type','user_name','email','mobile');
+        $crud->required_fields('login','user_type','user_name','email','mobile');
+        $crud->set_rules('email', 'Email', 'trim|required|valid_email');
+       
         $crud->change_field_type('password','password');
 
         // Cripatare password
         $crud->callback_before_insert(array($this,'encrypt_password_callback'));
         $crud->callback_before_update(array($this,'encrypt_password_callback'));
+
       
         // Realatii baza de date
         //$crud->set_relation('grup','grup','grup_name');
