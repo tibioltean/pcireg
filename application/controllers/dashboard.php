@@ -811,7 +811,7 @@ class dashboard extends CI_Controller {
         $crud->set_subject('PCI Follow-Up');
 
         //Configurare coloane
-         $crud->columns('date','aspirin','other_antiplatelet','anticoagulants','beta_blockers','ace_inhibitors');  
+         $crud->columns('date','survival_status','date_of_death','status');  
 
         // Formatare cod
         $crud->field_type('patient_id', 'hidden', $pid);
@@ -830,7 +830,7 @@ class dashboard extends CI_Controller {
 
         // Afisare nume formular follow-up
         //-- 1. Follow Up (30 days and 12 months)
-        $crud->display_as('date','Date of folow up');
+        $crud->display_as('date','Date of follow up');
         $crud->display_as('survival_status','Survival status at folow up');
         $crud->display_as('death_cause','Primary cause of death');
         $crud->display_as('anginal_status','Anginal status');
@@ -943,6 +943,9 @@ class dashboard extends CI_Controller {
              array('None' => 'None', 'Insulin and oral agent' => 'Insulin and oral agent','Insulin' => 'Insulin','Oral agent' => 'Oral Agent','Diet only' => 'Diet only','Unknown' => 'Unknown')); 
         $crud->field_type('non_statin','dropdown',
              array('None' => 'None', 'Ezetimibe' => 'Ezetimibe','Fibrates' => 'Fibrates','Unknown' => 'Unknown ')); 
+
+        $crud->field_type('status','dropdown',
+             array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
 
         $output = $crud->render();   

@@ -188,6 +188,17 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 -- Data exporting was unselected.
 
 
+-- Dumping structure for table admin_pci_registry.attending_cardiologist
+DROP TABLE IF EXISTS `attending_cardiologist`;
+CREATE TABLE IF NOT EXISTS `attending_cardiologist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cardiologist_name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+
+
 -- Dumping structure for table admin_pci_registry.complication
 DROP TABLE IF EXISTS `complication`;
 CREATE TABLE IF NOT EXISTS `complication` (
@@ -241,6 +252,7 @@ CREATE TABLE IF NOT EXISTS `follow_up` (
   `statins` varchar(50) NOT NULL,
   `non_statin` varchar(50) NOT NULL,
   `obs` text NOT NULL,
+  `status` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='PCI Follow up patient';
 
@@ -256,6 +268,9 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   `edit_user` int(11) NOT NULL,
   `edit_time` datetime NOT NULL,
   `date_of_procedure` date NOT NULL COMMENT 'Date pf procedure',
+  `ID_procedure` varchar(50) NOT NULL,
+  `attending_cardiologist` varchar(50) NOT NULL,
+  `interventional_cardiologist` varchar(50) NOT NULL,
   `transferred` varchar(50) NOT NULL,
   `heart_rate` int(3) NOT NULL,
   `BP` varchar(7) NOT NULL,
@@ -283,8 +298,8 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   `hemodynamic` varchar(150) NOT NULL COMMENT 'Haemodynamic support',
   `INVESTIGATION_CORONARY` varchar(150) NOT NULL,
   `lv_opt` int(11) NOT NULL COMMENT 'Left ventricular (LV)',
-  `dominance` varchar(50) NOT NULL,
   `ANGIOGRAM_RESULT` varchar(50) NOT NULL,
+  `dominance` varchar(50) NOT NULL,
   `right_coronary` int(11) NOT NULL COMMENT 'Proximal right coronary artery',
   `mrca` int(3) NOT NULL COMMENT 'Mid-right coronary artery conduit (mRCA)',
   `drca` int(3) NOT NULL COMMENT 'Distal right coronary artery conduit (dRCA)',
@@ -330,9 +345,9 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   `coronary_artery_cabg` varchar(150) NOT NULL COMMENT 'Coronary artery bypass graft (CABG)',
   `vascular_closure` varchar(150) NOT NULL COMMENT 'Vascular closure device',
   `perc_arterial_complications` varchar(150) NOT NULL COMMENT 'Percutaneous arterial complications',
-  `LABORATORY` varchar(150) NOT NULL,
   `fluo_time` time NOT NULL DEFAULT '00:00:00',
   `AK` int(11) NOT NULL,
+  `LABORATORY` varchar(150) NOT NULL,
   `creatinine` float NOT NULL,
   `hemoglobin` float NOT NULL,
   `leucocyte` float NOT NULL,
@@ -367,6 +382,17 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   `status` varchar(150) NOT NULL,
   PRIMARY KEY (`intrevention_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='PCI Intervetion patient';
+
+-- Data exporting was unselected.
+
+
+-- Dumping structure for table admin_pci_registry.interventional_cardiologist
+DROP TABLE IF EXISTS `interventional_cardiologist`;
+CREATE TABLE IF NOT EXISTS `interventional_cardiologist` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `cardiologist_name` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
 
