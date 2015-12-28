@@ -49,169 +49,67 @@ class admin extends CI_Controller {
 
     public function index()
     {
-        // $this->load->view('inc/header_view');
-        // $this->load->view('dashboard_view');
-        $this->_admin_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
-        //$this->load->view('inc/footer_view');
-    }
-
-    public function brand()
-    {
-
-        $output = $this->grocery_crud->render(); 
-        $this->_admin_output($output);
-    }
-
-    function sisteme()
-    {
-        $crud = new grocery_CRUD();
-     
-        $crud->set_theme('datatables');
-        $crud->set_table('sisteme');
-        $crud->display_as('compartiment','Sectie/Compartiment');
-        $crud->set_subject('Sistem');
-        $crud->columns('grup','compartiment','etaj','ip','sistem_operare','procesor','memorie','hdd','office','anul_fabricatiei','status_sistem');
         
-        // Realatii baza de date
-        $crud->set_relation('grup','grup','grup_name');
-        $crud->set_relation('compartiment','compartimente','compartiment_name');
-        $crud->set_relation('etaj','etaj','etaj');
-        $crud->set_relation('brand','brand','nume_brand');
-        $crud->set_relation('memorie','memorie','memorie');
-        $crud->set_relation('hdd','hdd','hdd');
-        $crud->set_relation('memorie','memorie','memorie');
-        $crud->set_relation('sistem_operare','sistem_operare','os');
-        $crud->set_relation('tipul_sistemului','tip_sistem','tip_name');
-        $crud->set_relation('status_sistem','status_sistem','status_name');
-        $crud->set_relation('antivirus','antivirus','antivirus_name');
-        $crud->set_field_upload('imagine','assets/uploads/files');
-        //$crud->set_field_upload('imagine_monitor','assets/uploads/files');
-     
-        $output = $crud->render();   
-        $this->_admin_output($output);
+        $this->_admin_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+        
     }
 
-  
+   
 
-    function imprimante()
+    function users()
     {
-
         $crud = new grocery_CRUD();
      
         $crud->set_theme('datatables');
-        $crud->set_table('imprimante');
-        $crud->display_as('compartiment','Sectie/Compartiment');
-        $crud->set_subject('Imprimanta');
-        $crud->columns('grup','compartiment','etaj','ip_network','brand','anul_fabricatiei','status_printer');
+        $crud->set_table('user');
+        $crud->display_as('login','Username');
+        $crud->display_as('user_name','Name');
 
-        $crud->set_relation('grup','grup','grup_name');
-        $crud->set_relation('compartiment','compartimente','compartiment_name');
-        $crud->set_relation('etaj','etaj','etaj');
-        $crud->set_relation('brand','printer_brand','printer_name');
-        $crud->set_relation('status_printer','status_sistem','status_name');
+       
+        $crud->set_subject('User');
+        $crud->columns('login','user_name','user_type','email','mobile');
+        
+        $crud->change_field_type('password','password');
 
-        $crud->set_field_upload('imagine','assets/uploads/files');
-
-        $output = $crud->render();   
-        $this->_admin_output($output);
-
-    }
-
-     function servere()
-    {
-
-        $crud = new grocery_CRUD();     
-        $crud->set_theme('datatables');
-        $crud->set_table('servere');
-        //$crud->display_as('compartiment','Sectie/Compartiment');
-        $crud->set_subject('Server');
-        $crud->columns('server','ip1','ip2','brand','sistem_operare','anul_fabricatiei','memorie','locatie');
-
+        // Cripatare password
+        $crud->callback_before_insert(array($this,'encrypt_password_callback'));
+        $crud->callback_before_update(array($this,'encrypt_password_callback'));
+      
+        // Realatii baza de date
         //$crud->set_relation('grup','grup','grup_name');
-        //$crud->set_relation('compartiment','compartimente','compartiment_name');
-        //$crud->set_relation('etaj','etaj','etaj');
-        //$crud->set_relation('brand','printer_brand','printer_name');
-        //$crud->set_relation('status_printer','status_sistem','status_name');
-        $crud->set_field_upload('file_config','assets/uploads/files');
-        $crud->set_field_upload('imagine','assets/uploads/files');
+      
+        //$crud->set_field_upload('imagine_monitor','assets/uploads/files');
+        
+         $crud->field_type('user_type','dropdown',
+                     array(
+                      'admin' => 'admin',
+                      'user' => 'user'
+                      ));  
 
         $output = $crud->render();   
         $this->_admin_output($output);
     }
 
-    function echipamente()
+    function encrypt_password_callback($post_array, $primary_key = null)
     {
-        $crud = new grocery_CRUD();     
-        $crud->set_theme('datatables');
-        $crud->set_table('echipament_retea');
-        $crud->set_subject('Echipament');
-        $crud->columns('tip_echipament','ip','brand','nume_echipament','an_fabricatie','locatie','etaj');
+      $this->load->library('encrypt');
+      $key = 'super-secret-key';
+      //$post_array['password'] = $this->encrypt->encode($post_array['password'], $key);
+      $password =$post_array['password'];
+      $post_array['password'] = hash('sha256', $password . SALT);
 
-        $crud->set_relation('tip_echipament','tip_echipamente','nume_echipament');
-        $crud->set_relation('etaj','etaj','etaj');
-        $crud->set_field_upload('config_file','assets/uploads/files');
-
-        $output = $crud->render();   
-        $this->_admin_output($output);
-
+      return $post_array;
     }
 
-    function service()
+    function decrypt_password_callback($value)
     {
-        $crud = new grocery_CRUD();     
-        $crud->set_theme('datatables');
-        $crud->set_table('service');
-        $crud->set_subject('Fisa noua');
-        $crud->columns('tip_fisa','nr_inregistrare','prioritate','data_inregistrarii','subiect','status_fisa','nume_responsabil');
+      $this->load->library('encrypt');
+      $key = 'super-secret-key';
+      //$decrypted_password = $this->encrypt->decode($value, $key);
+      $decrypted_password = $this->encrypt->decode($value, $key);
 
-
-        $crud->set_relation('prioritate','prioritate_service','prioritate');  
-        $crud->set_relation('nume_responsabil','user','nume');         
-        $crud->set_relation('tip_fisa','tip_fisa','tip_fisa');
-        $crud->set_relation('status_fisa','status_op','status_name');
-        //$crud->set_relation('status_fisa','status_op','status_name');
-
-        // $crud->field_type('status_fisa','dropdown',
-        //     array('1' => 'active', '2' => 'private','3' => 'spam' , '4' => 'deleted'));
-
-        $crud->set_field_upload('atasament','assets/uploads/files');
-
-
-        $output = $crud->render();   
-        $this->_admin_output($output);
-
+      return "<input type='password' name='password' value='$decrypted_password' />";
     }
-
-     function backup()
-    {
-        $crud = new grocery_CRUD();     
-        $crud->set_theme('datatables');
-        $crud->set_table('backup');
-        $crud->set_subject('Fisa Back-up');
-        $crud->columns('data','nr_fisa','subiect','responsabil');
-
-        $crud->set_relation('responsabil','user','nume'); 
-        $crud->unset_print();
-
-        $output = $crud->render();   
-        $this->_admin_output($output);
-    }
-
-    function setari()
-    {
-        $crud = new grocery_CRUD();     
-        $crud->set_theme('datatables');
-        $crud->set_table('compartimente');
-        $crud->set_subject('compartiment');
-        $crud->display_as('compartiment_name','Compartiment');
-
-        $crud->set_relation('grup','grup','grup_name');
-        $crud->set_relation('etaj','etaj','etaj');
-
-        $output = $crud->render();   
-        $this->_admin_output($output);
-
-
-    }
+   
 
 }

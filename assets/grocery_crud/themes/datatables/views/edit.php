@@ -33,6 +33,9 @@
 				</div>
 				<div class='form-input-box' id="<?php echo $field->field_name; ?>_input_box">
 					<?php echo $input_fields[$field->field_name]->input?>
+					<?php if(array_key_exists($field->field_name, $tips)) { ?>
+	&nbsp;<span class="tips"><?php echo $tips[$field->field_name]?></span>
+	<?php } ?>
 				</div>
 				<div class='clear'></div>
 			</div>

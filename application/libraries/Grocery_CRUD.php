@@ -1817,6 +1817,8 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$data->validation_url	= $this->getValidationInsertUrl();
 		$data->input_fields 	= $this->get_add_input_fields();
 
+		$data->tips				= $this->field_tips; // Add Tibi
+
 		$data->fields 			= $this->get_add_fields();
 		$data->hidden_fields	= $this->get_add_hidden_fields();
 		$data->unset_back_to_list	= $this->unset_back_to_list;
@@ -1839,6 +1841,8 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$data->field_values = $this->get_edit_values($state_info->primary_key);
 
 		$data->add_url		= $this->getAddUrl();
+
+		$data->tips				= $this->field_tips; // add Tibi
 
 		$data->list_url 	= $this->getListUrl();
 		$data->update_url	= $this->getUpdateUrl($state_info);
@@ -3428,8 +3432,8 @@ class Grocery_CRUD extends grocery_CRUD_States
 	protected $state_code 			= null;
 	protected $state_info 			= null;
 	protected $columns				= null;
-
-	private $basic_db_table_checked = false;
+	protected $field_tips			= array();  // Add Tibi
+ 	private $basic_db_table_checked = false;
 	private $columns_checked		= false;
 	private $add_fields_checked		= false;
 	private $edit_fields_checked	= false;
@@ -3576,6 +3580,19 @@ class Grocery_CRUD extends grocery_CRUD_States
 		}
 		return $this;
 	}
+
+   /**
+	 * //Add up a function additional to set field tips  Tibi
+	 * Sets tips to the given field that will be displayed to the right of the field
+	 * @param string $field
+	 * @param string $mask
+	 */
+	public function field_tip($field , $tip)
+	{
+		$this->field_tips[$field] = $tip;
+		return $this;
+	}
+
 
 	/**
 	 *

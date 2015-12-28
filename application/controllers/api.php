@@ -39,6 +39,17 @@ class Api extends CI_Controller
         
         if ($result) {
             $this->session->set_userdata(['user_id' => $result[0]['user_id']]);
+            $uid = $this->session->userdata('user_id');
+
+            
+            $data = $this->user_model->get($uid);
+            $utype = $data[0]['user_type'];
+             // print_r($data);
+             // print_r($uid);
+             // print_r($data[0]['user_type']);
+            // nu settez bine din array user type iau prima valoare
+            
+            $this->session->set_userdata(['user_type' => $utype]);           
             $this->output->set_output(json_encode(['result' => 1]));
             return false;
         }

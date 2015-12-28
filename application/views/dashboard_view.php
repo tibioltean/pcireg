@@ -39,10 +39,18 @@ a:hover
             <span class="brand">PCI Registry</span>
             <ul class="nav">
              	<li><a href="<?=site_url('dashboard/database')?>">Patients</a></li>
+                <?php 
+                 $drp = $this->session->userdata('user_type');
+                 //print_r($drp);
+                 if($drp == "admin"){          
+       
+                 
+                 ?>
                 <li><a href="<?php echo site_url('dashboard/database')?>">Statistics</a></li>
-                <li><a href="<?php echo site_url('home/register')?>">Users App</a></li>
+           
+                <li><a href="<?php echo site_url('admin/users')?>">Settings</a></li>
+                 <?php } ?>        
                 <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li>
-                        
             </ul>
         </div>
     </div>

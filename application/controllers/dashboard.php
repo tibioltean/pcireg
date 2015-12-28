@@ -38,13 +38,6 @@ class dashboard extends CI_Controller {
         
     }
     
-    public function brand()
-    {
-
-        $output = $this->grocery_crud->render(); 
-        $this->_admin_output($output);
-    }
-
     
  function database()
     {
@@ -58,8 +51,15 @@ class dashboard extends CI_Controller {
         $crud->display_as('gp_phone','GP Phone');
 
 
-        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','sex','city','height','weight');
-              
+        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','sex','city','status');
+        
+        $crud->field_tip('cnp', 'Personal ID No.');
+        $crud->field_tip('sex', 'The sex of the patient');
+        $crud->field_tip('height', 'Height in cm');
+        $crud->field_tip('weight', 'Weight in cm');
+
+
+
         $crud->field_type('sex','dropdown',
             array('Male' => 'Male', 'Female' => 'Female'));
 
@@ -72,10 +72,21 @@ class dashboard extends CI_Controller {
 
         $crud->set_relation('county','county','county');
         
-
+        $drp = $this->session->userdata('user_type');
+        //print_r($drp);
 
         $crud->add_action('Interventions', '', '','ui-icon-heart',array($this,'go_intervention'));
         $crud->add_action('Follow-Up', '', '','ui-icon-calculator',array($this,'go_followup'));
+
+        // User Level Unset
+        if($drp == "user"){          
+          $crud->unset_delete();
+          $crud->unset_export();
+          $crud->unset_print();
+        }
+
+        $crud->field_type('status','dropdown',
+             array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
         $output = $crud->render();   
         $this->_admin_output($output);
@@ -95,7 +106,6 @@ class dashboard extends CI_Controller {
 
     function interventions()
     {
-       
        
 
         $crud = new grocery_CRUD();
@@ -121,6 +131,14 @@ class dashboard extends CI_Controller {
         //aici fac filtrarea pentru pacient a spitalizarilor dupa variabila sesiune
         $crud->where('patient_id',$pid);
         
+         // User Level Unset
+        $drp = $this->session->userdata('user_type');
+        //print_r($drp);
+        if($drp == "user"){          
+          $crud->unset_delete();
+          $crud->unset_export();
+          $crud->unset_print();
+        }
 
         // Configurez modelul pentru afisare
         $crud->set_theme('datatables');
@@ -152,14 +170,24 @@ class dashboard extends CI_Controller {
 
 
 
-        // !!!!!!!!! TEST CALLBACK 
-        //$crud->callback_add_field('history_mi',array($this,'add_field_callback_1'));
+       
 
         // Afisare DB in Formular 
         // -- 1.Past History relevand to Coronary Artery Diesease
+        $crud->display_as('PAST_HISTORY','*** Past History relevand to Coronary Artery Diesease');
+        $crud->field_type('PAST_HISTORY', 'readonly');
+
+
+
         $crud->display_as('transferred','Transferred form other hospital');
+        $crud->field_tip('transferred', '*transferred ID No.');
+        $crud->field_tip('heart_rate', 'Enter value of pulse');
+
+       
         $crud->display_as('history_mi','History of previous myocardial infarction (MI)');
+        $crud->field_tip('history_mi', 'Indicate if the patient has at least one previous myocardial infarction before this admission');
         $crud->display_as('history_chf','History of congestive heart failure (CHF)');
+        $crud->field_tip('history_chf', 'Indicate');
         $crud->display_as('history_stroke','History of stroke');
         $crud->display_as('history_vascular','History of peripheral vascular diesease');
         $crud->display_as('history_renal','History of chronic renal failure');
@@ -168,12 +196,18 @@ class dashboard extends CI_Controller {
         $crud->display_as('history_valvular_h','History of valvular heart diesease');
       
         // -- 2. Risk factors for Coronary Artery Disease
+        $crud->display_as('RISK_STATUS','***  Risk factors for Coronary Artery Disease');
+        $crud->field_type('RISK_STATUS', 'readonly');
+
         $crud->display_as('smoking_status','Smoking status');
         $crud->display_as('diabets_mellitus','Diabets mellitus');
         $crud->display_as('history_hypertension','History of hypertension');
         $crud->display_as('history_hypercholesterol','History of hypercholesterolemia');
 
         // -- 3. Admision Details and initial Assessment 
+        $crud->display_as('ADMISION_DETAILS','*** Admision Details and initial Assessment');
+        $crud->field_type('ADMISION_DETAILS', 'readonly');
+
         $crud->display_as('indication_pci','Indication for percutaneous coronary intervetion PCI');
         $crud->display_as('symptom_acs','Symptom onset date and time (ACS patients)');
         $crud->display_as('date_time_arival','Date and time of admission/arrival at hospital (for ACS patients)');
@@ -184,6 +218,13 @@ class dashboard extends CI_Controller {
 
 
         //-- 4. Investigations for Coronary Artery Disease 
+        $crud->display_as('INVESTIGATION_CORONARY','*** Investigations for Coronary Artery Disease');
+        $crud->field_type('INVESTIGATION_CORONARY', 'readonly');
+        
+        $crud->display_as('ANGIOGRAM_RESULT','*** ANGIOGRAM RESULT ***');
+        $crud->field_type('ANGIOGRAM_RESULT', 'readonly');
+        
+
         $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
         $crud->display_as('right_coronary','Proximal right coronary artery (segment 1)');
         $crud->display_as('mrca','Mid-right coronary artery conduit (segment 2)');
@@ -208,6 +249,9 @@ class dashboard extends CI_Controller {
         $crud->display_as('main_stem','Left main stem protected');
 
         //-- ****** 5. Percutaneous Coronary interventions
+        $crud->display_as('PCI','*** Percutaneous Coronary interventions');
+        $crud->field_type('PCI', 'readonly');
+        
 
         $crud->display_as('segment_no','Segment No');
        // $crud->display_as('type_lesion','Type of lesion');
@@ -228,6 +272,9 @@ class dashboard extends CI_Controller {
 
 
         //**** -- 6. Percutaneous Coronary interventions (other details)
+        $crud->display_as('PCI_other','*** Percutaneous Coronary interventions (other details)');
+        $crud->field_type('PCI_other', 'readonly');
+
         $crud->display_as('percutaneous_arterial','Percutaneous acces');
         $crud->display_as('diagnostic_device','Diagnostic device used during procedure');
         $crud->display_as('therapeutic_device','Therapeutic device used');
@@ -241,8 +288,16 @@ class dashboard extends CI_Controller {
         $crud->display_as('vascular_closure','Vascular closure device');
         $crud->display_as('perc_arterial_complications','Percutaneous acces complications');
 
+        // Laboratory 
+        $crud->display_as('LABORATORY','*** Laboratory analysis');
+        $crud->field_type('LABORATORY', 'readonly');
 
-        //-- 7. Medication at time of PCI  
+
+        //-- 7. Medication at time of PCI 
+        $crud->display_as('MEDICATION_PCI','*** Medication at time of PCI ');
+        $crud->field_type('MEDICATION_PCI', 'readonly');
+
+ 
         $crud->display_as('aspirin','Aspirin');
         $crud->display_as('other_antiplatele','Other antiplatelet');
         $crud->display_as('anticoagulant','Anticoagulants');
@@ -250,6 +305,10 @@ class dashboard extends CI_Controller {
         $crud->display_as('heparin','Heparin/low molecular weight heparin');
 
         //-- 8. Outcome
+        $crud->display_as('OUTCOME','*** Outcome ');
+        $crud->field_type('OUTCOME', 'readonly');
+
+
         $crud->display_as('elevated','Elevated biochemical marker post procedure');
         $crud->display_as('myocardial_post','Myocardial (re)infarction post procedure');
         $crud->display_as('bleeding_hospital','Bleeding during hospital stay');
@@ -260,7 +319,11 @@ class dashboard extends CI_Controller {
         $crud->display_as('discharge_destination','Discharge destination');
         
 
-        //-- 9. Outcome
+        //-- 9. Medication at discharge
+        $crud->display_as('MEDICATION_DISCHARGE','*** Medication at discharge ');
+        $crud->field_type('MEDICATION_DISCHARGE', 'readonly');
+
+
         $crud->display_as('aspirin2','Aspirin');
         $crud->display_as('other_antiplatele2','Other antiplatelet');
         $crud->display_as('anticoagulant2','Anticoagulants');
@@ -273,7 +336,10 @@ class dashboard extends CI_Controller {
         $crud->display_as('glycoprotein2','Glycoprotein llb/llla');
         $crud->display_as('heparin2','Heparin/low molecular weight heparin');
         
-
+        //-- 10. INFO CHAPTER
+        $crud->display_as('INFO','*** Other Informations ');
+        $crud->field_type('INFO', 'readonly');
+         $crud->field_tip('status', 'Status of Complete Intervention');
 
         // Meniuri drop down
         //****************  -- 1.Past History relevand to Coronary Artery Diesease
@@ -699,7 +765,7 @@ class dashboard extends CI_Controller {
 
         //***** Finish form wiht progress option
         $crud->field_type('status','dropdown',
-             array('In progress' => 'In progress', 'Finished' => 'Finished')); 
+             array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
 
 
@@ -708,10 +774,7 @@ class dashboard extends CI_Controller {
     }
 
 
-    function add_field_callback_1()
-{
-    return '<input type="dropdown"  value="" name="history_mi" > ( Aditional info text )';
-}
+ 
 
     function followup()
     {

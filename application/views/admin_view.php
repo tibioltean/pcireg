@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VioTib Network Tool</title>
+    <title>PCI Registry</title>
     <link rel="stylesheet" href="<?=base_url()?>public/third-party/css/bootstrap.min.css" />
     <link rel="stylesheet" href="<?=base_url()?>public/css/style.css" />
 <?php 
@@ -36,19 +36,10 @@ a:hover
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-            <span class="brand">Network Management</span>
+            <span class="brand">PCI Registry => Settings </span>
             <ul class="nav">
-             	<li><a href="<?=site_url('dashboard/')?>">Dashboard</a></li>
-                <li><a href="<?php echo site_url('admin/sisteme')?>">Sisteme</a></li>
-                <li><a href="<?php echo site_url('admin/imprimante')?>">Imprimante</a></li>
-                <li><a href="<?php echo site_url('admin/servere')?>">Servere</a></li>
-                <li><a href="<?php echo site_url('admin/echipamente')?>">Echipamente retea</a></li>
-                <li><a href="<?php echo site_url('admin/service')?>">Fisa Interventie/Service/Revizie</a></li>
-                <li><a href="<?php echo site_url('admin/backup')?>">Backup</a></li>
-                <li><a href="<?php echo site_url('admin/setari')?>">Setari</a></li>
-                <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li>
-             
-              
+             	<li><a href="<?=site_url('dashboard/database')?>">Dashboard</a></li>                
+                <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li> 
             </ul>
         </div>
     </div>
@@ -65,7 +56,7 @@ a:hover
 <div class="container">
     <div class="row">
         <div class="col-md-12" align="right">
-                    &copy; 2015 VioTib.com | By : <a href="http://www.viotib.com/" target="_blank">Tiberiu Oltean</a>
+                    &copy; 2015 IUBCvT | By : Registry for Percutaneous Coronary Interventions
          </div>
 
     </div>
