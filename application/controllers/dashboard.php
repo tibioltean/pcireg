@@ -51,16 +51,16 @@ class dashboard extends CI_Controller {
         $crud->display_as('gp_phone','GP Phone');
 
 
-        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','sex','city','status');
+        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','gender','city','status');
         
         $crud->field_tip('cnp', 'Personal ID No.');
-        $crud->field_tip('sex', 'The sex of the patient');
+        $crud->field_tip('gender', 'The gender of the patient');
         $crud->field_tip('height', 'Height in cm');
         $crud->field_tip('weight', 'Weight in kg');
-        $crud->required_fields('cnp','first_name','last_name');
+        $crud->required_fields('cnp','first_name','last_name','status');
 
 
-        $crud->field_type('sex','dropdown',
+        $crud->field_type('gender','dropdown',
             array('Male' => 'Male', 'Female' => 'Female'));
 
         $crud->field_type('country','dropdown',
@@ -148,7 +148,7 @@ class dashboard extends CI_Controller {
         //Configurare coloane
         // Afisare Coloane in lista
         $crud->columns('date_time_percutaneous','attending_cardiologist','interventional_cardiologist','status');
-
+        $crud->required_fields('status');
         //Afisare compuri in add si edit  
        /* $crud->fields('patient_id',
                       'date_of_procedure',
@@ -360,7 +360,7 @@ class dashboard extends CI_Controller {
                       ));  
 
         $crud->display_as('dlad','Distal LAD artery (segment 8)');
-        $crud->field_tip('dlad', 'Indicate stenosis severity)');
+        $crud->field_tip('dlad', 'Indicate stenosis severity');
         $crud->field_type('dlad','dropdown',
                      array(
                       '0% (no stenosis)' => '0% (no stenosis)',
@@ -1107,7 +1107,7 @@ class dashboard extends CI_Controller {
                          array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
 
 
-        $crud->field_type('bleeding_hospital','dropdown',
+        $crud->field_type('bleeding_hospital','multiselect',
                      array(
                       'No' => 'No',
                       'Intracranial bleed' => 'Intracranial bleed',
