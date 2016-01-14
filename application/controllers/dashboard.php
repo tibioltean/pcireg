@@ -46,18 +46,20 @@ class dashboard extends CI_Controller {
         $crud->set_table('patients');
         $crud->set_subject('Patient');
         
-        $crud->display_as('fo_nr','ID FO');
+        $crud->display_as('fo_nr','Medical Record number');
+         $crud->field_tip('fo_nr', 'eg: 1234/2016');
         $crud->display_as('city','City or Locality');
-        $crud->display_as('gp_phone','GP Phone');
+        $crud->display_as('gp_phone','GP Phone'); 
+        $crud->display_as('GP_info','Notes');
 
 
-        $crud->columns('fo_nr','cnp','first_name','last_name','date_of_birth','gender','city','status');
+        $crud->columns('fo_nr','cnp','last_name','first_name','date_of_birth','gender','status','signature');
         
         $crud->field_tip('cnp', 'Personal ID No.');
         $crud->field_tip('gender', 'The gender of the patient');
         $crud->field_tip('height', 'Height in cm');
         $crud->field_tip('weight', 'Weight in kg');
-        $crud->required_fields('cnp','first_name','last_name','status');
+        $crud->required_fields('cnp','first_name','last_name','signature','status');
 
 
         $crud->field_type('gender','dropdown',
@@ -71,6 +73,7 @@ class dashboard extends CI_Controller {
                       ));  
 
         $crud->set_relation('county','county','county');
+        $crud->set_relation('signature','user','user_name');
         //$crud->set_relation('city','coduripostale','Localitate');
         
         $drp = $this->session->userdata('user_type');
@@ -147,8 +150,9 @@ class dashboard extends CI_Controller {
 
         //Configurare coloane
         // Afisare Coloane in lista
-        $crud->columns('date_time_percutaneous','attending_cardiologist','interventional_cardiologist','status');
-        $crud->required_fields('status');
+        $crud->columns('date_time_percutaneous','attending_cardiologist','interventional_cardiologist','status','signature');
+        $crud->required_fields('signature','status');
+        $crud->set_relation('signature','user','user_name');
         //Afisare compuri in add si edit  
        /* $crud->fields('patient_id',
                       'date_of_procedure',
@@ -237,9 +241,12 @@ class dashboard extends CI_Controller {
 
         $crud->display_as('symptom_acs','Symptom onset date and time (ACS patients)');
         $crud->field_tip('symptom_acs', 'Indicate the time of symptom onset that triggered the decision for PCI.');
-
-        $crud->display_as('date_time_arival','Date and time of admission/arrival at hospital (for ACS patients)');
-        $crud->field_tip('date_time_arival', 'Date/time of admission to first hospital (potentially of a series of hospitals) where cardiological treatment initiated ');
+      
+        $crud->display_as('arrival_acs','Date and time of arrival to UPU SMURD TG Mures ');
+        $crud->field_tip('arrival_acs', ' ONLY for ACS patients');
+       
+        $crud->display_as('date_time_arival','Date and time of hospital admission ');
+        $crud->field_tip('date_time_arival', 'Date/time of admission to IUBCvT');
 
         $crud->display_as('elevated_biochemical','Elevated biochemical marker pre procedure');
         $crud->field_tip('elevated_biochemical', 'Troponin T/I, CK-MB and/or CK were raised above the levels indicatig acute myocardial infarction pre-procedure. ');
@@ -250,15 +257,18 @@ class dashboard extends CI_Controller {
         $crud->display_as('cardiogenic_pci','Cardiogenic shock at start of PCI');
         $crud->field_tip('cardiogenic_pci', 'Indicate if the patient presented with cardiogenic shock before the PCI procedures');
 
-        $crud->display_as('hemodynamic','Haemodynamic support');
+        $crud->display_as('hemodynamic','Mechanical haemodynamic support');
         $crud->field_tip('hemodynamic', 'Indicate if haemodynamic support was needed before the start of the PCI procedure');
+
+        $crud->display_as('scr','Cardiac arrest before PCI');
+        $crud->field_tip('scr', 'Indicate if the ACS for which the patient was hospitalized, was complicated by cardiac arrest BEFORE the PCI procedure');
 
         //-- 4. Investigations for Coronary Artery Disease 
         $crud->display_as('INVESTIGATION_CORONARY','*** Investigations for Coronary Artery Disease');
         $crud->field_type('INVESTIGATION_CORONARY', 'readonly');
         
         $crud->display_as('lv_opt','Left ventricular ejection fraction (LVEF, %) ');
-        $crud->field_tip('lv_opt', 'Indicate the patients  estimated or calculated left ventricular [LV] function ');
+        $crud->field_tip('lv_opt', 'Indicate the patients  estimated or calculated left ventricular [LV] function (lowest value during hospitalization)');
 
 
         $crud->display_as('ANGIOGRAM_RESULT','*** ANGIOGRAM RESULT ***');
@@ -269,7 +279,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('right_coronary', 'Indicate stenosis severity');
         $crud->field_type('right_coronary','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -284,7 +293,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('mrca', 'Indicate stenosis severity');
         $crud->field_type('mrca','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -297,7 +305,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('drca', 'Indicate stenosis severity');
         $crud->field_type('drca','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -311,7 +318,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('rpda', 'Indicate stenosis severity');
         $crud->field_type('rpda','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -324,7 +330,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('lm_artery', 'Indicate stenosis severity');
         $crud->field_type('lm_artery','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -337,7 +342,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('plad', 'Indicate stenosis severity');
         $crud->field_type('plad','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -350,7 +354,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('mlad', 'Indicate stenosis severity');
         $crud->field_type('mlad','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -363,7 +366,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('dlad', 'Indicate stenosis severity');
         $crud->field_type('dlad','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -377,7 +379,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('1_diagonal', 'Indicate stenosis severity');
         $crud->field_type('1_diagonal','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -391,7 +392,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('2_diagonal', 'Indicate stenosis severity');
         $crud->field_type('2_diagonal','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -405,7 +405,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('pcirc', 'Indicate stenosis severity');
         $crud->field_type('pcirc','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -418,7 +417,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('intart', 'Indicate stenosis severity');
         $crud->field_type('intart','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -431,7 +429,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('om', 'Indicate stenosis severity');
         $crud->field_type('om','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -444,7 +441,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('som', 'Indicate stenosis severity');
         $crud->field_type('som','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -457,7 +453,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('circ', 'Indicate stenosis severity');
         $crud->field_type('circ','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -470,7 +465,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('obtuse_segments', 'Indicate stenosis severity');
         $crud->field_type('obtuse_segments','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -483,7 +477,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('lpda', 'Indicate stenosis severity');
         $crud->field_type('lpda','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -496,7 +489,6 @@ class dashboard extends CI_Controller {
         $crud->field_tip('posteo_segment', 'Indicate stenosis severity');
         $crud->field_type('posteo_segment','dropdown',
                      array(
-                      '0% (no stenosis)' => '0% (no stenosis)',
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
@@ -512,7 +504,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('left_main_d', 'Indicate if the left main stem (segment 5) is at least 50% stenosed.');
 
         $crud->display_as('main_stem','Left main stem protected');
-        $crud->field_tip('main_stem', 'Indicate whether the Left Main lesion attempted was protected - defined as a patent graft to either LAD or LCX');
+        $crud->field_tip('main_stem', 'Complete this field ONLY if PCI of segment 5 (left main) was attempted. A protected left main is defined as a patent graft to either LAD or LCX.');
         $crud->field_tip('dominance', 'Indicate the type of coronary artery dominance');
 
 
@@ -526,7 +518,9 @@ class dashboard extends CI_Controller {
         $crud->field_tip('segment_no', 'Number of the treated segment (1-16 or arterial/venous by-pass conduit).');
        // $crud->display_as('type_lesion','Type of lesion');
         $crud->display_as('re_stenosis','In-stent restenosis');
-        $crud->field_tip('re_stenosis', 'Indicate for the treated segment if there is in-stent re-stenosis');
+        $crud->field_tip('re_stenosis', 'Indicate for the treated segment if there is in-stent re-stenosis');       
+
+        $crud->field_tip('stent_thrombosis', 'Indicate for the treated segment if there is stent thrombosis');
 
         $crud->display_as('bifurcation','Bifurcation');
         $crud->field_tip('bifurcation', 'Indicate if the treated lesion is at the site of coronary artery bifurcation including at least 1 side branch of ≥1.5 mm diameter');
@@ -780,6 +774,8 @@ class dashboard extends CI_Controller {
 
         $crud->field_type('hemodynamic','dropdown',
                      array('No' => 'No', 'Yes (IABP/CP bypass)' => 'Yes (IABP/CP bypass)','Unknown' => 'Unknown'));  
+         $crud->field_type('scr','dropdown',
+                     array('No' => 'No', 'Yes ' => 'Yes ','Unknown' => 'Unknown'));  
 
 
         //****************4. Investigations for Coronary Artery Disease 
@@ -855,6 +851,10 @@ class dashboard extends CI_Controller {
 
         $crud->field_type('re_stenosis','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+        $crud->field_type('stent_thrombosis','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
 
         $crud->field_type('bifurcation','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
@@ -1261,14 +1261,14 @@ class dashboard extends CI_Controller {
         $crud->set_subject('PCI Follow-Up');
 
         //Configurare coloane
-         $crud->columns('date','survival_status','date_of_death','status');  
-
+        $crud->columns('date','survival_status','date_of_death','status','signature');  
+        $crud->required_fields('signature','status');
         // Formatare cod
         $crud->field_type('patient_id', 'hidden', $pid);
         // $crud->field_type('user_id', 'hidden');
         // $crud->field_type('edit_user', 'hidden');
         // $crud->field_type('edit_time', 'hidden');
-
+        $crud->set_relation('signature','user','user_name');
           // User Level Unset
         $drp = $this->session->userdata('user_type');
         //print_r($drp);
@@ -1325,7 +1325,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('cardiac_rehabilitation', 'Indicate if the patient attended or is attending a cardiac rehabilitation programme since discharge');
 
          //-- 1. Follow Up (30 days and 12 months)
-        $crud->field_tip('aspirin', 'On follow-up indicate if the patient is  taking angiotensin II receptor blockers regularly');
+        $crud->field_tip('aspirin', 'On follow-up indicate if the patient is  taking aspirin regularly');
         $crud->field_tip('other_antiplatelet', 'On follow-up indicate if the patient is taking antiplatelet medication (other than aspirin) regularly ');
         $crud->field_tip('anticoagulants', 'On follow-up indicate if the patient is  taking anticoagulant medication regularly');
         $crud->field_tip('beta_blockers', 'On follow-up indicate if the patient is taking Beta-blockers regularly');
