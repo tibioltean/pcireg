@@ -53,7 +53,7 @@ class dashboard extends CI_Controller {
         $crud->display_as('GP_info','Notes');
 
 
-        $crud->columns('fo_nr','cnp','last_name','first_name','date_of_birth','gender','status','signature');
+        $crud->columns('id','fo_nr','cnp','last_name','first_name','date_of_birth','gender','status','signature');
         
         $crud->field_tip('cnp', 'Personal ID No.');
         $crud->field_tip('gender', 'The gender of the patient');
@@ -88,7 +88,7 @@ class dashboard extends CI_Controller {
           $crud->unset_export();
           $crud->unset_print();
         }
-
+         $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
              array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
@@ -208,7 +208,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('history_renal', 'History of: creatinine >2.0 mg/dl (200 umol/l), or on dialysis, or has had a renal transplantation');
 
         $crud->display_as('prev_pci','Previous percutaneous corany intervention(PCI)');
-        $crud->field_tip('prev_pci', 'Indicate if the patient has had a previous PCI of any type before the current admission');
+        $crud->field_tip('prev_pci', 'Indicate if the patient has had a previous PCI of any type before the current PCI');
 
         $crud->display_as('cabg','Coronary artery bypass graft (CABG)');
         $crud->field_tip('cabg', 'Indicate if the patient had a coronary artery bypass graft (CABG) done prior to this admission');
@@ -592,7 +592,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('perc_arterial_complications', 'Indicate if there were arterial percutaneous complications post PCI  procedure.');
 
         $crud->display_as('fluo_time','Fluoroscopy time');
-        $crud->field_tip('fluo_time', 'Indicate fluoroscopy time in min:sec');
+        $crud->field_tip('fluo_time', 'Indicate fluoroscopy time in hour:min:sec (eg: 00:01:59)');
 
 
         $crud->display_as('AK','Air Kerma');
