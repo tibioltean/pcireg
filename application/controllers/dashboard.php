@@ -14,6 +14,7 @@ class dashboard extends CI_Controller {
 
         $this->load->library('grocery_CRUD');
         $this->load->model('user_model');
+        $this->load->model('patient_model');
 
          $user_id = $this->session->userdata('user_id');
         if (!$user_id) {
@@ -29,12 +30,14 @@ class dashboard extends CI_Controller {
 
     public function _admin_output($output = null)
     {
+
+
         $this->load->view('dashboard_view.php',$output);
     }
 
     public function index()
     {
-        $this->_admin_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+        $this->_admin_output((object)array('output' => '' ,'js_files' => array() , 'css_files' => array()));
         
     }
     
@@ -88,16 +91,27 @@ class dashboard extends CI_Controller {
           $crud->unset_export();
           $crud->unset_print();
         }
-         $crud->unique_fields('cnp');
+        
+        $crud->callback_column('date_of_birth2',array($this,'valueToEuro'));
+        
+        $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
              array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
-        $output = $crud->render();   
+
+
+       
+        $output = $crud->render();      
+        // $output->extra = '<h3>Pacient</h3>'; Adauga valori extra pentru view
+
         $this->_admin_output($output);
 
 
     }
-
+    function valueToEuro($value, $row)
+    {
+      return $value.' &euro;';
+    }
     function go_intervention($primary_key , $row)
     {
         return site_url('dashboard/interventions').'?p_id='.$row->id;
@@ -1222,7 +1236,22 @@ class dashboard extends CI_Controller {
 
 
 
-        $output = $crud->render();   
+        $output = $crud->render(); 
+
+        // aduc din baza de date prin model tabela pacient
+        if(isset($_GET["p_id"]) != NULL)
+        {
+            $result = $this->patient_model->get([
+                'id' => $pid ]);
+
+        }
+        // extrag din array nume si prenume 
+        $nume = $result[0]['first_name'];
+        $prenume = $result[0]['last_name'];        
+        // trimit prin variabila extra din obiect in view
+
+        $output->extra = "Patient: ".$nume." ".$prenume;
+  
         $this->_admin_output($output);
     }
 
@@ -1439,7 +1468,21 @@ class dashboard extends CI_Controller {
              array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
 
-        $output = $crud->render();   
+        $output = $crud->render();
+
+        // aduc din baza de date prin model tabela pacient
+        if(isset($_GET["p_id"]) != NULL)
+        {
+            $result = $this->patient_model->get([
+                'id' => $pid ]);
+
+        }
+        // extrag din array nume si prenume 
+        $nume = $result[0]['first_name'];
+        $prenume = $result[0]['last_name'];        
+        // trimit prin variabila extra din obiect in view
+        
+        $output->extra = "Patient: ".$nume." ".$prenume; 
         $this->_admin_output($output);
     }
 }

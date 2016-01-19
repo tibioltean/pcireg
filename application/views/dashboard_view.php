@@ -56,8 +56,9 @@ a:hover
     </div>
 </div>
 	
-	<div style='height:20px;'>
-    <?php //echo "Patient Name:     ;  CNP:      ..... SEX ......."; ?> </div>  
+	<div style='height:30px; margin-left:5px;'>
+    <h3> <?php  if(!empty($extra)) echo $extra;  ?>   </h3>
+     </div>  
     <div>
 		<?php echo $output; ?>
     </div>
