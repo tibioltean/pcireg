@@ -56,7 +56,7 @@ class dashboard extends CI_Controller {
         $crud->display_as('GP_info','Notes');
 
 
-        $crud->columns('id','fo_nr','cnp','last_name','first_name','date_of_birth','gender','status','signature');
+        $crud->columns('id','fo_nr','cnp','last_name','first_name','status','signature');
         
         $crud->field_tip('cnp', 'Personal ID No.');
         $crud->field_tip('gender', 'The gender of the patient');
@@ -100,7 +100,8 @@ class dashboard extends CI_Controller {
 
 
 
-       
+        //$extra = "info";
+        //$output = $crud->render($extra);     
         $output = $crud->render();      
         // $output->extra = '<h3>Pacient</h3>'; Adauga valori extra pentru view
 
@@ -638,8 +639,11 @@ class dashboard extends CI_Controller {
         $crud->display_as('glycoprotein','Glycoprotein llb/llla');
         $crud->field_tip('glycoprotein', 'Indicate the glycoprotein IIb/IIIa type administered at the time of PCI procedure');
 
-        $crud->display_as('heparin','Heparin/low molecular weight heparin');
+        $crud->display_as('heparin','Heparin/low molecular weight heparin');     
         $crud->field_tip('heparin', 'Indicate if heparin and/or LMWH were administered at the time of PCI');
+        
+        $crud->display_as('adenosine','Intracoronary adenosine');
+        $crud->field_tip('adenosine', 'Indicate if intracoronary adenosine was administered for slow flow/no-reflow phenomenon at the time of PCI.');
 
         //-- 8. Outcome
         $crud->display_as('OUTCOME','*** Outcome ');
@@ -1113,6 +1117,11 @@ class dashboard extends CI_Controller {
                       'Unknown' => 'Unknown'                                        
                       ));    
 
+
+        $crud->field_type('adenosine','dropdown',
+                 array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
+
+
         // -- 8. Outcome
         $crud->field_type('elevated','dropdown',
                  array('No' => 'No', 'Yes' => 'Yes','Unknown' => 'Unknown'));  
@@ -1238,19 +1247,23 @@ class dashboard extends CI_Controller {
 
         $output = $crud->render(); 
 
+        $nume = "";
+        $prenume =""; 
+               
         // aduc din baza de date prin model tabela pacient
-        if(isset($_GET["p_id"]) != NULL)
+        if(!empty($_GET["p_id"]))
         {
             $result = $this->patient_model->get([
                 'id' => $pid ]);
 
-        }
-        // extrag din array nume si prenume 
+
         $nume = $result[0]['first_name'];
         $prenume = $result[0]['last_name'];        
+        }
+        // extrag din array nume si prenume 
         // trimit prin variabila extra din obiect in view
 
-        $output->extra = "Patient: ".$nume." ".$prenume;
+        $output->extra = $nume." ".$prenume;
   
         $this->_admin_output($output);
     }
@@ -1276,7 +1289,7 @@ class dashboard extends CI_Controller {
        
         } else {
             $pid = $this->session->userdata('patient_id');
-            //echo "hau".$pid."nu are"; 
+              //echo "hau".$pid."nu are"; 
             //print_r("ID_pacient: ".$pid);
         }
 
@@ -1470,19 +1483,60 @@ class dashboard extends CI_Controller {
 
         $output = $crud->render();
 
+        $nume = "";
+        $prenume =""; 
+               
         // aduc din baza de date prin model tabela pacient
-        if(isset($_GET["p_id"]) != NULL)
+        if(!empty($_GET["p_id"]))
         {
             $result = $this->patient_model->get([
                 'id' => $pid ]);
 
-        }
-        // extrag din array nume si prenume 
+
         $nume = $result[0]['first_name'];
         $prenume = $result[0]['last_name'];        
+        }
+        // extrag din array nume si prenume 
         // trimit prin variabila extra din obiect in view
-        
-        $output->extra = "Patient: ".$nume." ".$prenume; 
+
+        $output->extra = $nume." ".$prenume;
         $this->_admin_output($output);
+    }
+
+
+      function assignment()
+    {
+       $crud = new grocery_CRUD();
+       $crud->set_theme('datatables');
+       $crud->set_table('assignment');
+       $crud->set_subject('Assignment');
+       //$crud->columns('customerName','phone','addressLine1','creditLimit');
+
+
+      $crud->display_as('patient_name','Last and First name');
+      //$crud->field_tip('patient_name', 'info');
+
+      $crud->set_relation('respondent','user','user_name');
+      $crud->field_type('status','dropdown',
+             array('New' => 'New','In progress' => 'In progress', 'Finished' => 'Finished')); 
+
+      $crud->required_fields('date','respondent','status');
+      $crud->unique_fields('cnp');
+ 
+      $drp = $this->session->userdata('user_type');
+                 //print_r($drp);
+      if($drp != "admin")
+        { 
+
+        $crud->unset_add();
+        $crud->unset_delete();
+        $crud->unset_edit_fields('date','cnp','patient_name','pci_date_time','respondent');
+        
+        
+        }
+
+
+       $output = $crud->render(); 
+       $this->_admin_output($output);
     }
 }

@@ -75,8 +75,9 @@ class admin extends CI_Controller {
 
         // Cripatare password
         $crud->callback_before_insert(array($this,'encrypt_password_callback'));
+        $crud->callback_edit_field('password',array($this,'set_password_input_to_empty'));
         $crud->callback_before_update(array($this,'encrypt_password_callback'));
-
+        //$crud->callback_edit_field('password',array($this,'decrypt_password_callback'));
       
         // Realatii baza de date
         //$crud->set_relation('grup','grup','grup_name');
@@ -96,10 +97,18 @@ class admin extends CI_Controller {
     function encrypt_password_callback($post_array, $primary_key = null)
     {
       $this->load->library('encrypt');
+
+    if(!empty($post_array['password']))
+    {
       $key = 'super-secret-key';
       //$post_array['password'] = $this->encrypt->encode($post_array['password'], $key);
       $password =$post_array['password'];
       $post_array['password'] = hash('sha256', $password . SALT);
+    }else
+    {
+        unset($post_array['password']);
+    }
+
 
       return $post_array;
     }
@@ -113,6 +122,11 @@ class admin extends CI_Controller {
 
       return "<input type='password' name='password' value='$decrypted_password' />";
     }
-   
+    
+
+    function set_password_input_to_empty() 
+    {
+    return "<input type='password' name='password' value='' />";
+   }
 
 }

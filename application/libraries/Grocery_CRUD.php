@@ -2103,7 +2103,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 		$this->set_js_config($this->default_javascript_path.'/jquery_plugins/config/jquery.fileupload.config.js');
 	}
 
-	protected function get_layout()
+	protected function get_layout($extra = null)
 	{
 		$js_files = $this->get_js_files();
 		$css_files =  $this->get_css_files();
@@ -2147,6 +2147,7 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 					'js_config_files' => $js_config_files,
 					'css_files' => $css_files,
 					'output' => $this->views_as_string,
+					'extra' => $extra
 			);
 		}
 		elseif($this->echo_and_die === true)
@@ -4455,7 +4456,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 	 *
 	 * @access	public
 	 */
-	public function render()
+	public function render($extra = null)
 	{
 		$this->pre_render();
 
@@ -4725,7 +4726,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 
 		}
 
-		return $this->get_layout();
+		return $this->get_layout($extra);
 	}
 
 	protected function get_common_data()
