@@ -9,14 +9,13 @@ class dashboard extends CI_Controller {
         parent::__construct();
 
         $this->load->database();
-
         $this->load->helper('url');
-
         $this->load->library('grocery_CRUD');
         $this->load->model('user_model');
         $this->load->model('patient_model');
+        $this->load->model('followup_model');
 
-         $user_id = $this->session->userdata('user_id');
+        $user_id = $this->session->userdata('user_id');
         if (!$user_id) {
             $this->logout();
         }
@@ -44,6 +43,9 @@ class dashboard extends CI_Controller {
     
  function database()
     {
+        $drp = $this->session->userdata('user_type');
+        
+
         $crud = new grocery_CRUD();     
         $crud->set_theme('datatables');
         $crud->set_table('patients');
@@ -55,8 +57,18 @@ class dashboard extends CI_Controller {
         $crud->display_as('gp_phone','GP Phone'); 
         $crud->display_as('GP_info','Notes');
 
+        // User Level Unset
+        if($drp == "user"){          
+          $crud->unset_delete();
+          $crud->unset_export();
+          $crud->unset_print();
 
-        $crud->columns('id','fo_nr','cnp','last_name','first_name','status','signature');
+        // afisare fara statistici  // data 24.01.2017 
+         $crud->columns('id','fo_nr','cnp','last_name','first_name','follow_up_date','status','signature');
+        }
+        // afisare in admin coloane cu statistici // data 24.01.2017
+        $crud->columns('id','fo_nr','cnp','last_name','first_name','NINT','NFW','follow_up_date','status','signature');
+
         
         $crud->field_tip('cnp', 'Personal ID No.');
         $crud->field_tip('gender', 'The gender of the patient');
@@ -79,20 +91,16 @@ class dashboard extends CI_Controller {
         $crud->set_relation('signature','user','user_name');
         //$crud->set_relation('city','coduripostale','Localitate');
         
-        $drp = $this->session->userdata('user_type');
         //print_r($drp);
 
         $crud->add_action('Interventions', '', '','ui-icon-heart',array($this,'go_intervention'));
         $crud->add_action('Follow-Up', '', '','ui-icon-calculator',array($this,'go_followup'));
 
-        // User Level Unset
-        if($drp == "user"){          
-          $crud->unset_delete();
-          $crud->unset_export();
-          $crud->unset_print();
-        }
         
-        $crud->callback_column('date_of_birth2',array($this,'valueToEuro'));
+        $crud->callback_column('follow_up_date',array($this,'_followup'));
+        $crud->callback_column('NFW',array($this,'_nofollowup'));
+        $crud->callback_column('NINT',array($this,'_nointerv'));
+
         
         $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
@@ -109,10 +117,90 @@ class dashboard extends CI_Controller {
 
 
     }
-    function valueToEuro($value, $row)
-    {
-      return $value.' &euro;';
+    function _followup($value, $row)
+    { 
+
+     // Interogare follow up
+     //****************************************** 
+     $id_pacient = $row->id;
+     $this->db->where('patient_id ='.$id_pacient);
+     $query = $this->db->get('follow_up');
+     $count_follow = $query->num_rows();
+     //************************************
+
+     // interogare in interventii 
+     // ****************************************
+          // trebuie sa scot date pci din primul din interventii
+          // data_pci
+      $this->db->select('intrevention_id, patient_id, date_time_percutaneous');
+      $this->db->where('patient_id ='.$id_pacient);
+      $query = $this->db->get('intervention');
+      $result = $query->result_array();       
+      $pci_date = $result[0]['date_time_percutaneous'];
+    
+     //******************************************
+    
+     // verific data pci cu data curenta 
+     // la 30 zile 182  si 365
+     // dupa care data curenta o incrementez cu diferenta
+     // returnez data urmatoare pana follow up
+      //$data_next = date('d/m/Y');
+      
+      //data curenta
+      //$date_now = date('d-m-Y');   
+
+      // extrag data de pci
+      //$date_pci = "2015-12-29";   
+      // dauga zile la o data
+      if($count_follow == 0 ){
+
+         $date_followup = date('d-m-Y', strtotime($pci_date ."+30 days"));
+
+      }elseif ($count_follow == 1 ) {
+
+         $date_followup = date('d-m-Y', strtotime($pci_date ."+180 days"));
+
+      }elseif ($count_follow == 2) {   
+
+         $date_followup = date('d-m-Y', strtotime($pci_date ."+360 days"));
+
+      }elseif ($count_follow > 2) {
+
+         $date_followup = "Follow-Up Finished";
+      }
+     
+      
+      
+      return  $date_followup;
     }
+
+
+     function _nofollowup($value, $row)
+    { 
+
+     // Interogare follow up
+     //****************************************** 
+     $id_pacient = $row->id;
+     $this->db->where('patient_id ='.$id_pacient);
+     $query = $this->db->get('follow_up');
+     $count_follow = $query->num_rows();
+
+     return $count_follow;
+    }
+
+       function _nointerv($value, $row)
+    { 
+
+     // Interogare follow up
+     //****************************************** 
+     $id_pacient = $row->id;
+     $this->db->where('patient_id ='.$id_pacient);
+     $query = $this->db->get('intervention');
+     $count_follow = $query->num_rows();
+
+     return $count_follow;
+    }
+
     function go_intervention($primary_key , $row)
     {
         return site_url('dashboard/interventions').'?p_id='.$row->id;
