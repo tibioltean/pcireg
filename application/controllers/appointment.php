@@ -75,3 +75,21 @@ class Appointment extends CI_Controller
   
     
 }
+
+
+
+  function log_user_after_insert($post_array,$primary_key)
+    {
+      $user_logs_insert = array(
+        "user_id"     => $primary_key,
+        "username"    => "tibidraga",
+        "action"      => date('Y-m-d H:i:s'),
+        "info"        => "info text",
+        "ip_location" => "ip fix",
+        "date"        => date('d-m-Y H:i')
+         );
+ 
+       $this->db->insert('logs',$user_logs_insert);
+ 
+       return true;
+    }

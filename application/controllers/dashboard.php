@@ -67,14 +67,14 @@ class dashboard extends CI_Controller {
          $crud->columns('id','fo_nr','cnp','last_name','first_name','follow_up_date','status','signature');
         }
         // afisare in admin coloane cu statistici // data 24.01.2017
-        $crud->columns('id','fo_nr','cnp','last_name','first_name','NINT','NFW','follow_up_date','status','signature');
+        $crud->columns('id','cnp','last_name','first_name','No_of_PCIs','Completed_FU_events','follow_up_date','status','signature','admin');
 
         
         $crud->field_tip('cnp', 'Personal ID No.');
         $crud->field_tip('gender', 'The gender of the patient');
         $crud->field_tip('height', 'Height in cm');
         $crud->field_tip('weight', 'Weight in kg');
-        $crud->required_fields('cnp','first_name','last_name','signature','status');
+        $crud->required_fields('cnp','first_name','last_name','admin','status');
 
 
         $crud->field_type('gender','dropdown',
@@ -89,6 +89,8 @@ class dashboard extends CI_Controller {
 
         $crud->set_relation('county','county','county');
         $crud->set_relation('signature','user','user_name');
+        $crud->set_relation('admin','user','user_name');
+        
         //$crud->set_relation('city','coduripostale','Localitate');
         
         //print_r($drp);
@@ -98,13 +100,16 @@ class dashboard extends CI_Controller {
 
         
         $crud->callback_column('follow_up_date',array($this,'_followup'));
-        $crud->callback_column('NFW',array($this,'_nofollowup'));
-        $crud->callback_column('NINT',array($this,'_nointerv'));
+        $crud->callback_column('Completed_FU_events',array($this,'_nofollowup'));
+        $crud->callback_column('No_of_PCIs',array($this,'_nointerv'));
+
+        // log- user activities
+     
 
         
         $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
-             array('In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
+             array('New' => 'New','In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
 
 
 
@@ -117,6 +122,10 @@ class dashboard extends CI_Controller {
 
 
     }
+
+  
+
+
     function _followup($value, $row)
     { 
 
@@ -134,9 +143,13 @@ class dashboard extends CI_Controller {
           // data_pci
       $this->db->select('intrevention_id, patient_id, date_time_percutaneous');
       $this->db->where('patient_id ='.$id_pacient);
+      //$this->db->order_by("intrevention_id", "asc"); 
       $query = $this->db->get('intervention');
-      $result = $query->result_array();       
+      //$count_follow = $query->num_rows();      
+      $result = $query->result_array(); 
       $pci_date = $result[0]['date_time_percutaneous'];
+
+     
     
      //******************************************
     
@@ -168,8 +181,6 @@ class dashboard extends CI_Controller {
 
          $date_followup = "Follow-Up Finished";
       }
-     
-      
       
       return  $date_followup;
     }

@@ -39,7 +39,7 @@ a:hover
             <span class="brand">PCI Registry</span>
             <ul class="nav">
              	<li><a href="<?=site_url('dashboard/database')?>">Patients</a></li>
-                <li><a href="<?=site_url('dashboard/assignment')?>">Assignment</a></li>
+              <!--   <li><a href="<?=site_url('dashboard/assignment')?>">Assignment</a></li> -->
                 <?php 
                  $drp = $this->session->userdata('user_type');
                  //print_r($drp);
