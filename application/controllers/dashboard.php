@@ -143,14 +143,19 @@ class dashboard extends CI_Controller {
           // data_pci
       $this->db->select('intrevention_id, patient_id, date_time_percutaneous');
       $this->db->where('patient_id ='.$id_pacient);
-      //$this->db->order_by("intrevention_id", "asc"); 
-      $query = $this->db->get('intervention');
-      //$count_follow = $query->num_rows();      
-      $result = $query->result_array(); 
-      $pci_date = $result[0]['date_time_percutaneous'];
+      $this->db->order_by("intrevention_id", "asc"); 
+      $query = $this->db->get('intervention');     
+      $count_int = $query->num_rows();      
+      $result = $query->result_array();
 
-     
-    
+        
+      if(empty($result[0]['date_time_percutaneous'])){
+              $pci_date = "";
+      }else{  
+              $pci_date = $result[0]['date_time_percutaneous'];
+      } 
+        
+
      //******************************************
     
      // verific data pci cu data curenta 
@@ -182,7 +187,7 @@ class dashboard extends CI_Controller {
          $date_followup = "Follow-Up Finished";
       }
       
-      return  $date_followup;
+      return   $date_followup;
     }
 
 

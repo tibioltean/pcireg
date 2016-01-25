@@ -10,126 +10,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
--- Dumping database structure for information_schema
-
-
 -- Dumping database structure for admin_pci_registry
 CREATE DATABASE IF NOT EXISTS `admin_pci_registry` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `admin_pci_registry`;
@@ -486,7 +366,7 @@ CREATE TABLE IF NOT EXISTS `intervention` (
   PRIMARY KEY (`intrevention_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=latin1 COMMENT='PCI Intervetion patient';
 
--- Dumping data for table admin_pci_registry.intervention: ~104 rows (approximately)
+-- Dumping data for table admin_pci_registry.intervention: ~87 rows (approximately)
 /*!40000 ALTER TABLE `intervention` DISABLE KEYS */;
 INSERT INTO `intervention` (`intrevention_id`, `patient_id`, `user_id`, `edit_user`, `edit_time`, `date_time_arival`, `date_time_percutaneous`, `ID_procedure`, `attending_cardiologist`, `interventional_cardiologist`, `transferred`, `heart_rate`, `BP`, `PAST_HISTORY`, `history_mi`, `history_chf`, `history_stroke`, `history_vascular`, `history_renal`, `prev_pci`, `cabg`, `history_valvular_h`, `RISK_STATUS`, `smoking_status`, `diabets_mellitus`, `history_hypertension`, `history_hypercholesterol`, `ADMISION_DETAILS`, `indication_pci`, `symptom_acs`, `arrival_acs`, `elevated_biochemical`, `cardiogenic_pci`, `hemodynamic`, `scr`, `INVESTIGATION_CORONARY`, `lv_opt`, `ANGIOGRAM_RESULT`, `dominance`, `right_coronary`, `mrca`, `drca`, `rpda`, `posteo_segment`, `lm_artery`, `plad`, `mlad`, `dlad`, `1_diagonal`, `2_diagonal`, `pcirc`, `intart`, `om`, `som`, `circ`, `obtuse_segments`, `lpda`, `no_vessels`, `left_main_d`, `main_stem`, `PCI`, `segment_no`, `re_stenosis`, `stent_thrombosis`, `bifurcation`, `bifurcation_yes`, `cto`, `tmi_before`, `tmi_after`, `stenosis_a_pci`, `stent`, `no_stents`, `direct_stenting`, `stent_type`, `bare_metal`, `drug_eluting`, `drug_eluting_type`, `stent_graft`, `bioabsorbable`, `stent_size`, `length`, `PCI_other`, `percutaneous_arterial`, `diagnostic_device`, `therapeutic_device`, `procedural_complications`, `coronary_artery_cabg`, `vascular_closure`, `perc_arterial_complications`, `fluo_time`, `AK`, `LABORATORY`, `creatinine`, `hemoglobin`, `leucocyte`, `thrombocyte`, `MEDICATION_PCI`, `aspirin`, `other_antiplatele`, `anticoagulant`, `glycoprotein`, `heparin`, `adenosine`, `OUTCOME`, `elevated`, `myocardial_post`, `bleeding_hospital`, `stroke`, `cin`, `renal_failure`, `survival_status`, `date_discharge`, `discharge_destination`, `MEDICATION_DISCHARGE`, `aspirin2`, `other_antiplatele2`, `anticoagulant2`, `beta-blockers`, `ace_inhibitors`, `angiotensin_repector`, `diabetic_control`, `statins`, `non_statin`, `heparin2`, `INFO`, `notes`, `status`, `signature`) VALUES
 	(60, 12, 0, 0, '0000-00-00 00:00:00', '2015-12-22 00:00:00', '2015-12-29 00:00:00', '313123', '2', '1', 'Yes', 31, '13', '', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes', 'No', '', 'Never', 'Diabetic (dietary control)', 'Yes', 'No', '', 'STEMI / rescue PCI', '2015-12-29 00:00:00', '0000-00-00 00:00:00', 'No', 'No', 'Yes (IABP/CP bypass)', '', '', 31, '', 'right', '<25% (luminal irregularities)', '25 - 49% (mild stenosis)', '25 - 49% (mild stenosis)', '<25% (luminal irregularities)', '25 - 49% (mild stenosis)', '<25% (luminal irregularities)', '<25% (luminal irregularities)', '25 - 49% (mild stenosis)', '25 - 49% (mild stenosis)', '<25% (luminal irregularities)', '<25% (luminal irregularities)', '75 - 90% (severe stenosis)', '50 - 74% (intermediate stenosis)', '75 - 90% (severe stenosis)', '50 - 74% (intermediate stenosis)', '50 - 74% (intermediate stenosis)', '50 - 74% (intermediate stenosis)', '25 - 49% (mild stenosis)', '2', 'No', 'Yes', '', 'segment 2,segment 3,segment 5,segment 6,segment 7,segment 10', 'No', '', 'No', '1-0-0', '', 'TIMI 2', 'TIMI 1', '23', 'No', 3, 'Yes', 'Drug-eluting,Stent-graft,Bioabsorbable VS', '2', '1', 'Orsiro,Onyx', '1', '2', '31', '13', '', 'Radial', 'OCT,Presure wire,Other', 'Balloon postdilatation,Distal Protection Device', 'No Peri-Procedural complications,Coronary perforation,No flow/slow flow phenomenon', 'Emergency', 'No', 'False aneurysm,Haemorrhage requiring surgery or transfusion,Arterial occlusion/dissection requiring interventions', '00:00:23', 23, '', 23, 323, 23, 23, '', 'No', 'Clopidogrel', 'Vit. K antagonists', 'Unknown', 'Unfractionated heparin', '', '', 'No', 'Yes', 'Retroperitoneal bleed (major)', 'Yes', '', 'No', 'Dead', '2015-12-29', 'Covalescent/Rehabilitation center', '', 'Yes', 'Clopidogrel', 'Vit. K antagonists', 'Yes', 'No', 'Yes', 'Insulin and oral agent', 'Yes', 'Ezetimibe', 'Unfractionated heparin', '', '', 'Finished', ''),
@@ -619,16 +499,17 @@ CREATE TABLE IF NOT EXISTS `logs` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `user_id` varchar(20) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `actiune` varchar(50) NOT NULL,
-  `detalii` varchar(50) NOT NULL,
-  `date_log_in` datetime NOT NULL,
-  `date_log_out` datetime NOT NULL,
+  `action` varchar(50) NOT NULL,
+  `info` varchar(50) NOT NULL,
   `ip_location` varchar(50) NOT NULL,
+  `date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Dumping data for table admin_pci_registry.logs: ~0 rows (approximately)
+-- Dumping data for table admin_pci_registry.logs: ~1 rows (approximately)
 /*!40000 ALTER TABLE `logs` DISABLE KEYS */;
+INSERT INTO `logs` (`id`, `user_id`, `username`, `action`, `info`, `ip_location`, `date`) VALUES
+	(1, '90', 'tibidraga', '2016-01-25 09:51:56', 'info text', 'ip fix', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `logs` ENABLE KEYS */;
 
 
@@ -656,79 +537,80 @@ CREATE TABLE IF NOT EXISTS `patients` (
   `GP_info` text NOT NULL,
   `status` varchar(50) NOT NULL,
   `signature` varchar(50) NOT NULL DEFAULT '0',
+  `admin` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=90 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8;
 
--- Dumping data for table admin_pci_registry.patients: ~75 rows (approximately)
+-- Dumping data for table admin_pci_registry.patients: ~55 rows (approximately)
 /*!40000 ALTER TABLE `patients` DISABLE KEYS */;
-INSERT INTO `patients` (`id`, `fo_nr`, `cnp`, `country`, `county`, `city`, `first_name`, `last_name`, `gender`, `date_of_birth`, `height`, `weight`, `patient_phone`, `patient_caregiver_phone`, `GP_name`, `gp_phone`, `GP_office_address`, `GP_email`, `patient_address`, `GP_info`, `status`, `signature`) VALUES
-	(15, '7025/2015', '2460610264444', 'Romania', '28', 'Targu Mures', 'Maria', 'Butiu', 'Female', '1946-06-10', 165, 68, 0, 0, '', 0, '', '', '<p>\n Targu Mures, str. Muncii, nr. 13, ap 2, jud. Mures</p>\n', '<p>\n Pacienta era deja externata, am gasit doua numere de telefon pe internet care corespunde cu adresa din buletin</p>\n<p>\n <span><strong>0365 425 659 </strong>(BUTIU FLORE)</span><span> sau</span><span><strong> 0265256160</strong></span></p>\n<p>\n <span><strong>la follow-</strong></span><span><strong>up de intrebat medicul de familie</strong></span></p>\n<p>\n &nbsp;</p>\n', 'Finished', '28'),
-	(16, '65/2016', '1670418267400', 'Romania', '28', 'Tarnaveni', 'Vasile-Mircea', 'Bichis', 'Male', '1967-09-18', 110, 75, 742176727, 771537745, 'Dr. Morar Precup', 0, '', '', '', '<p>\n Dr. Morar Precup -loc: Tarnaveni</p>\n', 'Finished', '29'),
-	(17, '7026/2015', '1420419264391', 'Romania', '28', 'Sangeorgiu de Mures', 'Bela', 'Fazakas', 'Male', '1942-04-19', 180, 75, 365735911, 742121915, 'Dr. Nagi Adela', 0, '', '', '<p>\n Jud: Mures; Loc: Sangeorgiu de Mures; Str. Garii&nbsp;</p>\n', '', 'Finished', '29'),
-	(19, '7029/2015', '1750216193782', 'Romania', '21', 'Hodosa', 'Ferencz Albert', 'Bogdan', 'Male', '1975-02-16', 174, 65, 747389464, 0, 'Ujica Mariana', 0, '', '', '<p>\n nr. 1154</p>\n', '', 'Finished', '30'),
-	(20, '42/2016', '1630105120677', 'Romania', '21', 'Odorheiu Secuiesc', 'Csaba Istvan ', 'Sebestyen', 'Male', '1963-01-05', 180, 100, 762862421, 745809422, 'Nagy Levente Laszlo', 266218182, '535600, Odorheiu Secuiesc, Str. Piaţa Libertăţii, ', 'nleventedr@gmail.com ', '<p>\n str Szent Janos 72</p>\n', '<address address="" color:="" font-family:="" font-size:="" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" line-height:="" segoe="">\n <span><span><span itemprop="streetAddress">STR. GHIPES nr. 4&nbsp;</span>,&nbsp;<span itemprop="addressLocality">ODORHEIU SECUIESC</span>,&nbsp;<span itemprop="addressRegion">JUD. HARGHITA;&nbsp;</span><span 0266-218="" address="" background-color:="" font-size:="" font-weight:="" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" line-height:=""> <strong font-size:="" line-height:="" margin:="" padding:="" span="">0266-218382</strong></span></span></span></address>\n<div class="elerhetoseg" font-family:="" font-size:="" p="" padding:="">\n <span><span><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:=""><strong p="" padding:="">&lt;strong 0px;=&quot;&quot; padding:=&quot;&quot; 0px;&quot;=&quot;&quot;&gt;Adresă 2 :&nbsp;</strong>535600, Odorheiu Secuiesc, Str. Piaţa Libertăţii, Nr. 5, Judetul Harghi</strong></strong><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:=""><strong p="" padding:="">ta </strong></strong></strong></span></span></div>\n<p>\n <strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><span><span><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:="">&nbsp;</strong></strong></strong></strong></strong></strong></strong></strong></strong></span></span></strong></strong></strong></strong></p>\n', 'Finished', '30'),
-	(21, '64/2016', '1490727293790', 'Romania', '21', 'Toplita', 'Carol', 'Papai', 'Male', '1949-07-27', 176, 85, 266341813, 761126644, 'Pascan Loredana', 729618796, 'STR. VICTOR BABEŞ , bl. B sc. 2 ap. 3, TOPLIŢA', '', '<p>\n Dealului bl. 3P ap. 3, Toplita, jud Harghita</p>\n', '', 'Finished', '30'),
-	(22, '7035/2015', '2700626260019', 'Romania', '28', 'Targu Mures', 'Marcela-Florina', 'David', 'Female', '1970-06-26', 170, 80, 745260027, 0, 'Dr. Florea Camelia', 265225002, 'Targu Mures, Str. Dorobanţilor nr. 1, TOPMED', '', '<p>\n loc. Targu Mures, Cal. Sighisoarei, nr.9, ap12, jud. Mures</p>\n', '', 'Finished', '28'),
-	(23, '19/2016', '1510329261451', 'Romania', '28', 'Gurghiu', 'Gavril', 'Menyhart', 'Male', '1951-03-29', 182, 70, 0, 768628121, 'Dr. Ballok Jolanda', 265537177, 'SAT GLĂJĂRIE NR. 148/A, COM. GURGHIU, JUD. MUREŞ', '', '<p>\n loc. Gurghiu, str. Glajarie, nr. 133</p>\n', '', 'Finished', '28'),
-	(29, '7033/2015', '2480925264408', 'Romania', '28', 'Targu Mures', 'Ana', 'Raffi', 'Female', '1948-09-25', 155, 85, 770818998, 757818998, 'Dr. Matefi Judit', 265, '', '', '', '', 'Finished', '29'),
-	(30, '88/2016', '1441130267391', 'Romania', '28', 'Adamus', 'Ioan', 'Nan', 'Male', '1944-11-30', 170, 110, 0, 747504654, 'Oltean Laura', 0, '', '', '<p>\n comuna Dimbu, sat Adamus, nr 78A</p>\n', '<p>\n Numele medicului de familie - inainte de casatorie- pacientul nu cunoaste noul nume.</p>\n', 'Finished', '30'),
-	(32, '31/2016', '2550919264392', 'Romania', '28', 'Targu Mures', 'Elisabeta', 'Farkas', 'Female', '1955-09-19', 156, 67, 745507159, 745507159, 'Szakaly Marta Eszter', 265, '', '', '<p>\n Aleea vrancea, 10/8</p>\n', '<p>\n <span font-family:="" line-height:="">Str. Principală Nr. 433, gornesti</span></p>\n', 'Finished', '30'),
-	(33, '76/2016', '1460820267408', 'Romania', '28', 'Bobohalma', 'Ioan', 'Popa', 'Male', '1946-08-20', 165, 103, 265430063, 0, 'Kis Marinela', 265450011, 'Str. Principală nr. 10/A, Adămuş, Județul Mureș', '', '<p>\n bobohalma, nr 8A</p>\n', '<div background-color:="" font-family:="" font-size:="" line-height:="" margin:="" span="">\n 0265-45.00.11,<o:p></o:p></div>\n<div background-color:="" font-family:="" font-size:="" line-height:="" margin:="" span="">\n 0741-671.927</div>\n', 'Finished', '30'),
-	(34, '32/2016', '1420401264378', 'Romania', '28', 'Targu Mures ', 'Adrian ', 'Dezso', 'Male', '1942-04-01', 168, 95, 365429551, 365429551, 'Dr. Fejer Dana', 0, '', '', '<p>\n Jud: Mures; Loc: Targu Mures; Str. Parangului; Nr.54/39</p>\n', '<p>\n Dr. Fejer Dana- Loc: Targu Mures; Dambu Pietros</p>\n', 'Finished', '29'),
-	(35, '89/2016', '1410812264364', 'Romania', '28', 'Corunca', 'Vasile', 'Petrina', 'Male', '1941-08-12', 175, 80, 749277111, 749277112, 'Dr. Sonia Valentina ', 744477644, '', '', '<p>\n Jud: Mures; Loc: Corunca; Nr: 427</p>\n', '<p>\n Dr. Sonia Valentina-Centru Medical Sonea Sancrai.</p>\n', 'Finished', '29'),
-	(36, '50/2016', '1550314321395', 'Romania', '34', 'Copsa Mica', 'Gheorghe', 'Prostean', 'Male', '1955-03-14', 170, 85, 758551475, 742804020, 'Dr. PENESCU OCTAVIA', 0, '', '', '<p>\n Jud: Sibiu; Localitatea Copsa Mica ; Str. Car 1 Dec 15/6;</p>\n', '<p>\n Dr. Penescu Octavia; Jud: Sibiu; Loc: Copsa Mica;</p>\n', 'Finished', '29'),
-	(37, '137', '2470502264369', 'Romania', '28', 'Targu Mures', 'Maria', 'Gavrila', 'Female', '1947-05-02', 165, 65, 0, 0, '', 0, '', '', '', '', 'Finished', '31'),
-	(38, '130/2016', '1560501264362', 'Romania', '28', 'Ungheni', 'Ioan-Floriner', 'Covrig', 'Male', '1956-05-01', 172, 72, 742846079, 743540350, 'Nagy (Suteu) Elena', 265328161, 'UNGHENI, str.Principală, nr.105', '', '<p>\n Loc. Ungheni, Nr. 95, Judet Mures</p>\n', '', 'Finished', '51'),
-	(39, '79/2016', '1580806264371', 'Romania', '28', 'Targu Mures', 'Iosif', 'Iuga', 'Male', '1958-08-06', 171, 81, 746610391, 0, 'Pop Lupu Maria', 265265024, 'Târgu Mureş, Bulevardul 1 Decembrie 1918 nr. 28 B', '', '<p>\n strada Sighisoarei 11/9</p>\n', '', 'Finished', '30'),
-	(40, '102/2016', '2390324191527', 'Romania', '21', 'Miercurea Ciuc', 'AGNETA', 'FEKETE', 'Female', '1939-03-24', 162, 75, 266323853, 266323853, 'BALASI MAGDOLNA', 266312218, 'Strada Petőfi Sándor 14, Miercurea Ciuc 530210', '', '<p>\n &lt;span arial,=&quot;&quot; sans-serif;=&quot;&quot; font-size:=&quot;&quot; 13px;=&quot;&quot; line-height:=&quot;&quot; 16.12px;&quot;=&quot;&quot;&gt;Strada Culmei, nr. 17, ap. 19, Miercurea Ciuc, Harghita - locuieste cu fiica - nr. de tel. fix</p>\n', '', 'Finished', '49'),
-	(41, '133/2016', '1420912192466', 'Romania', '28', 'Eremieni', 'FRANCISC', 'NAGY-GYORGY', 'Male', '1942-09-12', 175, 75, 265345420, 746649484, 'POP VIORICA', 265576007, 'str.Teilor nr.54, MIERCUREA NIRAJULUI, judet Mures', '', '<p>\n com. Magherani, sat Eremieni, nr. 59, jud. Mures.&nbsp;</p>\n<p>\n Nr. tel. alternativ pacient: 0746649484</p>\n', '', 'Finished', '49'),
-	(42, '174/2016', '2590703190345', 'Romania', '21', 'Cristuru-Secuiesc', 'Ilona', 'Benko', 'Female', '1959-07-03', 154, 64, 746959744, 742492946, 'DR. FARKAS RADULY SANDOR', 266243555, 'Cristuru Secuiesc, Str. Timafalvi, Nr. 10', '', '<p>\n Loc. Cristuru Secuiesc. &nbsp;Str. Kossuth Lajos, bl.A4 et.3 ap.14</p>\n', '', 'Finished', '51'),
-	(44, '118/2016', '2710814321395', 'Romania', '34', 'Motis', 'Angela Victoria', 'Rus', 'Female', '1971-08-14', 159, 137, 763981576, 760841159, 'Pintea Zmeurica', 740246788, 'loc.Valea Viilor', '', '<p>\n loc.Motis, str. Teches nr.47</p>\n', '', 'Finished', '35'),
-	(45, '7/2016', '1461213264367', 'Romania', '28', 'Targu Mures', 'ALEXANDRU ', 'ERDOS', 'Male', '1946-12-13', 176, 103, 365440044, 758642428, 'Dr. Dragan Eniko', 265212971, 'Pta Marasesti Nr.21 ', '', '', '<p>\n Dr. Dragan Eniko- Dora Medical ; P-ta Marasesti Nr.21; Tel: 0265212971; tel: 0733553970</p>\n', 'Finished', '29'),
-	(46, '178/2016', '2380720060770', 'Romania', '5', 'Budesti-Fanate', 'Ileana', 'Budelecan', 'Female', '1938-07-20', 160, 69, 0, 752191047, 'Natalia Juncu', 0, 'STR. GHEORGHE MARINESCU nr. 50 , ', '0265211292', '<p>\n budesti-fanete 103</p>\n', '', 'Finished', '30'),
-	(47, '113/2016', '2500102131265', 'Romania', '3', 'Cotunba', 'Virginia', 'Stoica', 'Female', '1950-01-02', 167, 55, 743787577, 0, 'Neacsu Ciprian', 723522817, 'Agas, județul Bacau sat Cotumba nr.293', '', '', '', 'Finished', '30'),
-	(48, '219/2016', '1570308261498', 'Romania', '28', 'Reghin', 'Laszlo', 'Zsigmond', 'Male', '1957-03-08', 185, 88, 2147483647, 741075059, 'Ghidro Iren', 0, '', '', '<p>\n Loc: Reghin, str: Garii, Nr.2/24</p>\n', '', 'In progress', '43'),
-	(49, '148/2016', '1390308270593', 'Romania', '29', 'PIATRA NEAMT', 'CONSTANTIN ', 'CIURCAN', 'Male', '1939-03-08', 177, 85, 745532657, 743768002, 'Dr. Istin Dorin  ', 723597979, '', '', '', '<p>\n Dr. Istin Dorin-loc: Piatra Neamt.&nbsp;</p>\n', 'Finished', '41'),
-	(50, '171/2016', '2310523260011', 'Romania', '28', 'Sarmasu', 'Ana', 'Uilecan', 'Female', '1931-05-23', 170, 80, 734377788, 727164025, 'Dr. Suciaghi Alexandrina Rodica', 265421221, 'Str. republicii, nr. 110 , Sarmasu, jud. Mures', '', '<p>\n Strada 30 Decembrie, nr. 7, com. Sarmasu</p>\n', '', 'Finished', '31'),
-	(51, '170/2016', '1540217263517', 'Romania', '28', 'SIGHISOARA', 'MARCEL ROBERT', 'DIAC', 'Male', '1954-02-17', 183, 82, 745665578, 740993924, 'Dr. Nemes', 745819855, '', '', '', '', 'Finished', '32'),
-	(52, '226/2016', '1461025267390', 'Romania', '28', 'Idrifaia', 'Ioan ', 'Szabo ', 'Male', '1946-10-25', 169, 65, 751216912, 749419018, 'Szanto Agota', 265456161, 'com. Suplac, Str. Principala, Nr. 256, Jud. Mures', '', '<p>\n Sat Idrifaia, Com. Suplac, Nr. 219, Jud. Mures</p>\n', '', 'Finished', '47'),
-	(53, '204/2016', '2530309261465', '', '', '', 'VOICA', 'RACOTA', 'Female', '0000-00-00', 0, 0, 0, 0, '', 0, '', '', '', '', 'In progress', '29'),
-	(54, '208/2016', '1420927191324', 'Romania', '21', 'Miercurea Ciuc', 'Francisc ', 'Csorvasi', 'Male', '1942-09-27', 175, 80, 748693996, 743341526, 'Bota Sandor', 266312218, 'Miercurea Ciuc, Str. Petofi Sandor, Nr.14', '', '<p>\n Miercurea Ciuc, str. Revolutiei din Decembrie, nr. 9, sc B, ap 9.</p>\n', '<p>\n Apartinator - fiica : Csilla Csorvasi</p>\n', 'Finished', '49'),
-	(55, '39/2016', '1491008264426', 'Romania', '28', 'Targu-Mures', 'Dumitru', 'Sipos', 'Male', '1949-10-08', 179, 99, 726228488, 743057371, 'Mathe Eva-Cornelia', 0, 'Tg-Mures, str.Stramba', '', '<p>\n str.Bld 1 Decembrie 1918 Nr.41/2</p>\n', '', 'Finished', '35'),
-	(56, '150/2016', '2580910264376', 'Romania', '28', 'Cipau', 'Maria', 'Daraban', 'Female', '1958-09-10', 156, 58, 755347020, 745391701, 'Mihaila Maria', 0, '', '', '<p>\n Loc.Cipau, str.Principala Nr.105</p>\n', '', 'Finished', '35'),
-	(57, '188/2016', '2481230240024', 'Romania', '26', 'Baia Mare', 'Ileana', 'Motet', 'Female', '1948-12-30', 160, 80, 0, 747218370, '', 0, '', '', '', '', 'In progress', '41'),
-	(58, '128/2016', '1380219264401', 'Romania', '28', 'Ceuasu de Campie', 'Bela', 'Nagy', 'Male', '1938-02-19', 170, 75, 0, 740773095, '', 0, '', '', '', '', 'In progress', '41'),
-	(59, '267/2016', '2390716260015', 'Romania', '28', 'sarmasu', 'Rozalia', 'Ilyes', 'Female', '1939-07-16', 160, 80, 745328746, 741250409, 'Dr. Moanca Maria', 265421096, 'Loc: Sarmasu', '', '', '', 'Finished', '32'),
-	(60, '251/2016', '1460309264408', 'Romania', '28', 'Targu Mures', 'Elemer', 'Kincses', 'Male', '1946-03-09', 182, 104, 723794678, 755843856, 'Dr. Szalkay Martha', 722660416, '', '', '<p>\n Jud: Mures; Loc: Targu Mures; Str. Samuel-Koteles Nr: 9/1B;&nbsp;</p>\n', '', 'Finished', '29'),
-	(61, '292/2016', '1530321060795', 'Romania', '5', 'Bistrita', 'Florea', 'Portius', 'Male', '1953-03-21', 175, 90, 263230532, 766551589, 'Bonea Viorica', 263232011, 'AL. GREUCEANU nr. 5 , BISTRIŢA', '', '<p>\n Bistrita, str. Ghinzii, nr. 24</p>\n', '', 'Finished', '49'),
-	(62, '249/2016', '2551225080155', 'Romania', '8', 'Harman', 'Marinela', 'Tohaneanu', 'Female', '1955-12-25', 160, 75, 747289278, 747289214, 'Dr. Bujor Carmen', 268419988, 'Brasov, Str. Republicii', '', '<p>\n Jud. Brasov, Sat Harman (Com. Harman), Str.Garii Nr.703</p>\n', '', 'Finished', '51'),
-	(63, '277/2016', '2480805264374', 'Romania', '28', 'Singeorgiu de Mures', 'Magdalena', 'Magyari', 'Female', '1948-08-05', 152, 68, 766417246, 766417247, 'Dr. Kuriatko Tamas', 265249030, 'Tg. Mures, Str. Viitorului Nr. 5-7', '', '<p>\n Jud. Mures, Loc. Singeorgiu de Mures, Str. Noua, Nr.3, Bl.A, Ap.6</p>\n', '', 'Finished', '51'),
-	(64, '242/2016', '1570517080037', 'Romania', '40', 'Sirineasca', 'Gheorghe', 'Sedecaru', 'Male', '1957-05-17', 167, 75, 763385940, 0, 'Popescu Adriana', 766881847, '', '', '', '', 'In progress', '30'),
-	(65, '286/2016', '1640204320798', 'Romania', '34', 'Arpasu de Jos', 'Gheorghe-Vasile', 'Vasu', 'Male', '1964-02-04', 177, 110, 747944397, 751848180, 'Serbu Gheorghe', 269520177, 'Arpasu de Jos, Nr. 381', '', '<p>\n Loc. Arpasu de Jos, Nr.64 , Jud. Sibiu</p>\n', '', 'Finished', '47'),
-	(66, '240/2016', '1390817260011', 'Romania', '28', 'Ludus', 'Gheorghe', 'Budian', 'Male', '1939-08-17', 160, 96, 744623895, 744585735, 'Dr. Jerca Cristina', 265413520, 'loc. Ludus, str Avram Iancu, nr 10', '', '<p>\n loc. Ludus, str. N. Grigorescu, nr. 45</p>\n', '', 'In progress', '28'),
-	(67, '294/2016', '2510709322284', 'Romania', '34', 'Alma Vii', 'Maria', 'Varga', 'Female', '1951-07-09', 160, 80, 269862588, 749061567, 'Dr. Chirita Rodica', 238722020, 'BUZAU STR. BUCEGI NR. 5 ', '', '<p>\n Jud. Sibiu, Comuna Mosna, Sat Alma Vii, Nr.167</p>\n', '', 'Finished', '51'),
-	(68, '312/2016', '1580304185994', 'Romania', '20', 'Bobaia', 'Dumitru', 'Docheru', 'Male', '1958-03-04', 170, 81, 767407361, 768335398, '', 0, '', '', '<p>\n Jug. Gorj, Sat Bobaia, Nr.88</p>\n', '<p>\n Pacientul nu cunoaste numele medicului de familie, si nici in foaie nu exista un bilet de trimitere de la acesta.</p>\n', 'Finished', '51'),
-	(69, '239/2016', '2610907264395', 'Romania', '28', 'Reghin', 'Maria', 'Trutia', 'Female', '1961-09-07', 164, 140, 0, 757369143, 'Filip Maria', 0, '', '', '<p>\n Str Duzilor, Nr 26</p>\n', '', 'In progress', '39'),
-	(70, '255', '1380118381458', 'Romania', '40', 'olteanca', 'Ion', 'Marinescu', 'Male', '1938-01-18', 75, 178, 763254171, 724275292, 'Dr. Sacerdotianu', 721218610, 'Glavile', '', '', '', 'In progress', '32'),
-	(71, '230/2016', '1400327190340', 'Romania', '21', 'Cristuru-Secuiesc', 'Albert', 'Demeter', 'Male', '1940-03-27', 164, 90, 756420913, 0, '', 0, '', '', '<p>\n Filias, nr 139</p>\n', '', 'Finished', '30'),
-	(72, '295/2016', '1360202191339', 'Romania', '21', 'Tusnad', 'Dionisie', 'Kovacs', 'Male', '1936-02-02', 160, 55, 725854786, 0, '', 0, '', '', '<p>\n str. Vrabia, nr. 61, Loc. Tusnad, jud. Harghita</p>\n', '<p>\n 0741476316 (vecin Gyorgy Alpar)</p>\n', 'In progress', '53'),
-	(73, '281/2016', '1540707261452', 'Romania', '28', 'Reghin', 'Chirila', 'Luca', 'Male', '1954-07-07', 165, 95, 784001006, 742099786, 'Dr. Ormenisan Vinita-Mieluta', 26551330, 'Reghin, Str. Mihai Viteazul nr. 13 F', '', '<p>\n Reghin, str. Vasile Pop, nr. 23</p>\n', '<p>\n Apartinator: fiul Darius Luca</p>\n', 'Finished', '49'),
-	(74, '288/2016', '2540908264388', 'Romania', '28', 'Caluseri', 'Elisabeta', 'Kutasi', 'Female', '1954-09-08', 160, 65, 374929771, 740860600, 'Szocs Erika', 742201517, 'Caluseri (com. Ernei), nr. 84', '', '<p>\n Caluseri (com. Ernei), nr. 89</p>\n', '<p>\n Pacienta nu are telefon la domiciliu, nr. de tel de contact fiind pentru vecin (vorbitor de L. maghiara) respectiv apartinator: fiica Molnar Kristina care nu locuieste in aceeasi localitate.</p>\n', 'Finished', '49'),
-	(75, '283', '1510601261458', 'Romania', '28', 'Ibanesti', 'Vasile', 'Pop', 'Male', '1951-06-01', 168, 65, 746358186, 753990926, 'Filep Maria', 265521164, 'Reghin, Str. Rodnei;punct secundar IBĂNEŞTI nr.648', '', '<p>\n Ibanesti, nr 709</p>\n', '<p>\n <b  rgb(0, 0, 76); font-family: Arial; font-size: 16px; line-height: 20.8px; background-color: rgb(255, 250, 242);">GP adress: Reghin, Str. Rodnei nr. 18, ap. 2</b></p>\n<p>\n punct secundar IBĂNEŞTI nr.648</p>\n', 'Finished', '49'),
-	(76, '291/2016', '1450128323973', 'Romania', '34', 'Sibiu', 'Ioan', 'Vlad', 'Male', '1945-01-28', 170, 82, 0, 735708537, '', 0, '', '', '<p>\n Jud. Sibiu, Loc.Sibiu, Str.Nicolae Iorga, Nr.53, et.4, ap.19</p>\n', '', 'In progress', '51'),
-	(77, '330/2016', '1460105192470', 'Romania', '21', 'Odorheiu Secuiesc', 'Gavrila-Atila', 'Laszlo', 'Male', '1946-01-05', 167, 105, 749145910, 744268953, 'Dr. Laszlo Ilona', 741189130, 'Varsag Nr. 348', '', '<p>\n Jud. Harghita, Mun. Odorheiu Secuiesc, Str. Csaloka nr.31</p>\n', '', 'Finished', '51'),
-	(78, '299/2016', '1580704264364', 'Romania', '28', 'Tirgu Mures', 'ALBERT-PETER', 'CSIKI', 'Male', '1958-07-04', 183, 90, 745199623, 365415111, 'CHINEZU MARIANA', 265214656, 'Targu Mures, Aleea Carpati Nr. 1, ap. 2', '', '<p>\n Targu Mures, Aleea Carpati Nr. 1, ap. 14</p>\n', '', 'Finished', '47'),
-	(79, '198/2016', '1630603261456', 'Romania', '28', 'Reghin', 'Tudor', 'Botian', 'Male', '1963-05-31', 162, 70, 741666425, 265520466, 'Dr. Moldovan Alexandra', 265511085, '', '', '<p>\n Mun. Reghin, Jud. Mures, str. Vinatorilor, nr.46</p>\n', '', 'In progress', '46'),
-	(80, '157', '1680428202268', 'Romania', '35', 'Siret', 'Kamil', 'Haviar', 'Male', '2068-04-28', 172, 95, 745582036, 741067178, 'Dr Popovics Tamara', 727830646, 'str.28 Noiembrie, nr. 12, Siret, jud. Suceava', '', '<p>\n Siret, jud Suceava, str. Latcu Voda, nr.20, sc.A ap.4</p>\n', '', 'In progress', '46'),
-	(81, '236/2016', '1530421261466', 'Romania', '28', 'Rastolnita', 'Gheorghe', 'Lirca', 'Male', '1953-04-21', 168, 58, 755265866, 0, 'Maresan Rodica', 0, '', '', '<p>\n sat andreneasa 158</p>\n', '', 'In progress', '30'),
-	(82, '185/2016', '1400121270590', 'Romania', '29', 'Piatra-Neamt', 'Virgil', 'Lupascu', 'Male', '1940-01-21', 170, 70, 722567948, 751133658, 'Gafita Danut', 732281219, 'Dumbrava Rosie', '', '', '<p>\n telefon 2 medic familie &nbsp;0785725929</p>\n', 'In progress', '30'),
-	(83, '', '2460221322255', 'Romania', '', '', 'VETURIA', 'MARCUS', 'Female', '0000-00-00', 0, 0, 269700527, 746106437, 'Dr. Vladutiu Felicia', 0, '', '', '', '<p>\n Dr. Vladutiu &nbsp; Felicia-loc Medias</p>\n', 'In progress', '29'),
-	(84, '241/2016', '2570308264401', 'Romania', '28', 'Tirgu Mures', 'Tunde', 'Tabacaru', '', '1957-03-08', 150, 75, 746494191, 758674750, 'Dr. Stan Iulia', 745622257, '', '', '', '', 'Finished', '40'),
-	(85, '348/2016', '1481204323911', 'Romania', '34', 'Sibiu', 'Nicolae', 'Burchea', 'Male', '1948-12-04', 174, 87, 755110467, 269239132, 'Burchea Livia', 724251653, 'sat Racovita jud. Sibiu', '', '<p>\n Sibiu, Str. Strungului, nr. 42.</p>\n', '<p>\n Nr. tel apartinator = fix pentru sotie.</p>\n', 'Finished', '49'),
-	(86, '345/2016', '1781110384204', 'Romania', '40', 'sat Lunca', 'Gheorghe', 'Furdui', 'Male', '1978-11-10', 170, 94, 753696296, 756309675, 'Dr. Dina Aneta', 250754062, 'Judet: Valcea, Localitate: Bujoreni', '', '<p>\n Judet Valcea, Sat Lunca</p>\n', '', 'Finished', '51'),
-	(87, '376/2016', '1530101264443', 'Romania', '28', 'Tirgu Mures', 'Iosif', 'Panczi', 'Male', '1953-01-01', 170, 84, 0, 0, '', 0, '', '', '<p>\n Tg Mures, str. Pasunii, nr. 18A.</p>\n', '', 'In progress', '49'),
-	(88, '382/2016', '1500104323926', 'Romania', '34', 'Sibiu', 'Mihai Dumitru', 'Baltador', 'Male', '1950-01-04', 177, 85, 726196151, 723921002, 'Dr. Daniela Tibuleac', 269230078, 'Str. Nicolae Balcescu, Nr. 28, Sibiu', '', '<p>\n Sibiu, str. Anton-Pann, nr. 17.</p>\n', '<p>\n Apartinator: sotia Baltador Dorina.</p>\n', 'Finished', '49'),
-	(89, '337/2016', '2510128080076', 'Romania', '8', 'Brasov', 'Irodia', 'Serban', 'Female', '1951-01-28', 165, 65, 368425222, 743176587, 'Camarascu Rodica', 268313066, 'Bd. Saturn, 43, Brasov, Brasov, 500440', '', '<p>\n Brasov, str. Muncitorilor, nr 17, bl B9, sc A, ap 10.</p>\n', '<p>\n Apartinator = ginerele Ursu Marius</p>\n', 'Finished', '30');
+INSERT INTO `patients` (`id`, `fo_nr`, `cnp`, `country`, `county`, `city`, `first_name`, `last_name`, `gender`, `date_of_birth`, `height`, `weight`, `patient_phone`, `patient_caregiver_phone`, `GP_name`, `gp_phone`, `GP_office_address`, `GP_email`, `patient_address`, `GP_info`, `status`, `signature`, `admin`) VALUES
+	(15, '7025/2015', '2460610264444', 'Romania', '28', 'Targu Mures', 'Maria', 'Butiu', 'Female', '1946-06-10', 165, 68, 0, 0, '', 0, '', '', '<p>\n Targu Mures, str. Muncii, nr. 13, ap 2, jud. Mures</p>\n', '<p>\n Pacienta era deja externata, am gasit doua numere de telefon pe internet care corespunde cu adresa din buletin</p>\n<p>\n <span><strong>0365 425 659 </strong>(BUTIU FLORE)</span><span> sau</span><span><strong> 0265256160</strong></span></p>\n<p>\n <span><strong>la follow-</strong></span><span><strong>up de intrebat medicul de familie</strong></span></p>\n<p>\n &nbsp;</p>\n', 'Finished', '28', '0'),
+	(16, '65/2016', '1670418267400', 'Romania', '28', 'Tarnaveni', 'Vasile-Mircea', 'Bichis', 'Male', '1967-09-18', 110, 75, 742176727, 771537745, 'Dr. Morar Precup', 0, '', '', '', '<p>\n Dr. Morar Precup -loc: Tarnaveni</p>\n', 'Finished', '29', '0'),
+	(17, '7026/2015', '1420419264391', 'Romania', '28', 'Sangeorgiu de Mures', 'Bela', 'Fazakas', 'Male', '1942-04-19', 180, 75, 365735911, 742121915, 'Dr. Nagi Adela', 0, '', '', '<p>\n Jud: Mures; Loc: Sangeorgiu de Mures; Str. Garii&nbsp;</p>\n', '', 'Finished', '29', '0'),
+	(19, '7029/2015', '1750216193782', 'Romania', '21', 'Hodosa', 'Ferencz Albert', 'Bogdan', 'Male', '1975-02-16', 174, 65, 747389464, 0, 'Ujica Mariana', 0, '', '', '<p>\n nr. 1154</p>\n', '', 'Finished', '30', '0'),
+	(20, '42/2016', '1630105120677', 'Romania', '21', 'Odorheiu Secuiesc', 'Csaba Istvan ', 'Sebestyen', 'Male', '1963-01-05', 180, 100, 762862421, 745809422, 'Nagy Levente Laszlo', 266218182, '535600, Odorheiu Secuiesc, Str. Piaţa Libertăţii, ', 'nleventedr@gmail.com ', '<p>\n str Szent Janos 72</p>\n', '<address address="" color:="" font-family:="" font-size:="" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" line-height:="" segoe="">\n <span><span><span itemprop="streetAddress">STR. GHIPES nr. 4&nbsp;</span>,&nbsp;<span itemprop="addressLocality">ODORHEIU SECUIESC</span>,&nbsp;<span itemprop="addressRegion">JUD. HARGHITA;&nbsp;</span><span 0266-218="" address="" background-color:="" font-size:="" font-weight:="" itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress" line-height:=""> <strong font-size:="" line-height:="" margin:="" padding:="" span="">0266-218382</strong></span></span></span></address>\n<div class="elerhetoseg" font-family:="" font-size:="" p="" padding:="">\n <span><span><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:=""><strong p="" padding:="">&lt;strong 0px;=&quot;&quot; padding:=&quot;&quot; 0px;&quot;=&quot;&quot;&gt;Adresă 2 :&nbsp;</strong>535600, Odorheiu Secuiesc, Str. Piaţa Libertăţii, Nr. 5, Judetul Harghi</strong></strong><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:=""><strong p="" padding:="">ta </strong></strong></strong></span></span></div>\n<p>\n <strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><span><span><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong font-size:="" line-height:="" margin:="" padding:="" span=""><strong p="" padding:="">&nbsp;</strong></strong></strong></strong></strong></strong></strong></strong></strong></span></span></strong></strong></strong></strong></p>\n', 'Finished', '30', '0'),
+	(21, '64/2016', '1490727293790', 'Romania', '21', 'Toplita', 'Carol', 'Papai', 'Male', '1949-07-27', 176, 85, 266341813, 761126644, 'Pascan Loredana', 729618796, 'STR. VICTOR BABEŞ , bl. B sc. 2 ap. 3, TOPLIŢA', '', '<p>\n Dealului bl. 3P ap. 3, Toplita, jud Harghita</p>\n', '', 'Finished', '30', '0'),
+	(22, '7035/2015', '2700626260019', 'Romania', '28', 'Targu Mures', 'Marcela-Florina', 'David', 'Female', '1970-06-26', 170, 80, 745260027, 0, 'Dr. Florea Camelia', 265225002, 'Targu Mures, Str. Dorobanţilor nr. 1, TOPMED', '', '<p>\n loc. Targu Mures, Cal. Sighisoarei, nr.9, ap12, jud. Mures</p>\n', '', 'Finished', '28', '0'),
+	(23, '19/2016', '1510329261451', 'Romania', '28', 'Gurghiu', 'Gavril', 'Menyhart', 'Male', '1951-03-29', 182, 70, 0, 768628121, 'Dr. Ballok Jolanda', 265537177, 'SAT GLĂJĂRIE NR. 148/A, COM. GURGHIU, JUD. MUREŞ', '', '<p>\n loc. Gurghiu, str. Glajarie, nr. 133</p>\n', '', 'Finished', '28', '0'),
+	(29, '7033/2015', '2480925264408', 'Romania', '28', 'Targu Mures', 'Ana', 'Raffi', 'Female', '1948-09-25', 155, 85, 770818998, 757818998, 'Dr. Matefi Judit', 265, '', '', '', '', 'Finished', '29', '0'),
+	(30, '88/2016', '1441130267391', 'Romania', '28', 'Adamus', 'Ioan', 'Nan', 'Male', '1944-11-30', 170, 110, 0, 747504654, 'Oltean Laura', 0, '', '', '<p>\n comuna Dimbu, sat Adamus, nr 78A</p>\n', '<p>\n Numele medicului de familie - inainte de casatorie- pacientul nu cunoaste noul nume.</p>\n', 'Finished', '30', '0'),
+	(32, '31/2016', '2550919264392', 'Romania', '28', 'Targu Mures', 'Elisabeta', 'Farkas', 'Female', '1955-09-19', 156, 67, 745507159, 745507159, 'Szakaly Marta Eszter', 265, '', '', '<p>\n Aleea vrancea, 10/8</p>\n', '<p>\n <span font-family:="" line-height:="">Str. Principală Nr. 433, gornesti</span></p>\n', 'Finished', '30', '0'),
+	(33, '76/2016', '1460820267408', 'Romania', '28', 'Bobohalma', 'Ioan', 'Popa', 'Male', '1946-08-20', 165, 103, 265430063, 0, 'Kis Marinela', 265450011, 'Str. Principală nr. 10/A, Adămuş, Județul Mureș', '', '<p>\n bobohalma, nr 8A</p>\n', '<div background-color:="" font-family:="" font-size:="" line-height:="" margin:="" span="">\n 0265-45.00.11,<o:p></o:p></div>\n<div background-color:="" font-family:="" font-size:="" line-height:="" margin:="" span="">\n 0741-671.927</div>\n', 'Finished', '30', '0'),
+	(34, '32/2016', '1420401264378', 'Romania', '28', 'Targu Mures ', 'Adrian ', 'Dezso', 'Male', '1942-04-01', 168, 95, 365429551, 365429551, 'Dr. Fejer Dana', 0, '', '', '<p>\n Jud: Mures; Loc: Targu Mures; Str. Parangului; Nr.54/39</p>\n', '<p>\n Dr. Fejer Dana- Loc: Targu Mures; Dambu Pietros</p>\n', 'Finished', '29', '0'),
+	(35, '89/2016', '1410812264364', 'Romania', '28', 'Corunca', 'Vasile', 'Petrina', 'Male', '1941-08-12', 175, 80, 749277111, 749277112, 'Dr. Sonia Valentina ', 744477644, '', '', '<p>\n Jud: Mures; Loc: Corunca; Nr: 427</p>\n', '<p>\n Dr. Sonia Valentina-Centru Medical Sonea Sancrai.</p>\n', 'Finished', '29', '0'),
+	(36, '50/2016', '1550314321395', 'Romania', '34', 'Copsa Mica', 'Gheorghe', 'Prostean', 'Male', '1955-03-14', 170, 85, 758551475, 742804020, 'Dr. PENESCU OCTAVIA', 0, '', '', '<p>\n Jud: Sibiu; Localitatea Copsa Mica ; Str. Car 1 Dec 15/6;</p>\n', '<p>\n Dr. Penescu Octavia; Jud: Sibiu; Loc: Copsa Mica;</p>\n', 'Finished', '29', '0'),
+	(37, '137', '2470502264369', 'Romania', '28', 'Targu Mures', 'Maria', 'Gavrila', 'Female', '1947-05-02', 165, 65, 0, 0, '', 0, '', '', '', '', 'Finished', '31', '0'),
+	(38, '130/2016', '1560501264362', 'Romania', '28', 'Ungheni', 'Ioan-Floriner', 'Covrig', 'Male', '1956-05-01', 172, 72, 742846079, 743540350, 'Nagy (Suteu) Elena', 265328161, 'UNGHENI, str.Principală, nr.105', '', '<p>\n Loc. Ungheni, Nr. 95, Judet Mures</p>\n', '', 'Finished', '51', '0'),
+	(39, '79/2016', '1580806264371', 'Romania', '28', 'Targu Mures', 'Iosif', 'Iuga', 'Male', '1958-08-06', 171, 81, 746610391, 0, 'Pop Lupu Maria', 265265024, 'Târgu Mureş, Bulevardul 1 Decembrie 1918 nr. 28 B', '', '<p>\n strada Sighisoarei 11/9</p>\n', '', 'Finished', '30', '0'),
+	(40, '102/2016', '2390324191527', 'Romania', '21', 'Miercurea Ciuc', 'AGNETA', 'FEKETE', 'Female', '1939-03-24', 162, 75, 266323853, 266323853, 'BALASI MAGDOLNA', 266312218, 'Strada Petőfi Sándor 14, Miercurea Ciuc 530210', '', '<p>\n &lt;span arial,=&quot;&quot; sans-serif;=&quot;&quot; font-size:=&quot;&quot; 13px;=&quot;&quot; line-height:=&quot;&quot; 16.12px;&quot;=&quot;&quot;&gt;Strada Culmei, nr. 17, ap. 19, Miercurea Ciuc, Harghita - locuieste cu fiica - nr. de tel. fix</p>\n', '', 'Finished', '49', '0'),
+	(41, '133/2016', '1420912192466', 'Romania', '28', 'Eremieni', 'FRANCISC', 'NAGY-GYORGY', 'Male', '1942-09-12', 175, 75, 265345420, 746649484, 'POP VIORICA', 265576007, 'str.Teilor nr.54, MIERCUREA NIRAJULUI, judet Mures', '', '<p>\n com. Magherani, sat Eremieni, nr. 59, jud. Mures.&nbsp;</p>\n<p>\n Nr. tel. alternativ pacient: 0746649484</p>\n', '', 'Finished', '49', '0'),
+	(42, '174/2016', '2590703190345', 'Romania', '21', 'Cristuru-Secuiesc', 'Ilona', 'Benko', 'Female', '1959-07-03', 154, 64, 746959744, 742492946, 'DR. FARKAS RADULY SANDOR', 266243555, 'Cristuru Secuiesc, Str. Timafalvi, Nr. 10', '', '<p>\n Loc. Cristuru Secuiesc. &nbsp;Str. Kossuth Lajos, bl.A4 et.3 ap.14</p>\n', '', 'Finished', '51', '0'),
+	(44, '118/2016', '2710814321395', 'Romania', '34', 'Motis', 'Angela Victoria', 'Rus', 'Female', '1971-08-14', 159, 137, 763981576, 760841159, 'Pintea Zmeurica', 740246788, 'loc.Valea Viilor', '', '<p>\n loc.Motis, str. Teches nr.47</p>\n', '', 'Finished', '35', '0'),
+	(45, '7/2016', '1461213264367', 'Romania', '28', 'Targu Mures', 'ALEXANDRU ', 'ERDOS', 'Male', '1946-12-13', 176, 103, 365440044, 758642428, 'Dr. Dragan Eniko', 265212971, 'Pta Marasesti Nr.21 ', '', '', '<p>\n Dr. Dragan Eniko- Dora Medical ; P-ta Marasesti Nr.21; Tel: 0265212971; tel: 0733553970</p>\n', 'Finished', '29', '0'),
+	(46, '178/2016', '2380720060770', 'Romania', '5', 'Budesti-Fanate', 'Ileana', 'Budelecan', 'Female', '1938-07-20', 160, 69, 0, 752191047, 'Natalia Juncu', 0, 'STR. GHEORGHE MARINESCU nr. 50 , ', '0265211292', '<p>\n budesti-fanete 103</p>\n', '', 'Finished', '30', '0'),
+	(47, '113/2016', '2500102131265', 'Romania', '3', 'Cotunba', 'Virginia', 'Stoica', 'Female', '1950-01-02', 167, 55, 743787577, 0, 'Neacsu Ciprian', 723522817, 'Agas, județul Bacau sat Cotumba nr.293', '', '', '', 'Finished', '30', '0'),
+	(48, '219/2016', '1570308261498', 'Romania', '28', 'Reghin', 'Laszlo', 'Zsigmond', 'Male', '1957-03-08', 185, 88, 2147483647, 741075059, 'Ghidro Iren', 0, '', '', '<p>\n Loc: Reghin, str: Garii, Nr.2/24</p>\n', '', 'In progress', '43', '0'),
+	(49, '148/2016', '1390308270593', 'Romania', '29', 'PIATRA NEAMT', 'CONSTANTIN ', 'CIURCAN', 'Male', '1939-03-08', 177, 85, 745532657, 743768002, 'Dr. Istin Dorin  ', 723597979, '', '', '', '<p>\n Dr. Istin Dorin-loc: Piatra Neamt.&nbsp;</p>\n', 'Finished', '41', '0'),
+	(50, '171/2016', '2310523260011', 'Romania', '28', 'Sarmasu', 'Ana', 'Uilecan', 'Female', '1931-05-23', 170, 80, 734377788, 727164025, 'Dr. Suciaghi Alexandrina Rodica', 265421221, 'Str. republicii, nr. 110 , Sarmasu, jud. Mures', '', '<p>\n Strada 30 Decembrie, nr. 7, com. Sarmasu</p>\n', '', 'Finished', '31', '0'),
+	(51, '170/2016', '1540217263517', 'Romania', '28', 'SIGHISOARA', 'MARCEL ROBERT', 'DIAC', 'Male', '1954-02-17', 183, 82, 745665578, 740993924, 'Dr. Nemes', 745819855, '', '', '', '', 'Finished', '32', '0'),
+	(52, '226/2016', '1461025267390', 'Romania', '28', 'Idrifaia', 'Ioan ', 'Szabo ', 'Male', '1946-10-25', 169, 65, 751216912, 749419018, 'Szanto Agota', 265456161, 'com. Suplac, Str. Principala, Nr. 256, Jud. Mures', '', '<p>\n Sat Idrifaia, Com. Suplac, Nr. 219, Jud. Mures</p>\n', '', 'Finished', '47', '0'),
+	(53, '204/2016', '2530309261465', '', '', '', 'VOICA', 'RACOTA', 'Female', '0000-00-00', 0, 0, 0, 0, '', 0, '', '', '', '', 'In progress', '29', '0'),
+	(54, '208/2016', '1420927191324', 'Romania', '21', 'Miercurea Ciuc', 'Francisc ', 'Csorvasi', 'Male', '1942-09-27', 175, 80, 748693996, 743341526, 'Bota Sandor', 266312218, 'Miercurea Ciuc, Str. Petofi Sandor, Nr.14', '', '<p>\n Miercurea Ciuc, str. Revolutiei din Decembrie, nr. 9, sc B, ap 9.</p>\n', '<p>\n Apartinator - fiica : Csilla Csorvasi</p>\n', 'Finished', '49', '0'),
+	(55, '39/2016', '1491008264426', 'Romania', '28', 'Targu-Mures', 'Dumitru', 'Sipos', 'Male', '1949-10-08', 179, 99, 726228488, 743057371, 'Mathe Eva-Cornelia', 0, 'Tg-Mures, str.Stramba', '', '<p>\n str.Bld 1 Decembrie 1918 Nr.41/2</p>\n', '', 'Finished', '35', '0'),
+	(56, '150/2016', '2580910264376', 'Romania', '28', 'Cipau', 'Maria', 'Daraban', 'Female', '1958-09-10', 156, 58, 755347020, 745391701, 'Mihaila Maria', 0, '', '', '<p>\n Loc.Cipau, str.Principala Nr.105</p>\n', '', 'Finished', '35', '0'),
+	(57, '188/2016', '2481230240024', 'Romania', '26', 'Baia Mare', 'Ileana', 'Motet', 'Female', '1948-12-30', 160, 80, 0, 747218370, '', 0, '', '', '', '', 'In progress', '41', '0'),
+	(58, '128/2016', '1380219264401', 'Romania', '28', 'Ceuasu de Campie', 'Bela', 'Nagy', 'Male', '1938-02-19', 170, 75, 0, 740773095, '', 0, '', '', '', '', 'In progress', '41', '0'),
+	(59, '267/2016', '2390716260015', 'Romania', '28', 'sarmasu', 'Rozalia', 'Ilyes', 'Female', '1939-07-16', 160, 80, 745328746, 741250409, 'Dr. Moanca Maria', 265421096, 'Loc: Sarmasu', '', '', '', 'Finished', '32', '0'),
+	(60, '251/2016', '1460309264408', 'Romania', '28', 'Targu Mures', 'Elemer', 'Kincses', 'Male', '1946-03-09', 182, 104, 723794678, 755843856, 'Dr. Szalkay Martha', 722660416, '', '', '<p>\n Jud: Mures; Loc: Targu Mures; Str. Samuel-Koteles Nr: 9/1B;&nbsp;</p>\n', '', 'Finished', '29', '0'),
+	(61, '292/2016', '1530321060795', 'Romania', '5', 'Bistrita', 'Florea', 'Portius', 'Male', '1953-03-21', 175, 90, 263230532, 766551589, 'Bonea Viorica', 263232011, 'AL. GREUCEANU nr. 5 , BISTRIŢA', '', '<p>\n Bistrita, str. Ghinzii, nr. 24</p>\n', '', 'Finished', '49', '0'),
+	(62, '249/2016', '2551225080155', 'Romania', '8', 'Harman', 'Marinela', 'Tohaneanu', 'Female', '1955-12-25', 160, 75, 747289278, 747289214, 'Dr. Bujor Carmen', 268419988, 'Brasov, Str. Republicii', '', '<p>\n Jud. Brasov, Sat Harman (Com. Harman), Str.Garii Nr.703</p>\n', '', 'Finished', '51', '0'),
+	(63, '277/2016', '2480805264374', 'Romania', '28', 'Singeorgiu de Mures', 'Magdalena', 'Magyari', 'Female', '1948-08-05', 152, 68, 766417246, 766417247, 'Dr. Kuriatko Tamas', 265249030, 'Tg. Mures, Str. Viitorului Nr. 5-7', '', '<p>\n Jud. Mures, Loc. Singeorgiu de Mures, Str. Noua, Nr.3, Bl.A, Ap.6</p>\n', '', 'Finished', '51', '0'),
+	(64, '242/2016', '1570517080037', 'Romania', '40', 'Sirineasca', 'Gheorghe', 'Sedecaru', 'Male', '1957-05-17', 167, 75, 763385940, 0, 'Popescu Adriana', 766881847, '', '', '', '', 'In progress', '30', '0'),
+	(65, '286/2016', '1640204320798', 'Romania', '34', 'Arpasu de Jos', 'Gheorghe-Vasile', 'Vasu', 'Male', '1964-02-04', 177, 110, 747944397, 751848180, 'Serbu Gheorghe', 269520177, 'Arpasu de Jos, Nr. 381', '', '<p>\n Loc. Arpasu de Jos, Nr.64 , Jud. Sibiu</p>\n', '', 'Finished', '47', '0'),
+	(66, '240/2016', '1390817260011', 'Romania', '28', 'Ludus', 'Gheorghe', 'Budian', 'Male', '1939-08-17', 160, 96, 744623895, 744585735, 'Dr. Jerca Cristina', 265413520, 'loc. Ludus, str Avram Iancu, nr 10', '', '<p>\n loc. Ludus, str. N. Grigorescu, nr. 45</p>\n', '', 'In progress', '28', '0'),
+	(67, '294/2016', '2510709322284', 'Romania', '34', 'Alma Vii', 'Maria', 'Varga', 'Female', '1951-07-09', 160, 80, 269862588, 749061567, 'Dr. Chirita Rodica', 238722020, 'BUZAU STR. BUCEGI NR. 5 ', '', '<p>\n Jud. Sibiu, Comuna Mosna, Sat Alma Vii, Nr.167</p>\n', '', 'Finished', '51', '0'),
+	(68, '312/2016', '1580304185994', 'Romania', '20', 'Bobaia', 'Dumitru', 'Docheru', 'Male', '1958-03-04', 170, 81, 767407361, 768335398, '', 0, '', '', '<p>\n Jug. Gorj, Sat Bobaia, Nr.88</p>\n', '<p>\n Pacientul nu cunoaste numele medicului de familie, si nici in foaie nu exista un bilet de trimitere de la acesta.</p>\n', 'Finished', '51', '0'),
+	(69, '239/2016', '2610907264395', 'Romania', '28', 'Reghin', 'Maria', 'Trutia', 'Female', '1961-09-07', 164, 140, 0, 757369143, 'Filip Maria', 0, '', '', '<p>\n Str Duzilor, Nr 26</p>\n', '', 'In progress', '39', '0'),
+	(70, '255', '1380118381458', 'Romania', '40', 'olteanca', 'Ion', 'Marinescu', 'Male', '1938-01-18', 75, 178, 763254171, 724275292, 'Dr. Sacerdotianu', 721218610, 'Glavile', '', '', '', 'In progress', '32', '0'),
+	(71, '230/2016', '1400327190340', 'Romania', '21', 'Cristuru-Secuiesc', 'Albert', 'Demeter', 'Male', '1940-03-27', 164, 90, 756420913, 0, '', 0, '', '', '<p>\n Filias, nr 139</p>\n', '', 'Finished', '30', '0'),
+	(72, '295/2016', '1360202191339', 'Romania', '21', 'Tusnad', 'Dionisie', 'Kovacs', 'Male', '1936-02-02', 160, 55, 725854786, 0, '', 0, '', '', '<p>\n str. Vrabia, nr. 61, Loc. Tusnad, jud. Harghita</p>\n', '<p>\n 0741476316 (vecin Gyorgy Alpar)</p>\n', 'In progress', '53', '0'),
+	(73, '281/2016', '1540707261452', 'Romania', '28', 'Reghin', 'Chirila', 'Luca', 'Male', '1954-07-07', 165, 95, 784001006, 742099786, 'Dr. Ormenisan Vinita-Mieluta', 26551330, 'Reghin, Str. Mihai Viteazul nr. 13 F', '', '<p>\n Reghin, str. Vasile Pop, nr. 23</p>\n', '<p>\n Apartinator: fiul Darius Luca</p>\n', 'Finished', '49', '0'),
+	(74, '288/2016', '2540908264388', 'Romania', '28', 'Caluseri', 'Elisabeta', 'Kutasi', 'Female', '1954-09-08', 160, 65, 374929771, 740860600, 'Szocs Erika', 742201517, 'Caluseri (com. Ernei), nr. 84', '', '<p>\n Caluseri (com. Ernei), nr. 89</p>\n', '<p>\n Pacienta nu are telefon la domiciliu, nr. de tel de contact fiind pentru vecin (vorbitor de L. maghiara) respectiv apartinator: fiica Molnar Kristina care nu locuieste in aceeasi localitate.</p>\n', 'Finished', '49', '0'),
+	(75, '283', '1510601261458', 'Romania', '28', 'Ibanesti', 'Vasile', 'Pop', 'Male', '1951-06-01', 168, 65, 746358186, 753990926, 'Filep Maria', 265521164, 'Reghin, Str. Rodnei;punct secundar IBĂNEŞTI nr.648', '', '<p>\n Ibanesti, nr 709</p>\n', '<p>\n <b  rgb(0, 0, 76); font-family: Arial; font-size: 16px; line-height: 20.8px; background-color: rgb(255, 250, 242);">GP adress: Reghin, Str. Rodnei nr. 18, ap. 2</b></p>\n<p>\n punct secundar IBĂNEŞTI nr.648</p>\n', 'Finished', '49', '0'),
+	(76, '291/2016', '1450128323973', 'Romania', '34', 'Sibiu', 'Ioan', 'Vlad', 'Male', '1945-01-28', 170, 82, 0, 735708537, '', 0, '', '', '<p>\n Jud. Sibiu, Loc.Sibiu, Str.Nicolae Iorga, Nr.53, et.4, ap.19</p>\n', '', 'In progress', '51', '0'),
+	(77, '330/2016', '1460105192470', 'Romania', '21', 'Odorheiu Secuiesc', 'Gavrila-Atila', 'Laszlo', 'Male', '1946-01-05', 167, 105, 749145910, 744268953, 'Dr. Laszlo Ilona', 741189130, 'Varsag Nr. 348', '', '<p>\n Jud. Harghita, Mun. Odorheiu Secuiesc, Str. Csaloka nr.31</p>\n', '', 'Finished', '51', '0'),
+	(78, '299/2016', '1580704264364', 'Romania', '28', 'Tirgu Mures', 'ALBERT-PETER', 'CSIKI', 'Male', '1958-07-04', 183, 90, 745199623, 365415111, 'CHINEZU MARIANA', 265214656, 'Targu Mures, Aleea Carpati Nr. 1, ap. 2', '', '<p>\n Targu Mures, Aleea Carpati Nr. 1, ap. 14</p>\n', '', 'Finished', '47', '0'),
+	(79, '198/2016', '1630603261456', 'Romania', '28', 'Reghin', 'Tudor', 'Botian', 'Male', '1963-05-31', 162, 70, 741666425, 265520466, 'Dr. Moldovan Alexandra', 265511085, '', '', '<p>\n Mun. Reghin, Jud. Mures, str. Vinatorilor, nr.46</p>\n', '', 'In progress', '46', '0'),
+	(80, '157', '1680428202268', 'Romania', '35', 'Siret', 'Kamil', 'Haviar', 'Male', '2068-04-28', 172, 95, 745582036, 741067178, 'Dr Popovics Tamara', 727830646, 'str.28 Noiembrie, nr. 12, Siret, jud. Suceava', '', '<p>\n Siret, jud Suceava, str. Latcu Voda, nr.20, sc.A ap.4</p>\n', '', 'In progress', '46', '0'),
+	(81, '236/2016', '1530421261466', 'Romania', '28', 'Rastolnita', 'Gheorghe', 'Lirca', 'Male', '1953-04-21', 168, 58, 755265866, 0, 'Maresan Rodica', 0, '', '', '<p>\n sat andreneasa 158</p>\n', '', 'In progress', '30', '0'),
+	(82, '185/2016', '1400121270590', 'Romania', '29', 'Piatra-Neamt', 'Virgil', 'Lupascu', 'Male', '1940-01-21', 170, 70, 722567948, 751133658, 'Gafita Danut', 732281219, 'Dumbrava Rosie', '', '', '<p>\n telefon 2 medic familie &nbsp;0785725929</p>\n', 'In progress', '30', '0'),
+	(83, '', '2460221322255', 'Romania', '', '', 'VETURIA', 'MARCUS', 'Female', '0000-00-00', 0, 0, 269700527, 746106437, 'Dr. Vladutiu Felicia', 0, '', '', '', '<p>\n Dr. Vladutiu &nbsp; Felicia-loc Medias</p>\n', 'In progress', '29', '0'),
+	(84, '241/2016', '2570308264401', 'Romania', '28', 'Tirgu Mures', 'Tunde', 'Tabacaru', '', '1957-03-08', 150, 75, 746494191, 758674750, 'Dr. Stan Iulia', 745622257, '', '', '', '', 'Finished', '40', '0'),
+	(85, '348/2016', '1481204323911', 'Romania', '34', 'Sibiu', 'Nicolae', 'Burchea', 'Male', '1948-12-04', 174, 87, 755110467, 269239132, 'Burchea Livia', 724251653, 'sat Racovita jud. Sibiu', '', '<p>\n Sibiu, Str. Strungului, nr. 42.</p>\n', '<p>\n Nr. tel apartinator = fix pentru sotie.</p>\n', 'Finished', '49', '0'),
+	(86, '345/2016', '1781110384204', 'Romania', '40', 'sat Lunca', 'Gheorghe', 'Furdui', 'Male', '1978-11-10', 170, 94, 753696296, 756309675, 'Dr. Dina Aneta', 250754062, 'Judet: Valcea, Localitate: Bujoreni', '', '<p>\n Judet Valcea, Sat Lunca</p>\n', '', 'Finished', '51', '0'),
+	(87, '376/2016', '1530101264443', 'Romania', '28', 'Tirgu Mures', 'Iosif', 'Panczi', 'Male', '1953-01-01', 170, 84, 0, 0, '', 0, '', '', '<p>\n Tg Mures, str. Pasunii, nr. 18A.</p>\n', '', 'In progress', '49', '0'),
+	(88, '382/2016', '1500104323926', 'Romania', '34', 'Sibiu', 'Mihai Dumitru', 'Baltador', 'Male', '1950-01-04', 177, 85, 726196151, 723921002, 'Dr. Daniela Tibuleac', 269230078, 'Str. Nicolae Balcescu, Nr. 28, Sibiu', '', '<p>\n Sibiu, str. Anton-Pann, nr. 17.</p>\n', '<p>\n Apartinator: sotia Baltador Dorina.</p>\n', 'Finished', '49', '0'),
+	(89, '337/2016', '2510128080076', 'Romania', '8', 'Brasov', 'Irodia', 'Serban', 'Female', '1951-01-28', 165, 65, 368425222, 743176587, 'Camarascu Rodica', 268313066, 'Bd. Saturn, 43, Brasov, Brasov, 500440', '', '<p>\n Brasov, str. Muncitorilor, nr 17, bl B9, sc A, ap 10.</p>\n', '<p>\n Apartinator = ginerele Ursu Marius</p>\n', 'Finished', '30', '0');
 /*!40000 ALTER TABLE `patients` ENABLE KEYS */;
 
 
