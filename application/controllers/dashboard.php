@@ -90,27 +90,22 @@ class dashboard extends CI_Controller {
         $crud->set_relation('county','county','county');
         $crud->set_relation('signature','user','user_name');
         $crud->set_relation('admin','user','user_name');
-        
-        //$crud->set_relation('city','coduripostale','Localitate');
-        
-        //print_r($drp);
 
         $crud->add_action('Interventions', '', '','ui-icon-heart',array($this,'go_intervention'));
         $crud->add_action('Follow-Up', '', '','ui-icon-calculator',array($this,'go_followup'));
-
         
         $crud->callback_column('follow_up_date',array($this,'_followup'));
         $crud->callback_column('Completed_FU_events',array($this,'_nofollowup'));
         $crud->callback_column('No_of_PCIs',array($this,'_nointerv'));
 
         // log- user activities
-     
-
+        $crud->callback_after_insert(array($this, 'log_user_after_insert'));
+        $crud->callback_after_update(array($this, 'log_user_after_update'));
+        $crud->callback_after_delete(array($this, 'log_user_after_delete'));
         
         $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
              array('New' => 'New','In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
-
 
 
         //$extra = "info";
@@ -123,8 +118,57 @@ class dashboard extends CI_Controller {
 
     }
 
-  
 
+    function log_user_after_insert($post_array,$primary_key)
+    {
+      
+      $user_id = $this->session->userdata('user_id');
+      $user_logs_insert = array(
+        "user_id"     => $user_id,
+        "action"      => "Insert new patient",
+        "info"        => "Patient id: ".$primary_key,
+        "ip_location" => "ip fix",
+        "date"        => date('d-m-Y H:i')
+         );
+ 
+       $this->db->insert('logs',$user_logs_insert);
+ 
+      return true;
+    }
+  
+    function log_user_after_update($post_array,$primary_key)
+    {
+      
+      $user_id = $this->session->userdata('user_id');
+      $user_logs_insert = array(
+        "user_id"     => $user_id,
+        "action"      => "Update patient informations",
+        "info"        => "Patient id: ".$primary_key,
+        "ip_location" => "ip fix",
+        "date"        => date('d-m-Y H:i')
+         );
+ 
+       $this->db->insert('logs',$user_logs_insert);
+ 
+      return true;
+    }
+
+    function log_user_after_delete($post_array,$primary_key)
+    {
+      
+      $user_id = $this->session->userdata('user_id');
+      $user_logs_insert = array(
+        "user_id"     => $user_id,
+        "action"      => "Delete patient from database",
+        "info"        => "Patient id: ".$primary_key,
+        "ip_location" => "ip fix",
+        "date"        => date('d-m-Y H:i')
+         );
+ 
+       $this->db->insert('logs',$user_logs_insert);
+ 
+      return true;
+    }
 
     function _followup($value, $row)
     { 
