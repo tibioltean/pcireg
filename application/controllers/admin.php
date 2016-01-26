@@ -129,4 +129,55 @@ class admin extends CI_Controller {
     return "<input type='password' name='password' value='' />";
    }
 
+    function user_activities() 
+    {
+       $crud = new grocery_CRUD();
+     
+        $crud->set_theme('datatables');
+        $crud->set_table('logs');
+       // $crud->display_as('login','Username');
+   
+       
+        //$crud->set_subject('Users Activities');
+        $crud->columns('id','user_name','action','info','ip_location','date');
+
+        // unset actions
+        $crud->unset_delete();
+        $crud->unset_add();
+        $crud->unset_edit();
+
+       
+        $crud->callback_column('user_name',array($this,'_users'));
+
+       
+        
+        $output = $crud->render();   
+        $this->_admin_output($output);
+
+
+
+    }
+
+     function _users($value, $row)
+    { 
+
+     // Interogare follow up
+     //****************************************** 
+      $id = $row->user_id;
+
+
+      $this->db->select('user_name');
+      $this->db->where('user_id ='.$id);
+      $query = $this->db->get('user');     
+      $result = $query->result_array();
+      //******************************************
+      
+      $username = $result['0']['user_name'];
+      
+      return   $username;
+    }
+
+
+
+
 }

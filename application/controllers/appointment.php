@@ -50,6 +50,10 @@ class Appointment extends CI_Controller
         //echo $this->calendar->generate();
         echo $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4));
 
+        $ip = $this->input->ip_address();
+
+        echo $ip;
+
     }
     
     // ------------------------------------------------------------------------

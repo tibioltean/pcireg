@@ -38,7 +38,9 @@ a:hover
         <div class="container">
             <span class="brand">PCI Registry => Settings </span>
             <ul class="nav">
-             	<li><a href="<?=site_url('dashboard/database')?>">Dashboard</a></li>                
+             	<li><a href="<?=site_url('dashboard/database')?>">Dashboard</a></li>  
+                <li><a href="<?=site_url('admin/users')?>">Users </a></li>                
+                <li><a href="<?=site_url('admin/user_activities')?>">Users activities</a></li>                
                 <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li> 
             </ul>
         </div>
