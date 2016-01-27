@@ -124,6 +124,7 @@ class dashboard extends CI_Controller {
       
       $ip = $this->input->ip_address();  
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Insert new patient",
@@ -141,6 +142,8 @@ class dashboard extends CI_Controller {
     {
       $ip = $this->input->ip_address();      
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
+
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Update patient informations",
@@ -157,8 +160,8 @@ class dashboard extends CI_Controller {
     function log_user_after_delete_patient($primary_key)
     {
       $ip = $this->input->ip_address(); 
-
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Delete patient from database",
@@ -1424,6 +1427,7 @@ class dashboard extends CI_Controller {
       
       $ip = $this->input->ip_address();  
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Insert new patient intervention",
@@ -1441,6 +1445,7 @@ class dashboard extends CI_Controller {
     {
       $ip = $this->input->ip_address();      
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Update patient intervention",
@@ -1457,8 +1462,8 @@ class dashboard extends CI_Controller {
     function log_user_after_delete_intervention($primary_key)
     {
       $ip = $this->input->ip_address(); 
-
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Delete intervention from database",
@@ -1719,6 +1724,7 @@ class dashboard extends CI_Controller {
       
       $ip = $this->input->ip_address();  
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Insert new follow-up",
@@ -1736,6 +1742,7 @@ class dashboard extends CI_Controller {
     {
       $ip = $this->input->ip_address();      
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Update patient follow-up",
@@ -1751,9 +1758,9 @@ class dashboard extends CI_Controller {
 
     function log_user_after_delete_followup($primary_key)
     {
-      $ip = $this->input->ip_address(); 
-
+      $ip = $this->input->ip_address();
       $user_id = $this->session->userdata('user_id');
+      date_default_timezone_set("Europe/Bucharest");
       $user_logs_insert = array(
         "user_id"     => $user_id,
         "action"      => "Delete follow-up from database",

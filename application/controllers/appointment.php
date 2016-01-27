@@ -50,9 +50,12 @@ class Appointment extends CI_Controller
         //echo $this->calendar->generate();
         echo $this->calendar->generate($this->uri->segment(3), $this->uri->segment(4));
 
-        $ip = $this->input->ip_address();
+        //$ip = $this->input->ip_address();
 
-        echo $ip;
+        date_default_timezone_set("Europe/Bucharest");
+        echo "The time is " . date("h:i:sa");
+
+        //echo $ip;
 
     }
     
