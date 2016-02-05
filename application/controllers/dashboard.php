@@ -52,7 +52,7 @@ class dashboard extends CI_Controller {
         $crud->set_subject('Patient');
         
         $crud->display_as('fo_nr','Medical Record number');
-         $crud->field_tip('fo_nr', 'eg: 1234/2016');
+        $crud->field_tip('fo_nr', 'eg: 1234/2016');
         $crud->display_as('city','City or Locality');
         $crud->display_as('gp_phone','GP Phone'); 
         $crud->display_as('GP_info','Notes');
@@ -451,7 +451,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -465,7 +465,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -477,7 +477,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -490,7 +490,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -502,7 +502,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -514,7 +514,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -526,7 +526,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -538,7 +538,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -551,7 +551,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -564,7 +564,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -577,7 +577,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -589,7 +589,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -601,7 +601,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -613,7 +613,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -625,7 +625,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -637,7 +637,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -649,7 +649,7 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
@@ -661,10 +661,156 @@ class dashboard extends CI_Controller {
                       '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
                       '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
                       '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
-                      '75 - 90% (severe stenosis)' => '75 - 90% (severe stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      )); 
+
+         $crud->display_as('abc_lad','Arterial by-pass conduit to LAD (segment 207)');
+         $crud->field_tip('abc_lad', 'Indicate stenosis severity');
+         $crud->field_type('abc_lad','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      )); 
+
+        $crud->display_as('abc_diag','Arterial by-pass conduit to diagonal branch (segment 209)');
+        $crud->field_tip('abc_diag', 'Indicate stenosis severity'); 
+        $crud->field_type('abc_diag','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
                       '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
                       '100% (complete occlusion)' => '100% (complete occlusion)'                     
                       ));  
+
+        $crud->display_as('abc_im','Arterial by-pass conduit to intermediate artery (segment 212)');
+        $crud->field_tip('abc_im', 'Indicate stenosis severity'); 
+        $crud->field_type('abc_im','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('abc_om','Arterial by-pass conduit to obtuse marginal branch (segment 212a)');
+        $crud->field_tip('abc_om', 'Indicate stenosis severity'); 
+        $crud->field_type('abc_om','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('abc_rca','Arterial by-pass conduit to right coronary artery (segment 203)');
+        $crud->field_tip('abc_rca', 'Indicate stenosis severity'); 
+        $crud->field_type('abc_rca','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('abc','Other arterial by-pass conduit (segment 200)');
+        $crud->field_tip('abc', 'Indicate stenosis severity'); 
+        $crud->field_type('abc','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      )); 
+
+        $crud->display_as('vbc_lad','Venous by-pass conduit to LAD (segment 307)');
+        $crud->field_tip('vbc_lad', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc_lad','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      )); 
+
+        $crud->display_as('vbc_diag','Venous by-pass conduit to diagonal branch (segment 309)');
+        $crud->field_tip('vbc_diag', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc_diag','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('vbc_im','Venous by-pass conduit to intermediate artery (segment 312)');
+        $crud->field_tip('vbc_im', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc_im','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('vbc_om','Venous by-pass conduit to obtuse marginal branch (segment 312a)');
+        $crud->field_tip('vbc_om', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc_om','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+        $crud->display_as('vbc_rca','Venous by-pass conduit to right coronary artery (segment 303)');
+        $crud->field_tip('vbc_rca', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc_rca','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      ));  
+
+
+        $crud->display_as('vbc','Other venous by-pass conduit (segment 300)');
+        $crud->field_tip('vbc', 'Indicate stenosis severity'); 
+        $crud->field_type('vbc','dropdown',
+                     array(
+                      '<25% (luminal irregularities)' => '<25% (luminal irregularities)',
+                      '25 - 49% (mild stenosis)' => '25 - 49% (mild stenosis)',
+                      '50 - 74% (intermediate stenosis)' => '50 - 74% (intermediate stenosis)',
+                      '75 - 89% (severe stenosis)' => '75 - 89% (severe stenosis)',
+                      '90 - 99% (critical stenosis)' => '90 - 99% (critical stenosis)',                      
+                      '100% (complete occlusion)' => '100% (complete occlusion)'                     
+                      )); 
+
 
         $crud->display_as('no_vessels','No. of diseased vessels');
         $crud->field_tip('no_vessels', 'Indicate the number of vessels with at least one ≥50% stenosis: RCA (segm. 1,2,3,4,16); LAD (segm. 6,7,8,9,10); LCX (segm. 11,12,12a,12b,13,14,15). ');
@@ -1003,9 +1149,19 @@ class dashboard extends CI_Controller {
                       'segment 13' => 'segment 13',
                       'segment 14' => 'segment 14',
                       'segment 15' => 'segment 15',
-                      'segment 16' => 'segment 16',
-                      'arterial by-pass conduit' => 'arterial by-pass conduit',                     
-                      'venous by-pass conduit' => 'venous by-pass conduit'                     
+                      'segment 16' => 'segment 16',                                     
+                      'segment 207' => 'segment 207',                                     
+                      'segment 209' => 'segment 209',                                     
+                      'segment 212' => 'segment 212',                                     
+                      'segment 212a' => 'segment 212a',                                     
+                      'segment 203' => 'segment 203',                                     
+                      'segment 200' => 'segment 200',                                     
+                      'segment 307' => 'segment 307',                                     
+                      'segment 309' => 'segment 309',                                     
+                      'segment 312' => 'segment 312',                                     
+                      'segment 312a' => 'segment 312a',                                     
+                      'segment 303' => 'segment 303',                                     
+                      'segment 300' => 'segment 300'                                    
                       ));    
 
         //****************5. Investigations for Coronary Artery Disease  
@@ -1551,7 +1707,7 @@ class dashboard extends CI_Controller {
         $crud->field_tip('anginal_status', 'Indicate the patients anginal status at the time of follow-up');
 
         $crud->display_as('date_readmission','Date of first hospital readmission since discharge');
-        $crud->field_tip('date_readmission', 'If the patient is readmitted to hospital indicate the date');
+        $crud->field_tip('date_readmission', 'If the patient is readmitted to hospital for a cardiovascular cause, indicate the date');
         
         $crud->field_tip('dyspnoea', 'Grade breathing status according to the New York Heart Association (NYHA) functional classification.');
 

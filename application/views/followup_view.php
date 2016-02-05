@@ -36,29 +36,18 @@ a:hover
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-            <span class="brand">PCI Registry</span>
+            <span class="brand">PCI Registry => Settings </span>
             <ul class="nav">
-             	<li><a href="<?=site_url('dashboard/database')?>">Patients</a></li>
-              <!--   <li><a href="<?=site_url('dashboard/assignment')?>">Assignment</a></li> -->
-                <?php 
-                 $drp = $this->session->userdata('user_type');
-                 //print_r($drp);
-                 if($drp == "admin"){          
-       
-                 ?>
-                <li><a href="<?php echo site_url('followup/my_calendar')?>">My Follow-up</a></li>           
-                <li><a href="<?php echo site_url('dashboard/database')?>">Statistics</a></li>
-                <li><a href="<?php echo site_url('admin/users')?>">Settings</a></li>
-                 <?php } ?>        
-                <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li>
+             	<li><a href="<?=site_url('dashboard/database')?>">Dashboard</a></li>  
+                <li><a href="<?=site_url('admin/users')?>">Users </a></li>                
+                <li><a href="<?=site_url('admin/user_activities')?>">Users activities</a></li>                
+                <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li> 
             </ul>
         </div>
     </div>
 </div>
 	
-	<div style='height:30px; margin-left:5px;'>
-    <h3> <?php  if(!empty($extra)) echo $extra;  ?>   </h3>
-     </div>  
+	<div style='height:20px;'></div>  
     <div>
 		<?php echo $output; ?>
     </div>

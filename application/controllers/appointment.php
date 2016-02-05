@@ -24,8 +24,7 @@ class Appointment extends CI_Controller
     public function index($year =null, $month=null)
     {
        
-        $prefs = array(
-        
+        $prefs = array(        
         'month_type'   => 'long',
         'day_type'     => 'short',
         'show_next_prev'  => TRUE,
