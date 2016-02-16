@@ -46,7 +46,8 @@ a:hover
                  if($drp == "admin"){          
        
                  ?>
-                <li><a href="<?php echo site_url('followup/my_calendar')?>">My Follow-up</a></li>           
+                 <?php $luna = date("Y/m"); ?>
+                <li><a href="<?php echo site_url('followup/my_calendar/')?><?php echo "/".$luna ?>">My Follow-up</a></li>           
                 <li><a href="<?php echo site_url('dashboard/database')?>">Statistics</a></li>
                 <li><a href="<?php echo site_url('admin/users')?>">Settings</a></li>
                  <?php } ?>        

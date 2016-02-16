@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '193.226.0.74';
-$db['default']['username'] = 'admin_pci';
-$db['default']['password'] = 'mAS4pJmm3z';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
 $db['default']['database'] = 'admin_pci_registry';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -70,4 +70,8 @@ $db['default']['stricton'] = FALSE;
 // Local DB
 // $db['default']['username'] = 'root';
 // $db['default']['password'] = '';
+// $db['default']['database'] = 'admin_pci_registry';
+// $db['default']['hostname'] = '193.226.0.74';
+// $db['default']['username'] = 'admin_pci';
+// $db['default']['password'] = 'mAS4pJmm3z';
 // $db['default']['database'] = 'admin_pci_registry';
