@@ -36,7 +36,7 @@ a:hover
 <div class="navbar">
     <div class="navbar-inner">
         <div class="container">
-            <span class="brand">PCI Registry => Settings </span>
+            <span class="brand">PCI Registry => My calendar </span>
             <ul class="nav">
              	<li><a href="<?=site_url('dashboard/database')?>">Dashboard</a></li>  
                 <li><a href="<?=site_url('admin/users')?>">Users </a></li>                

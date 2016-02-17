@@ -58,7 +58,7 @@ a:hover
 <div class="container">
     <div class="row">
         <div class="col-md-12" align="right">
-                    &copy; 2015 IUBCvT | By : Registry for Percutaneous Coronary Interventions
+                    &copy; <?php echo date("Y"); ?> IUBCvT | By : Registry for Percutaneous Coronary Interventions
          </div>
 
     </div>
