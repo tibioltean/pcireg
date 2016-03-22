@@ -8,6 +8,12 @@
 */
 define('SALT', 'justAnotherSalt000-000');
 
+
+
+// PASSWORD EMAIL Gmail
+define('EMAIL_PASS', 'abelcet!@#123');
+
+
 /*
 |--------------------------------------------------------------------------
 | File and Directory Modes

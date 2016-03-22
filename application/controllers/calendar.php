@@ -29,6 +29,7 @@ class Calendar extends CI_Controller {
 
     public function _admin_output($output = null)
     {
+
        
         $this->load->view('calendar_view.php',$output);
 
@@ -45,16 +46,7 @@ class Calendar extends CI_Controller {
 
     function my_calendar($year = null, $month = null){
 
-        
-
-
-
-
-
-
-
-
-
+     
         $prefs = array(        
             'month_type'   => 'long',
             'day_type'     => 'short',

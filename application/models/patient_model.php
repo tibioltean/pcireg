@@ -34,6 +34,24 @@ class Patient_model extends CRUD_model
 	    return $array;
 	}
 
+	 function get_patients_by_admin($user_id)
+	{
+		
+		$this->db->where('admin', $user_id); 
+	    $query = $this->db->get('patients');
+	    $array = array();
+
+	    foreach($query->result() as $row)
+	    {
+	        $array[] = $row->id;
+	         // add each user id to the array
+	    }
+
+	    return $array;
+	}
+
+	
+
 
 
 

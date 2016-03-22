@@ -105,7 +105,7 @@ class dashboard extends CI_Controller {
         
         $crud->unique_fields('cnp');
         $crud->field_type('status','dropdown',
-             array('New' => 'New','In progress' => 'In progress', 'Finished' => 'Finished','Delete' => 'Delete')); 
+             array('New' => 'New','In progress' => 'In progress', 'Finished' => 'Finished','Dead' => 'Dead','Delete' => 'Delete')); 
 
 
         //$extra = "info";
@@ -191,7 +191,7 @@ class dashboard extends CI_Controller {
           // trebuie sa scot date pci din primul din interventii
           // data_pci
       $this->db->select('intrevention_id, patient_id, date_time_percutaneous');
-      $this->db->where('patient_id ='.$id_pacient);
+      $this->db->where('patient_id ='.$id_pacient);    
       $this->db->order_by("intrevention_id", "asc"); 
       $query = $this->db->get('intervention');     
       $count_int = $query->num_rows();      
