@@ -1,0 +1,956 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"data",
+				"data_nasterii"
+			],
+			[
+				"an",
+				"an"
+			],
+			[
+				"send",
+				"sendMail"
+			],
+			[
+				"con",
+				"contor"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"com",
+				"com"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"info",
+				"info_cal"
+			],
+			[
+				"date",
+				"date_c"
+			],
+			[
+				"zi",
+				"zi_fup"
+			],
+			[
+				"pati",
+				"patient_id"
+			],
+			[
+				"user",
+				"user_name"
+			],
+			[
+				"pa",
+				"patient_id"
+			],
+			[
+				"int",
+				"intrevention_id"
+			],
+			[
+				"nu",
+				"null"
+			],
+			[
+				"in",
+				"interventions"
+			],
+			[
+				"Foll",
+				"Follow-Up"
+			],
+			[
+				"qu",
+				"query"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"follow",
+				"followup"
+			],
+			[
+				"ca",
+				"calendar	CI - Calendar Helper"
+			],
+			[
+				"last",
+				"last_name"
+			],
+			[
+				"first",
+				"first_name"
+			],
+			[
+				"pac",
+				"pacient"
+			],
+			[
+				"patin",
+				"patients"
+			],
+			[
+				"sta",
+				"status"
+			],
+			[
+				"ste",
+				"stent"
+			],
+			[
+				"Bare",
+				"bare_metal"
+			],
+			[
+				"fiel",
+				"field_tip"
+			],
+			[
+				"Int",
+				"Intervention"
+			],
+			[
+				"die",
+				"diesease"
+			],
+			[
+				"comp",
+				"complications"
+			],
+			[
+				"S",
+				"STEMI"
+			],
+			[
+				"PC",
+				"PCI"
+			],
+			[
+				"ot",
+				"other_antiplatele"
+			],
+			[
+				"pacient",
+				"pacient_id"
+			],
+			[
+				"sex",
+				"sex"
+			],
+			[
+				"dashboar",
+				"dashboard_view"
+			],
+			[
+				"da",
+				"data-completed"
+			],
+			[
+				"at",
+				"attr"
+			],
+			[
+				"to",
+				"todo_id"
+			],
+			[
+				"su",
+				"success"
+			],
+			[
+				"po",
+				"postData"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"todo",
+				"todo_delete"
+			],
+			[
+				"wh",
+				"where"
+			],
+			[
+				"out",
+				"output"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"err",
+				"error_array"
+			],
+			[
+				"set",
+				"set_output"
+			],
+			[
+				"regi",
+				"register_form_error"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"post",
+				"_POST"
+			],
+			[
+				"_",
+				"_post	CI - $_POST"
+			],
+			[
+				"pos",
+				"postData"
+			],
+			[
+				"s",
+				"submit"
+			],
+			[
+				"logi",
+				"login_form"
+			],
+			[
+				"se",
+				"session_userdata	CI - Session - Retrieving Session Data"
+			],
+			[
+				"db",
+				"db_get	CI - Active Record DB Get"
+			],
+			[
+				"us",
+				"user_model"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"user_",
+				"user_id"
+			],
+			[
+				"prin",
+				"print_r"
+			],
+			[
+				"ti",
+				"this"
+			],
+			[
+				"ses",
+				"session_destroy"
+			],
+			[
+				"hea",
+				"header	Tag"
+			],
+			[
+				"fo",
+				"footer	Tag"
+			],
+			[
+				"base",
+				"base_uri"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"fun",
+				"function"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/controllers/dashboard.php",
+			"settings":
+			{
+				"buffer_size": 97314,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/statistics.php",
+			"settings":
+			{
+				"buffer_size": 976,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/dashboard_view.php",
+			"settings":
+			{
+				"buffer_size": 2341,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "inst",
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"ex",
+				"Export to HTML: Show Export Menu"
+			],
+			[
+				"view",
+				"View: Toggle Status Bar"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"bar",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"menu\\",
+				"Emmet: Encode\\Decode Image to data:URL"
+			],
+			[
+				"toggle",
+				"Bookmarks: Toggle"
+			],
+			[
+				"",
+				"Convert Case: Lower Case"
+			],
+			[
+				"Package Control: remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"open commnad pallete",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/wamp/www/pcireg/application/views/admin_view.php",
+		"/C/wamp/www/restart/resources/views/client/contor-wifi.blade.php",
+		"/C/wamp/www/restart/database/seeds/DatabaseSeeder.php",
+		"/C/Users/ProDeskIT/Desktop/SmsSender.php",
+		"/C/wamp/www/restart/app/SmsSender.php",
+		"/C/Users/ProDeskIT/Desktop/NAS conturi.txt",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/ProDeskIT/Desktop/hosts",
+		"/C/wamp/www/ilikefoto/resources/views/admin/home.blade.php",
+		"/C/wamp/www/ilikefoto/.env",
+		"/C/wamp/www/restart/database/migrations/2015_12_16_171015_create_contors_table.php",
+		"/C/wamp/www/nas/application/controllers/Examples.php",
+		"/C/wamp/www/nas/application/config/database.php",
+		"/C/wamp/www/nas/application/controllers/Welcome.php",
+		"/C/wamp/www/pcireg/application/controllers/dashboard.php",
+		"/C/wamp/www/nas/application/config/autoload.php",
+		"/C/wamp/www/nas/application/config/config.php",
+		"/C/wamp/www/nas/.htaccess",
+		"/C/wamp/www/nas/application/views/example.php",
+		"/C/wamp/www/nas/application/.htaccess",
+		"/C/wamp/www/nas/application/config/grocery_crud.php",
+		"/C/users/prodes~1/appdata/local/temp/sublime-sftp-browse-1458809268/linux/home/admin/web/default.domain/public_html/application/controllers/admin.php",
+		"/C/users/prodes~1/appdata/local/temp/sublime-sftp-browse-1458809671/linux/home/admin/web/default.domain/public_html/application/views/admin_view.php",
+		"/C/wamp/www/app/application/config/database.php",
+		"/C/wamp/www/pcireg/application/controllers/calendar.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/controllers/Pacienti.php",
+		"/C/Users/ProDeskIT/Desktop/config.php",
+		"/C/Users/ProDeskIT/.bashrc",
+		"/C/Users/ProDeskIT/Downloads/admin.2016-03-15/db/admin_pci_registry/admin_pci_registry.mysql.sql",
+		"/C/wamp/www/eclinic/.env",
+		"/C/wamp/www/eclinic/application/modules/tem_cardio_adulti/views/pacienti_datatables.php",
+		"/C/wamp/www/eclinic/application/modules/Template/views/cardio_adulti/pacienti_view.php",
+		"/C/wamp/www/eclinic/application/modules/tem_cardio_adulti/config/routes.php",
+		"/C/wamp/www/eclinic/application/modules/Template/controllers/Template.php",
+		"/C/Users/ProDeskIT/Desktop/.htaccess",
+		"/C/wamp/www/eclinic/application/modules/tem_cardio_adulti/controllers/Pacienti.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/pacienti_datatables.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/partials/meniu_stanga.php",
+		"/C/wamp/www/eclinic/application/modules/tem_cardio_adulti/views/partials/meniu_stanga.php",
+		"/C/wamp/www/eclinic/application/modules/Template/views/cardio_adulti/default.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/pacienti_view.php",
+		"/C/wamp/www/jrdash/application/controllers/api.php",
+		"/C/wamp/www/jrdash/application/views/home/register_view.php",
+		"/C/wamp/www/eclinic/.git/config",
+		"/C/wamp/www/eclinic/db.sql",
+		"/C/wamp/www/jrdash/public/js/dashboard.js",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/forms-validation.html",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/partials/pacienti/modal_add_pacient.php",
+		"/C/wamp/www/eclinic/assets/design/widgets/modal/modal.css",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/forms-elements.html",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/meniu_cardio_adulti",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/pacienti/modal_add_pacient.php",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/modals.html",
+		"/C/Users/ProDeskIT/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/views/modal_add_pacient.php",
+		"/C/wamp/www/pcireg/application/views/dashboard_view.php",
+		"/C/wamp/www/eclinic/assets/design/widgets/owlcarousel/owlcarousel.css",
+		"/C/wamp/www/eclinic/assets/design/widgets/overlay/overlay.js",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/e-clinic-datatables.html",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/eclinic_blank.html",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/controllers/Dashboard.php",
+		"/C/wamp/www/eclinic/application/modules/Template/views/Dashboard_view.php",
+		"/C/wamp/www/eclinic/application/modules/Template/views/sample_template_v.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/controllers/Clinica.php",
+		"/C/wamp/www/eclinic/application/modules/clinica/controllers/Clinica.php",
+		"/C/wamp/www/eclinic/application/modules/clinica/views/clinica_view.php",
+		"/C/wamp/www/eclinic/application/modules/clinica/views/pacienti_view.php",
+		"/C/wamp/www/eclinic/application/core/MY_Controller.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/config/routes.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/controllers/Welcome.php",
+		"/C/wamp/www/eclinic/application/modules/cardio_adulti/config/grocery_crud.php",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-template/e-clinic-page-blank.html",
+		"/C/wamp/www/eclinic/application/modules/clinica/views/errors/pacienti_view.php",
+		"/C/Users/ProDeskIT/Desktop/products-WB02R1485/production/admin-angular/tables.html",
+		"/D/dezvoltare_achizitii_paypal/Template_monarch_admin/products-WB02R1485/assets/elements/loading-indicators.css",
+		"/D/dezvoltare_achizitii_paypal/Template_monarch_admin/products-WB02R1485/src/partials/frontend/footer/footer.hbs",
+		"/D/dezvoltare_achizitii_paypal/Template_monarch_admin/products-WB02R1485/assets/themes/admin/layout.css",
+		"/C/Users/ProDeskIT/Desktop/layout-1/assets/css/style.css",
+		"/C/Users/ProDeskIT/Desktop/layout-1/index.html",
+		"/C/Users/ProDeskIT/Desktop/marco-landing-page-v1-11/layout-1/index.html",
+		"/C/wamp/www/eclinic/application/modules/cardio/controllers/Pacienti.php",
+		"/C/wamp/www/eclinic/application/modules/cardio/config/routes.php",
+		"/C/wamp/www/eclinic/application/modules/cardio/views/pacienti_view.php",
+		"/C/wamp/www/eclinic/application/modules/cardio/config/grocery_crud.php",
+		"/C/wamp/www/eclinic/application/config/database.php",
+		"/C/wamp/www/restart/app/Http/Controllers/PartenerController.php",
+		"/C/wamp/www/restart/resources/views/pdf/contracte/casnici/notificare-reziliere.blade.php",
+		"/C/wamp/www/restart/app/LocatieConsum.php",
+		"/C/wamp/www/restart/resources/views/pdf/contracte/casnici/contract-restartenergy.blade.php",
+		"/C/wamp/www/restart/database/migrations/2015_12_06_111122_create_tarif_transport.php",
+		"/C/wamp/www/pcireg/.htaccess",
+		"/C/wamp/www/restart/app/Abonament.php",
+		"/C/wamp/www/restart/resources/views/partials/pas1-loc-consum.blade.php",
+		"/C/wamp/www/restart/app/Http/routes.php",
+		"/C/wamp/www/restart/resources/views/operator/oferta-create.blade.php",
+		"/C/wamp/www/restart/resources/views/client-temporar/home.blade.php",
+		"/C/wamp/www/restart/app/Contract.php",
+		"/C/wamp/www/restart/resources/views/operator/partener-temporar.blade.php",
+		"/C/wamp/www/restart/app/Oferta.php",
+		"/C/wamp/www/restart/app/Http/Controllers/ContractController.php",
+		"/C/wamp/www/restart/database/migrations/2015_11_30_135113_create_locatie_consum_table.php",
+		"/C/wamp/www/restart/resources/views/partials/locatii-consum.blade.php",
+		"/C/wamp/www/restart/app/Http/Controllers/OfertaController.php",
+		"/C/wamp/www/restart/app/Http/Controllers/LocatieConsumController.php",
+		"/C/wamp/www/restart/app/Http/Controllers/HomeController.php",
+		"/C/wamp/www/restart/config/constants.php",
+		"/C/wamp/www/restart/database/migrations/2016_01_24_160717_create_foreign_keys.php",
+		"/C/wamp/www/restart/app/Http/Middleware/Setup.php",
+		"/C/wamp/www/restart/app/Providers/ConfigServiceProvider.php",
+		"/C/wamp/www/pcireg/application/controllers/cron.php",
+		"/C/wamp/www/pcireg/application/controllers/Cron.php",
+		"/C/wamp/www/pcireg/application/config/constants.php",
+		"/C/wamp/www/pcireg/application/models/user_model.php",
+		"/C/wamp/www/pcireg/application/models/patient_model.php",
+		"/C/wamp/www/pcireg/index.php",
+		"/C/wamp/www/pcireg/application/controllers/email.php",
+		"/C/wamp/www/pcireg/application/controllers/Tools.php",
+		"/C/wamp/www/restart/resources/views/pdf/contracte/casnici/cerere-restartenergy.blade.php",
+		"/C/wamp/www/restart/.env",
+		"/C/wamp/www/restart/app/Http/Controllers/Controller.php",
+		"/C/wamp/www/restart/app/Http/Controllers/AdminController.php",
+		"/C/wamp/www/pcireg/application/config/database.php",
+		"/C/wamp/www/pcireg/application/views/calendar_view.php",
+		"/C/wamp/www/pcireg/application/views/followup_view.php",
+		"/C/wamp/www/pcireg/application/views/~calendar_view.php",
+		"/C/wamp/www/pcireg/application/controllers/~followup.php",
+		"/C/Users/ProDeskIT/Desktop/RestartEnergy/szabi7-restartenergy-5302f9b021a5/database/migrations/2014_10_12_000000_create_users_table.php",
+		"/C/Users/ProDeskIT/Desktop/RestartEnergy/szabi7-restartenergy-5302f9b021a5/database/migrations/2014_10_12_100000_create_password_resets_table.php"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\wamp\\www\\eclinic,<current file>",
+			"C:\\wamp\\www\\eclinic",
+			"C:\\wamp\\www\\restart",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"usr",
+			" <?php echo $output; ?>",
+			"  <?php echo $output; ?>",
+			"lock",
+			"parsley",
+			"  $('#form').parsley()",
+			"vali",
+			"parse",
+			"parsley.min.js",
+			"parsley.min",
+			"parsley.min.js",
+			"data-parsley",
+			"data-parsley-type",
+			"open",
+			"cardio_adulti",
+			"overw",
+			"content",
+			"load",
+			"modal",
+			"myModal",
+			"#myModal",
+			"adauga",
+			"modal",
+			"../../assets/",
+			"';\n",
+			"page",
+			"header",
+			"Dashboard",
+			"pacienti_view",
+			"$loc->judet",
+			"'type",
+			"type",
+			"->judet",
+			"partials.locatii-consum",
+			"constants.defines",
+			"$con",
+			"foreac",
+			"system path",
+			"contor",
+			"Drepturile cumpărătorului\n",
+			"My calendar",
+			";\n",
+			"socket",
+			"key = stunnel.pem",
+			"socket = l:TCP_NODELAY=1",
+			"cert = stunnel.pem",
+			"cert",
+			"date_default_timezone_set",
+			"log_user_",
+			"d",
+			"get_layout",
+			"render",
+			"get_layout",
+			"output",
+			"out",
+			"previous",
+			"flor",
+			"The Cnp field must contain a unique value.\nThe Cnp field must contain a unique value",
+			"The Cnp field must contain a unique value.\nSave Save and go back to list",
+			"folo",
+			"Indicate the patients estimated or calculated left ventricular [LV] function",
+			"Symptom onset date and time (ACS patients) :",
+			"blee",
+			"'segment 16' => 'segment 16'",
+			"segme",
+			"2147483647",
+			" '1' => '1',",
+			"                      '",
+			"stent_type",
+			"stent",
+			"perc_arterial_complications",
+			"stenosis_b_pci",
+			"%Stenosis before PCI :",
+			"priority_manager",
+			"<?php echo $input_fields[$field->field_name]->input?>",
+			"showAddForm",
+			"field_tip",
+			"grocery_CRUD_States",
+			"showEditForm",
+			"$field_tips",
+			"grocery_CRUD_States",
+			"stent",
+			"diagnos",
+			"drug_",
+			"des",
+			"procedural_complications",
+			"Peri_Procedural_Complications",
+			"procedural_complications",
+			"peri",
+			"Left main stem protected ",
+			"type_lesion",
+			"Mid-right coronary artery conduit (mRCA) :",
+			"indication_pci",
+			"diabets_mellitus",
+			"Diabets mellitus",
+			"lv_op",
+			"other_antiplatele",
+			" antiplatele",
+			" antiplatele2",
+			"Other antiplatele",
+			"\nStent/Baloon siz",
+			"drug_eluting_type",
+			"bifurcation",
+			"\nSegment No",
+			"form",
+			"stroke",
+			"history_mi",
+			"Hospital ID",
+			"output\n",
+			");\n",
+			"home.php"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"<?=base_url()?>assets/design/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/controllers/dashboard.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 97314,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								97314
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "application/controllers/statistics.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 976,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								958,
+								958
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 378.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/dashboard_view.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								766,
+								766
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 324.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.sftp":
+	{
+		"height": 135.0
+	},
+	"pinned_build_system": "",
+	"project": "pci_cardio_project.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pdfnoti",
+				"resources\\views\\pdf\\contracte\\casnici\\notificare-reziliere.blade.php"
+			],
+			[
+				"pdfcerere",
+				"resources\\views\\pdf\\contracte\\casnici\\cerere-restartenergy.blade.php"
+			],
+			[
+				"pdfcontr",
+				"resources\\views\\pdf\\contracte\\casnici\\contract-restartenergy.blade.php"
+			],
+			[
+				"contract",
+				"app\\Contract.php"
+			],
+			[
+				"create_tar",
+				"database\\migrations\\2015_12_06_111122_create_tarif_transport.php"
+			],
+			[
+				"loccon",
+				"app\\LocatieConsum.php"
+			],
+			[
+				"partener-tempo",
+				"resources\\views\\operator\\partener-temporar.blade.php"
+			],
+			[
+				"abo",
+				"app\\Abonament.php"
+			],
+			[
+				"contra",
+				"app\\Contract.php"
+			],
+			[
+				"partenerco",
+				"app\\Http\\Controllers\\PartenerController.php"
+			],
+			[
+				"route",
+				"app\\Http\\routes.php"
+			],
+			[
+				"oferta",
+				"app\\Oferta.php"
+			],
+			[
+				"loc",
+				"app\\LocatieConsum.php"
+			],
+			[
+				"create_loc",
+				"database\\migrations\\2015_11_30_135113_create_locatie_consum_table.php"
+			],
+			[
+				"ofertaco",
+				"app\\Http\\Controllers\\OfertaController.php"
+			],
+			[
+				"createloca",
+				"database\\migrations\\2015_11_30_135113_create_locatie_consum_table.php"
+			],
+			[
+				"const",
+				"config\\constants.php"
+			],
+			[
+				"config",
+				"app\\Providers\\ConfigServiceProvider.php"
+			],
+			[
+				"setup",
+				"app\\Http\\Middleware\\Setup.php"
+			],
+			[
+				"homeco",
+				"app\\Http\\Controllers\\HomeController.php"
+			],
+			[
+				"gro",
+				"application\\config\\grocery_crud.php"
+			],
+			[
+				"",
+				"db_schema.sql"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 385.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

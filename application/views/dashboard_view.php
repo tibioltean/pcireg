@@ -48,7 +48,7 @@ a:hover
                  ?>
                  <?php $luna = date("Y/m"); ?>
                 <li><a href="<?php echo site_url('calendar/my_calendar')?><?php echo "/".$luna ?>">My Follow-up</a></li>           
-                <li><a href="<?php echo site_url('dashboard/database')?>">Statistics</a></li>
+                <li><a href="<?php echo site_url('statistics/')?>">Statistics</a></li>
                 <li><a href="<?php echo site_url('admin/users')?>">Settings</a></li>
                  <?php } ?>        
                 <li class="pull-right"><a href="<?=site_url('dashboard/logout')?>">Logout</a></li>

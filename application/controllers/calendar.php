@@ -450,6 +450,14 @@ class Calendar extends CI_Controller {
 
          $date_followup = "Follow-Up Finished";
       }
+
+      $id_pacient = $id;
+      $this->db->where('id ='.$id_pacient);     
+      $query = $this->db->get('patients');
+      $status_decedat = $query->result_array();
+      
+      if($status_decedat[0]['status'] == "Dead") 
+        $date_followup = "Follow-Up Finished";
       
        return $date_followup;
     }

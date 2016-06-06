@@ -235,6 +235,17 @@ class dashboard extends CI_Controller {
 
          $date_followup = "Follow-Up Finished";
       }
+
+      $id_pacient = $row->id;
+      $this->db->where('id ='.$id_pacient);     
+      $query = $this->db->get('patients');
+      $status_decedat = $query->result_array();
+      
+      if($status_decedat[0]['status'] == "Dead") 
+        $date_followup = "Follow-Up Finished";
+
+
+
       
       return   $date_followup;
     }
@@ -860,6 +871,8 @@ class dashboard extends CI_Controller {
 
         $crud->display_as('stent','Stent');
         $crud->field_tip('stent', 'Indicate for the treated segment if a stent was used');
+
+        $crud->display_as('no_stents','Number of implanted stents');
 
         $crud->display_as('direct_stenting','Direct stenting');
         $crud->field_tip('direct_stenting', 'Indicate for the treated segment if  direct stenting was carried out, I.e. direct stent placement without balloon predilatation of the target lesion');
